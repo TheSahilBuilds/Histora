@@ -18,6 +18,8 @@ import type {
   TimelineItem,
   MapMarker,
   StoryPerson,
+  VisualType,
+  HistoricalVisual,
 } from "@/lib/types";
 
 import periodsData from "@/data/periods.json";
@@ -289,4 +291,6 @@ export type {
   TimelineItem,
   MapMarker,
   StoryPerson,
+  VisualType,
+  HistoricalVisual,
 };

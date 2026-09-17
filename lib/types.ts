@@ -19,6 +19,14 @@ export type StoryCategory =
   | "coronation"
   | "recovery";
 
+export type VisualType = "fort" | "terrain" | "battlefield" | "city";
+
+export interface HistoricalVisual {
+  type: VisualType;
+  title: string;
+  location: string;
+}
+
 export interface Period {
   id: string;
   title: string;
@@ -83,6 +91,7 @@ export interface Story {
   regionId: string;
   stateId: string;
   scope?: Mode;
+  visualType?: VisualType;
   category: StoryCategory;
   title: string;
   date: string;

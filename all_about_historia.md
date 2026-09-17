@@ -31,6 +31,7 @@ Histora re-centres history on the people who lived it, organized as an **atlas**
 | Styling | **Tailwind CSS v4** via `@tailwindcss/postcss`; theming with `@theme` in `app/globals.css` |
 | Animation | `motion` — imported from `"motion/react"` |
 | Map | `leaflet` 1.9.4 + `react-leaflet` v5 (client-only, `ssr:false`) |
+| 3D dioramas | `three` 0.186 + `@react-three/fiber` v9 + `@react-three/drei` v10 (client-only, lazy chunks, WebGL-guarded) |
 | State | `zustand` v5 with `persist` middleware (localStorage key `histora-journey`) |
 | Icons | `lucide-react` |
 | Fonts | `next/font/google`: **Cormorant Garamond** + **Inter** |
@@ -76,6 +77,7 @@ Histora/
 │  ├─ sources/page.tsx        # Sources (?source=<id> & ?event=<id>)
 │  └─ guide/page.tsx          # Historical Guide
 ├─ components/
+│  ├─ 3d/                     # Hero3D + HeroCanvas (backdrop), HistoricalScene (shell), HistoricalModel (GLB loader), PratapgadScene (R3F scene), ProceduralFort (temporary fallback), SceneControls, SceneFallback, sceneEnvironment, sceneTextures, sceneUtils
 │  ├─ layout/                 # Navigation (client), Footer (server)
 │  ├─ ui/                     # ArchiveButton, ArchiveHeader, Chip/Tag, HistoricalCard, Modal, Ornament, SectionTitle
 │  ├─ home/                   # Hero, FeatureCards, SameEventSection, JourneyPanel (Phase B copy — atlas framing)
@@ -139,6 +141,7 @@ Notes:
 
 ### Hero (client)
 - Kicker "**An interactive historical atlas**", H1 "**History, as it was lived.**", tagline "Not rulers alone, but the fort, the field and the street…" — parchment-deep full-viewport, hand-drawn MapArt relabeled (the sahyadri / shivneri / swarajya).
+- Behind the typography a **procedural 3D diorama** (Hero3D/HeroCanvas) renders a sepia Deccan ridge with a distant fort silhouette — lazy-loaded, only when WebGL is available, `pointer-events-none`, static or gently swaying per `prefers-reduced-motion`; the SVG MapArt remains as the non-WebGL illustration.
 - CTAs: **Explore History → /explore** (bronze), **Live Through History → /live** (outline); strip **People · Places · Events · Perspectives · Evidence**.
 
 ### FeatureCards (server)
@@ -205,6 +208,8 @@ interface MapMarker {
 - Header band (breadcrumb → /explore / region / century; period chip + category tag; title; shortDescription; date/place/district/experienced-by; `EvidenceStamp tone="paper"`).
 - Body: drop-cap description, "Why it mattered", people cards, related stories, **Sources & evidence** (verified vs placeholder chips).
 - Sticky aside: `StoryPovPanel` + compact mini-map (`?event` link back → `/map?event=<id>`).
+- **THE PLACE 3D experience (V2, asset-based):** when a story is registered in `data/sites.json` (currently `pratapgad-1659`), a full-width **THE PLACE / PRATAPGAD** section renders between the header band and the body grid, with the subtitle "Explore the location where this historical moment unfolded." and a `10 November 1659 · Maharashtra` dateline. `HistoricalScene` (HTML shell) probes the site's model URL at runtime: if `public/models/historical/pratapgad/pratapgad.glb` answers, the scene streams the GLB via `HistoricalModel` (drei `useGLTF` + Suspense + error boundary) under a "SURVEYING THE FORT···" loading bar; if it 404s, or WebGL is unavailable, or the model throws, the app falls back. `PratapgadScene` (the R3F composer) = sunlit displaced Sahyadri terrain (vertex-colored slopes → grass/rock), haze fog + sky, distant ghats, instanced rocks & scrub, static cinematic camera with a very slow ambient drift (pauses on interaction; off under `prefers-reduced-motion`), OrbitControls (min/max distance + polar clamps). Landmarks come from `data/sites.json` hotspots (Main Gate · Fortification · Summit · Ridge) rendered as archival chips → parchment panel with factual description + [Explore Record] → `/sources?event=<id>`. Controls: Rotate / +Zoom / −Zoom / Reset View. The written record and the "**Explore this moment →**" anchor remain untouched below. Labelled "HISTORICAL VISUALIZATION · This 3D environment is a stylized visualization for learning and exploration. It is not presented as an archaeologically exact reconstruction."
+- **Fallback safety net (V2):** no WebGL → `SceneFallback` static diorama panel "3D VISUALIZATION UNAVAILABLE / The historical record is still available below." with event description, location, context and source links; missing/load-failed model → a temporary `ProceduralFort` (jittered extruded walls, polygon bastions, gate complex, summit keep, stairways — no naive cylinder towers) worn with a "Procedural fallback — awaiting pratapgad.glb" chip until a licensed asset is dropped in at `public/models/historical/pratapgad/pratapgad.glb`.
 - `prev/next` navigation band (dark) walking the period story sequence.
 - `?perspective=<povId>` selects the panel's starting perspective (server-resolved, no `useSearchParams` → no Suspense needed).
 
@@ -255,6 +260,7 @@ interface MapMarker {
 
 type StateKey        = "safety" | "resources" | "information" | "mobility" | "connections";
 type Mode            = "state" | "national" | "international";
+type VisualType      = "fort" | "terrain" | "battlefield" | "city";
 type PovId           = "ruler" | "soldier" | "farmer" | "merchant" | "artisan" | "commoner";
 type EvidenceClass   = "documented-fact" | "interpretation" | "fictional-reconstruction";
 type StoryCategory   = "birth"|"rise"|"fort"|"battle"|"escape"|"campaign"|"siege"|"coronation"|"recovery";
@@ -270,6 +276,10 @@ interface Era         { id; label; title; description; subjectPeriodId? }
 interface StoryPerson { id; name; role; note }
 interface Story {
   id; periodId; regionId; stateId; category: StoryCategory;
+  scope?: Mode; visualType?: VisualType;          // scope = filter rubric; visualType = legacy 3D style flag (V1)
+  // NOTE (V2): the 3D experience is no longer driven by Story.visualType — it is driven by
+  // a matching entry in data/sites.json (lib/sites.ts → getSiteForStory). visualType is kept as
+  // inert data on pratapgad-1659 only; new future-proof accessor set in lib/sites.ts.
   title; date; displayDate; century; period; state; region; district; location;
   latitude; longitude; shortDescription; description; significance;
   people: StoryPerson[]; relatedStories: string[]; locationIds: string[];
@@ -328,7 +338,8 @@ interface PlaythroughRecord { scenarioId; perspectiveId; title; decisions: strin
 - `periods.json` (2) — `india-1857` (Phase A) + **`maharashtra-17th-century`** ("RISE OF SWARAJYA — 1645–1680", `regionId` `maharashtra`, `stateId` `maharashtra`, `eraId` `early-modern`, `mode` `state`, `subjectName` "Chhatrapati Shivaji Maharaj"; locations `pratapgad,panhala,torna,rajgad,raigad`; overview of the Swarajya rise).
 - `locations.json` (16) — 5 Phase A (Meerut/Delhi/Kanpur/Lucknow/Jhansi) + 11 Phase B (Shivneri, Pune, Torna, Rajgad, Sinhagad, Pratapgad, Panhala, Vishalgad, Surat, Agra, Raigad) with real lat/lng, icons (`fort`/`city`/`town`).
 - `stories.json` (12) — the Swarajya narrative:
-  `birth-shivneri-1630, first-forts-rise-of-swarajya, torna-beginning-expansion, rajgad-building-new-power, capture-consolidation-of-forts, pratapgad-1659, panhala-siege-escape, pavankhind, surat-campaign-1664, agra-episode-1666, return-expansion-recovery-of-forts, coronation-raigad-1674`. Each: full folio fields ± people, related stories, locationIds, sourceIds, `povs[]`, `evidence` note.
+  `birth-shivneri-1630, first-forts-rise-of-swarajya, torna-beginning-expansion, rajgad-building-new-power, capture-consolidation-of-forts, pratapgad-1659, panhala-siege-escape, pavankhind, surat-campaign-1664, agra-episode-1666, return-expansion-recovery-of-forts, coronation-raigad-1674`. Each: full folio fields ± people, related stories, locationIds, sourceIds, `povs[]`, `evidence` note. `pratapgad-1659` additionally carries the inert `"visualType": "fort"` flag from V1 (no longer wired to the 3D layer).
+- `sites.json` (1) — V2 3D site registry: `pratapgad` → `storyId pratapgad-1659`, `model "/models/historical/pratapgad/pratapgad.glb"`, `title/location/century/date`, and 4 factual `hotspots[]` (Main Gate · Fortification · Summit · Ridge, each `{ id, title, description, position:[x,y,z] }`) that the scene renders as archival chips. Add new forts simply by appending entries — `HistoricalScene`/`PratapgadScene` need no code change.
 - `perspectives.json` (6) — `ruler, soldier, farmer, merchant, artisan, commoner`. Each entry is a `PovRole`: role, tagline, icon, `knows[]`, `sees`, `concerns[]`, `risks[]`, `resources[]`, `experience`, `context`. Drives `/perspectives`, `/live`, and the story POV panel (new `commoner` replaces Phase A's people-only model).
 - `sources.json` (17) — Phase A nine + **Phase B eight**: `sg-sarkar` (Sarkar), `sg-sabhasad` (Sabhasad's Bakhar), `sg-pagdi` (Pagdi), `sg-sardesai` (New History of the Marathas, Vol. I) are `verified: true`; `sg-afzalkhan`, `sg-agra-escape`, `sg-coronation`, `sg-surat` are `verified: false` with `placeholder` notes pending archival shelf references. The JSON was missing a closing `]` in Phase A and was fixed.
 - `scenarios.json` (14) — Phase A 6 + **Phase B 8**: `ruler-coronation-raigad-1674, soldier-pratapgad-1659, soldier-panhala-1660, farmer-torna-1646, merchant-surat-1664, artisan-rajgad-1650, commoner-shivneri-1630, commoner-coronation-1674` (meter labels themed to the Deccan; all carry `perspectiveId` + `FICTIONAL RECONSTRUCTION` disclaimer).
@@ -357,6 +368,16 @@ interface PlaythroughRecord { scenarioId; perspectiveId; title; decisions: strin
 | `PerspectiveCard` | server | `pov index?` | istead of `person` |
 | `LiveHub` | client | `roles moments initialRole?` | role grid + moments |
 | `JourneyPanel` | client | `compact?` | active-period counts |
+| `HistoricalScene` | client | `title location? dateText? description contextText? sources modelPath? hotspots recordHref? className?` | THE PLACE 3D shell (V2): WebGL gate, runtime model probe, "SURVEYING THE FORT···" overlay, `SceneControls`, hotspot panel, `SceneFallback`, "HISTORICAL VISUALIZATION" figcaption |
+| `HistoricalModel` | client | `path onReady? onError?` | drei `useGLTF` + Suspense + error boundary; enables shadow casting on GLB meshes |
+| `PratapgadScene` | client | `mode modelPath hotspots activeHotspotId onSelectHotspot driftEnabled zoomIn/OutSignal resetSignal reduced quality recordHref onModelReady onModelError fallbackNotice` | R3F composer: sunlit displaced terrain, haze/sky/ghats, vitals scatter, drift rig (slow cinematic ambience, pauses on interaction, off under reduced-motion), OrbitControls, dispatches `HistoricalModel` ↔ `ProceduralFort`, drei Html hotspot chips |
+| `ProceduralFort` | client | `baseY shadowsOn` | temporary architectural fallback (irregular extruded walls, polygon bastions, gate complex, summit keep, stairways) until a licensed GLB exists |
+| `SceneControls` | client | `driftActive driftDisabled onToggleDrift onZoomIn onZoomOut onReset` | minimal archive bar: Rotate / +Zoom / −Zoom / Reset |
+| `SceneFallback` | client | `title locationLabel? dateText? description contextText sources className?` | no-WebGL static diorama + "3D VISUALIZATION UNAVAILABLE" + event description/location/context/source links |
+| `sceneEnvironment` | client | — | sky dome, warm sun + shadow-caster, hemisphere fill, distant ghats rings |
+| `sceneTextures` | client | — | memoized procedural PBR textures (stone colour/height, terrain colour/height, roughness, sky gradient) |
+| `Hero3D` / `HeroCanvas` | client | — / `reduced?` | home backdrop: WebGL gate + lazy ridge/fort scene |
+| `TiltCard` | client | `children className? maxDeg?` | subtle pointer-tilt depth wrapper for Explore story cards (reduced-motion safe) |
 
 ---
 
@@ -384,6 +405,7 @@ interface PlaythroughRecord { scenarioId; perspectiveId; title; decisions: strin
 - `npx tsc --noEmit` → 0 errors. `npx eslint .` → 0 errors (1 harmless pre-existing `import/no-anonymous-default-export` warning in `postcss.config.mjs`).
 - HTTP smoke (production server): `/`, `/explore`, `/live`, `/live?role=commoner`, `/map`, `/map?loc=torna`, `/map?event=pratapgad-1659`, `/timeline`, `/timeline?event=…`, `/perspectives`, `/sources`, `/sources?event=…`, `/guide`, 4 story pages + `?perspective=` variants, 6 scenarios (Phase B + Phase A), `/period/india-1857` — all 200 with SSR content markers.
 - Known limitation (Next 16 Turbopack): a story page's `notFound()` streams the 404 folio as content but the HTTP status remains 200 because the root `loading.tsx` shell commits headers first. Browser behavior verified correct; `curl` status is 200.
+- 3D layer (V2): `npm run lint` / `npx tsc --noEmit` / `npm run build` green (26 routes); production SSR smoke: `/` 200, `/story/pratapgad-1659` 200 with THE PLACE section, "Explore the location where this historical moment unfolded.", dateline `10 November 1659 · Maharashtra`, hotspots (Main Gate · Fortification · Summit · Ridge) and the SSR fallback state ("3D VISUALIZATION UNAVAILABLE" + "The historical record is still available below.") which hydrates into the WebGL scene; `/story/panhala-siege-escape` 200 with **no** THE PLACE section; `/explore`, `/sources?event=pratapgad-1659`, `/map?event=pratapgad-1659`, `/timeline` 200; `GET /models/historical/pratapgad/pratapgad.glb` correctly 404 while the asset is unstaged (runtime falls back to `ProceduralFort`). `three` remains one lazy client chunk fetched only when WebGL is available and a scene mounts. The rendered WebGL scene (camera framing, drift, hotspot chips, shadows) still needs a real-browser/visual pass.
 - Client-side interactivity (map popups, LiveHub selection, POV marks, modals) verified at SSR level only, not driven in a real browser.
 
 ---
@@ -392,6 +414,23 @@ interface PlaythroughRecord { scenarioId; perspectiveId; title; decisions: strin
 
 - **Add a new subject/period:** add `regions/states/eras/periods/stories/…` JSON + accessors; the atlas UI is data-driven — unlock new `region`/`era`/`state` locks in the JSON.
 - **More story routes:** `/story/[id]` requires no code changes for new ids (dynamic, `getStory` + notFound).
+- **More 3D sites/forts:** append an entry to `data/sites.json` pointing at the new model path and reuse the one `HistoricalScene`/`PratapgadScene` pipeline (Rajgad, Raigad, Shivneri, Panhala, Pavankhind…). Drop the licensed `.glb` at `public/models/historical/<site>/<site>.glb` per the README; until then the labeled procedural fallback runs. Hotspot positions live in `sites.json` and may need re-tuning per mesh. All scene text/data is passed via `HistoricalScene` props — never duplicated inside the 3D components.
 - **Connect a real AI to the Guide:** swap `askGuide`'s body for an async call returning the same `GuideResponse`.
 - **Replace placeholders:** the four `verified:false` Phase B sources (`sg-afzalkhan`, `sg-agra-escape`, `sg-coronation`, `sg-surat`) await verified archival shelf references (published English Factory Records, Persian chronicle chapters), as do the Phase A `meerut-court` and `rani-placeholder`.
 - **Footnote docs:** update this file after UI/data changes; re-run `npx next typegen` after adding routes.
+
+---
+
+## 25. 3D Visual Experience (V2 — asset-based pipeline)
+
+- Three placements: the **home Hero** (decorative), the **story page THE PLACE section** (interactive Pratapgad scene, driven by `data/sites.json` via `getSiteForStory` — no longer by `Story.visualType`), and **subtle tilt depth on Explore result cards** (CSS/perspective, no 3D lib).
+- **Asset-first (V2 directive):** naive primitive geometry (cylinder tower / cube wall / cone roof) is **not** the fort anymore. The pipeline loads a real licensed `.glb` (`public/models/historical/pratapgad/pratapgad.glb`) through `HistoricalScene` (runtime HEAD probe) → `HistoricalModel` (drei `useGLTF` + Suspense + error boundary). While the model streams, the stage shows "SURVEYING THE FORT···" with an ink progress bar. If the URL 404s, WebGL is absent, or the model throws, `ProceduralFort` renders instead — a *temporary, clearly-labelled* fallback built from jittered extruded walls, polygonal bastions, a gate complex, summit keep, and terrain-following stairways (no cylinder towers), tagged "Procedural fallback — awaiting pratapgad.glb". **Alignment is automatic and data-driven:** `HistoricalModel` applies the site's `transform` from `data/sites.json` — `excludePrefixes` drops satellite terrain/photo nodes, `targetHeight` re-scales, `rotationY` re-orients, `embed` buries the raw photogrammetry slab-edge under the mountain crown — so replacing or re-exporting the mesh needs no code edits. The scene ground is **one continuous fortress mountain** (`siteTerrainHeight`, `sceneUtils.ts`): the crown rises to just below the wall footings so fortifications sit *on* the hill, a raised rim completely covers the slab underside around the terrace (no floating plates, no razor cuts, no exposed undersides), and smooth rocky shoulders fall into the valley; vegetation is seeded on the real surface with keep-out zones around the fort and the gate approach, so nothing floats or is buried. No `.glb` is fabricated or committed. A read-only everyday asset swap needs **zero code changes** — replace the file (details in `public/models/historical/pratapgad/README.md`).
+- **Scene composition:** sunlit displaced Sahyadri terrain with vertex-colored slopes (grass → soil → rock by gradient), procedural PBR textures (stone/terrain colour + height, roughness, sky), haze fog + horizon dome, three rings of distant ghats, sparse instanced rocks & scrub (halved on `quality="reduced"`). Camera is **static cinematic** (three-quarter aerial from the south-east) with a very slow ambient drift (±0.05 rad sway) that **pauses on user interaction** and is fully off under `prefers-reduced-motion`; `frameloop` switches `always`/`demand` accordingly. OrbitControls: drag-to-rotate, wheel/+/− zoom, Reset View, min/max distance + polar clamps.
+- **Landmarks (data-driven):** `data/sites.json` hotspots (Main Gate · Fortification · Summit · Ridge) render as archival chips over the scene; click opens a parchment panel with a factual description and [Explore Record] → `/sources?event=<id>`. Hotspot coordinates were authored against the procedural fallback and may need re-tuning once the real mesh lands (edit `sites.json`, no code change).
+- **Fallback safety net:** no WebGL → `SceneFallback` static diorama panel: "3D VISUALIZATION UNAVAILABLE / The historical record is still available below." + event description, location, context, and source links. The page never goes blank; the written record below the scene is never replaced.
+- **Ethics label:** the stage is always captioned "HISTORICAL VISUALIZATION · This 3D environment is a stylized visualization for learning and exploration. It is not presented as an archaeologically exact reconstruction." Fictional reconstructions keep their existing `FICTIONAL RECONSTRUCTION` stamps elsewhere; the Leaflet map is untouched.
+- **Performance:** compressed GLB only (Draco/KTX2 when practical), no 4K/8K-everywhere maps, limited lights, reduced dpr on mobile/coarse/≤4-core (`quality="reduced"`: fewer instances, coarser terrain, no shadow casters), single lazy `three` chunk, client-only.
+
+## 26. 3D Legacy Notes (V1 → V2)
+
+- V1's `SceneLoader.tsx` and `SCENE_MARKERS`/`SceneMarkerId` callouts (FORT·GATE·RIDGE·VALLEY) were removed; `PratapgadScene` and `HistoricalScene` were rewritten for the asset pipeline. `story.visualType` and `VisualType` remain in the types/data only as inert legacy. Re-run `npx next typegen` if routes change.

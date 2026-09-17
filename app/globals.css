@@ -298,6 +298,121 @@ body {
   font-size: 9px;
 }
 
+/* ---------- 3D historical diorama ---------- */
+.scene-panel {
+  position: relative;
+  background: linear-gradient(160deg, #efe9dc, #e0d2b2);
+  border: 1px solid rgba(92, 64, 51, 0.35);
+  box-shadow: var(--shadow-paper-lg);
+}
+
+.scene-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.scene-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--color-paper);
+  border: 1px solid rgba(92, 64, 51, 0.4);
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.scene-control:hover {
+  background: var(--color-parchment);
+  border-color: var(--color-bronze);
+  color: var(--color-ink);
+}
+.scene-control:focus-visible {
+  outline: 2px solid var(--color-bronze);
+  outline-offset: 2px;
+}
+
+.scene-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.55rem;
+  background: var(--color-paper);
+  border: 1px solid rgba(92, 64, 51, 0.45);
+  color: var(--color-ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.55) inset, var(--shadow-paper);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+.scene-chip:hover {
+  background: var(--color-parchment);
+  color: var(--color-ink);
+  border-color: var(--color-bronze);
+  transform: translateY(-1px);
+}
+.scene-chip:focus-visible {
+  outline: 2px solid var(--color-bronze);
+  outline-offset: 2px;
+}
+
+.scene-dot {
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background: var(--color-bronze);
+  border: 1px solid rgba(43, 33, 24, 0.4);
+  flex-shrink: 0;
+}
+
+.scene-hotspot-panel {
+  width: 15rem;
+  max-width: 74vw;
+  background: rgba(243, 235, 221, 0.96);
+  border: 1px solid rgba(92, 64, 51, 0.4);
+  padding: 0.85rem 0.9rem;
+  box-shadow: var(--shadow-paper-lg);
+}
+
+.scene-survey {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.18em;
+  color: var(--color-ink);
+}
+
+.scene-loadbar {
+  width: 11rem;
+  height: 2px;
+  background: var(--color-ink-line);
+  overflow: hidden;
+}
+.scene-loadbar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 60%;
+  background: var(--color-bronze);
+  animation: scene-survey-bar 1.4s ease-in-out infinite;
+}
+@keyframes scene-survey-bar {
+  0% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(210%);
+  }
+}
+
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar {
   width: 10px;

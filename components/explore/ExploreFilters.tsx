@@ -23,6 +23,7 @@ import {
   type ScopeId,
 } from "@/lib/explore";
 import { OrnamentLine } from "@/components/ui/Ornament";
+import TiltCard from "@/components/ui/TiltCard";
 
 interface FilterFieldProps {
   id: string;
@@ -194,11 +195,11 @@ export default function ExploreFilters() {
 
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {results.map((s) => (
-              <Link
-                key={s.id}
-                href={`/story/${s.id}`}
-                className="parchment group flex flex-col p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-paper-lg"
-              >
+              <TiltCard key={s.id}>
+                <Link
+                  href={`/story/${s.id}`}
+                  className="parchment group flex h-full flex-col p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-paper-lg"
+                >
                 <div className="flex items-start justify-between gap-3">
                   <span className="stamp stamp-bronze">{s.century.toUpperCase()}</span>
                   {roleActive ? (
@@ -231,7 +232,8 @@ export default function ExploreFilters() {
                     />
                   </span>
                 </div>
-              </Link>
+                </Link>
+              </TiltCard>
             ))}
           </div>
         </section>

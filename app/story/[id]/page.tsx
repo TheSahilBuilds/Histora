@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { MapPin, ArrowLeft, ArrowRight, Users2, BookOpen, FileText } from "lucide-react";
+import { MapPin, ArrowLeft, ArrowRight, Users2, BookOpen, FileText, Box } from "lucide-react";
 import {
   getStory,
   getStories,
@@ -12,6 +12,8 @@ import {
 import StoryPovPanel from "@/components/story/StoryPovPanel";
 import EvidenceStamp from "@/components/story/EvidenceStamp";
 import MapLoader from "@/components/map/MapLoader";
+import HistoricalScene from "@/components/3d/HistoricalScene";
+import { getSiteForStory } from "@/lib/sites";
 import { Chip, Tag } from "@/components/ui/Chip";
 
 export const dynamic = "force-dynamic";
@@ -39,6 +41,10 @@ export default async function StoryPage(props: PageProps<"/story/[id]">) {
 
   const sources = getSourcesForStory(story.id);
   const liveHref = pov ? getScenarioForStoryAndPerspective(story.id, pov.id)?.id : undefined;
+
+  const site = getSiteForStory(story.id);
+
+  const placeDescription = primaryLocation?.description ?? story.shortDescription;
 
   return (
     <>
@@ -96,6 +102,59 @@ export default async function StoryPage(props: PageProps<"/story/[id]">) {
           </div>
         </div>
       </section>
+
+      {site ? (
+        <section
+          aria-label="The place in three dimensions"
+          className="mx-auto w-full max-w-6xl scroll-mt-24 px-4 pb-2 pt-12 sm:px-6"
+        >
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <span className="flex items-center gap-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-bronze">
+                <Box className="h-3.5 w-3.5" strokeWidth={1.8} /> The place
+              </span>
+              <h2 className="font-display mt-2 text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+                {site.title.toUpperCase()}
+              </h2>
+              <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">
+                Explore the location where this historical moment unfolded.
+              </p>
+            </div>
+            <p className="text-[0.62rem] uppercase tracking-[0.18em] text-ink-muted">
+              {site.date} · {site.location}
+            </p>
+          </div>
+
+          <HistoricalScene
+            className="mt-6"
+            title={site.title}
+            location={site.location}
+            dateText={site.date}
+            description={story.shortDescription}
+            contextText={placeDescription}
+            sources={sources.map((s) => ({
+              title: s.title,
+              verified: s.verified,
+              href: `/sources?event=${story.id}`,
+            }))}
+            modelPath={site.model}
+            transform={site.transform}
+            hotspots={site.hotspots}
+            recordHref={`/sources?event=${story.id}`}
+          />
+
+          <div className="mt-6 flex flex-wrap items-end justify-between gap-4">
+            <p className="max-w-2xl text-sm leading-relaxed text-ink-muted">{placeDescription}</p>
+            <a
+              href="#explore-this-moment"
+              className="btn-archive justify-center bg-bronze text-ink-dark hover:bg-bronze/90 sm:text-[0.78rem]"
+            >
+              Explore this moment
+              <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
+            </a>
+          </div>
+        </section>
+      ) : null}
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
@@ -200,7 +259,7 @@ export default async function StoryPage(props: PageProps<"/story/[id]">) {
             </div>
           </div>
 
-          <aside className="space-y-8 lg:sticky lg:top-24">
+          <aside id="explore-this-moment" className="scroll-mt-24 space-y-8 lg:sticky lg:top-24">
             <StoryPovPanel
               storyId={story.id}
               storyTitle={story.title}

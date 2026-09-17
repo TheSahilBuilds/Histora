@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { ArrowRight, Compass, Sparkles } from "lucide-react";
+import Hero3D from "@/components/3d/Hero3D";
 
 function MapArt() {
   return (
@@ -69,6 +70,7 @@ export default function Hero() {
   return (
     <section className="parchment-deep relative flex min-h-[88vh] items-center overflow-hidden">
       <MapArt />
+      <Hero3D />
       <div
         className="pointer-events-none absolute inset-0"
         style={{
