@@ -82,11 +82,13 @@ export interface Story {
   periodId: string;
   regionId: string;
   stateId: string;
+  scope?: Mode;
   category: StoryCategory;
   title: string;
   date: string;
   displayDate: string;
   century: string;
+  era?: string;
   period: string;
   state: string;
   region: string;

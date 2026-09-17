@@ -202,6 +202,38 @@ body {
   font-weight: 500;
 }
 
+/* ---------- Archive select controls ---------- */
+.select-archive {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 0.72rem 2.5rem 0.72rem 0.95rem;
+  border: 1px solid rgba(92, 64, 51, 0.38);
+  border-radius: 0;
+  background-color: rgba(243, 235, 221, 0.7);
+  color: var(--color-ink-dark);
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.select-archive:hover {
+  border-color: var(--color-ink-soft);
+  background-color: var(--color-paper);
+}
+.select-archive:focus-visible {
+  outline: 2px solid var(--color-bronze);
+  outline-offset: 2px;
+  border-color: var(--color-bronze);
+}
+.select-archive > option {
+  background-color: var(--color-paper);
+  color: var(--color-ink-dark);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
 /* ---------- Archive stamp badges ---------- */
 .stamp {
   display: inline-flex;
