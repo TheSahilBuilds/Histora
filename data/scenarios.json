@@ -1,0 +1,2226 @@
+[
+  {
+    "id": "farmer-1857",
+    "periodId": "india-1857",
+    "perspectiveId": "farmer",
+    "roleLabel": "The Farmer",
+    "title": "Village Between Two Armies",
+    "tagline": "May — June 1857, the Gangetic plain",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual.",
+    "intro": {
+      "youAre": "You are the head of a farming household in a village in the Gangetic plain, north of Delhi. For years your family has planted, harvested, paid land revenue, and borrowed from the moneylender when the rains failed.",
+      "where": "A village in the Gangetic plain, north of Delhi",
+      "when": "May 1857",
+      "context": "In the spring of 1857 there was unrest among the soldiers of the East India Company's Bengal Army. By the second week of May, that unrest has spilled onto the roads. Armies — Company and rebel — will both need food, fodder and labour. Villages like yours sit in their way."
+    },
+    "narrative": [
+      "Your life has always moved to the weight of two clocks: the monsoon and the revenue collector. Both are now uncertain.",
+      "News from the world arrives slowly, and it arrives as rumour.",
+      "Every person who passes your gate — a sepoy, a trader, a beggar — carries a different story."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Day 1",
+        "title": "Rumours at the Well",
+        "description": "You hear news at the well that soldiers at Meerut — a day's march away — have risen against their officers and marched to Delhi. Some neighbours say the Company is finished. Others say the soldiers were criminals. One old man insists: 'The cartridge, they say, greased with pig and cow fat. That is what they are fighting about.' The air changes. No one knows what comes next.",
+        "choices": [
+          {
+            "id": "stay",
+            "label": "Remain in your village",
+            "summary": "Hold the household together and wait for clearer news.",
+            "consequence": "The village binds tighter. Crops still need tending, and you begin quietly storing grain. But the village is isolated — no trader comes, and the only news is rumour. For a week you know nothing of the war.",
+            "stateDelta": { "safety": 1, "information": -1, "mobility": -1 },
+            "historicalContext": "Most people in the Gangetic countryside in 1857 did not choose sides in a battle. They chose how to keep a household going while soldiers and revenue officials moved around them. Isolation made rumour stronger than fact.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-6"
+          },
+          {
+            "id": "market",
+            "label": "Travel to the nearby market",
+            "summary": "Walk to the market town for news and supplies.",
+            "consequence": "You reach the market two days later. It is changed — half the stalls shut, prices climbing, soldiers' parties riding through. You learn that Delhi is in rebel hands and the Company is gathering armies. You buy what you can carry, but on the way home you are stopped by a patrol and forced to hand over a load of grain.",
+            "stateDelta": { "information": 2, "resources": -1, "mobility": 1, "safety": -2 },
+            "historicalContext": "Armies requisitioned grain, animals and labour as they moved. Holding a village's stores drew their attention; hiding them risked their anger. Traders and cultivators alike learned to read the road before using it.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-6"
+          },
+          {
+            "id": "contacts",
+            "label": "Seek information from local contacts",
+            "summary": "Ask kin, the headman, and passing travellers what they truly know.",
+            "consequence": "Your contacts paint a fuller picture: the sepoys hold Delhi and the old emperor has been pushed into leading them; Company columns are marching from the south. Your oldest uncle argues the family should store grain and hide the best bullocks. You agree — but word of your meeting spreads, and you are now 'a man who knows things'.",
+            "stateDelta": { "information": 2, "connections": 2, "safety": -1 },
+            "historicalContext": "In an era without newspapers reaching every village, kin networks, pilgrims, sepoy letters and caravan gossip were the news media of 1857. Historians study exactly these networks to trace how the rebellion spread.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-6"
+          }
+        ]
+      },
+      {
+        "id": "day-6",
+        "day": "Day 6",
+        "title": "The Demand Comes",
+        "description": "Two riders stop at the headman's door. They say they come in the name of the rebellion: the emperor has declared that villages should support the rising — grain for soldiers, and men if called. A magistrate, they add, would come soon. That night a neighbour flees to his wife's village across the river.",
+        "choices": [
+          {
+            "id": "hide",
+            "label": "Hide part of your grain reserve",
+            "summary": "Conceal grain in a false floor under the cattle shed.",
+            "consequence": "You bury wheat in an oiled cloth beneath the straw. It is heavy, secret work. Weeks later, soldiers searching for supplies find the shed — and enough of it — but not the false floor. You eat through the autumn on it. The risk is that discovery meant ruin, or worse.",
+            "stateDelta": { "resources": 2, "safety": -1 },
+            "historicalContext": "Hoarding, hiding grain and false floors are documented responses of villages to armies on the march in 1857. Requisitioning was a fact of life — the question was always who you hid it from.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-12"
+          },
+          {
+            "id": "support",
+            "label": "Offer grain and support to the uprising",
+            "summary": "Contribute openly to the riders' cause.",
+            "consequence": "You give a bullock-load of grain and a promise. The riders mark the village as friendly, and for a season you are left in peace by rebel bands. But an informer repeats your name to a Company officer across the river, and you begin sleeping under the roof of the granary.",
+            "stateDelta": { "connections": 2, "resources": -2, "safety": -2 },
+            "historicalContext": "Support for the rebellion was not uniform. Villages, castes, landlords and faiths split in complicated ways. Supporting one side made you a target of the other — a lesson every landlord in the Doab learned in 1857.",
+            "sourceId": "azamgarh",
+            "nextStageId": "day-12"
+          },
+          {
+            "id": "send-kin",
+            "label": "Send a family member to learn the truth",
+            "summary": "Dispatch your brother to Delhi to see what the emperor's rule means.",
+            "consequence": "Your brother returns after two weeks with a sober report: Delhi is in chaos, prices hurt, and the emperor's authority reaches only as far as soldiers with guns. He watched a sepoy column requisition whole cartloads. 'Do not believe the posters,' he said. 'Believe your wheat.'",
+            "stateDelta": { "information": 2, "mobility": -1, "resources": -1 },
+            "historicalContext": "The proclamations issued in Bahadur Shah Zafar's name promised protection of religion and property, and appealed to peasants and landlords. How far those words travelled — and were believed — varied enormously across the countryside.",
+            "sourceId": "azamgarh",
+            "nextStageId": "day-12"
+          }
+        ]
+      },
+      {
+        "id": "day-12",
+        "day": "Day 12",
+        "title": "Men With Guns",
+        "description": "A column of sepoys — deserters heading for Delhi, their faces painted with the signs of a hard march — reaches your village. Their officer demands a meal for his men and fodder for the horses. Behind him, the village's women have already begun hiding the young men in the fields.",
+        "choices": [
+          {
+            "id": "feed",
+            "label": "Feed the soldiers and send them on",
+            "summary": "Provide a meal and fodder, and ask only for safe passage.",
+            "consequence": "You cook for the column. They leave at dusk, unharmed, and the village is spared a search. But the headman, afraid of the Company's revenge, later denounces you to no one in particular — and the cost of the feast is a month of your stores.",
+            "stateDelta": { "safety": 1, "connections": 1, "resources": -1 },
+            "historicalContext": "Hospitality under coercion was survival, not loyalty. Hundreds of thousands of non-combatants fed marching armies in 1857 because refusal was often the only alternative to destruction.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-20"
+          },
+          {
+            "id": "refuse",
+            "label": "Hide your stores and refuse",
+            "summary": "Pretend the village is empty and hope they pass.",
+            "consequence": "The ruse holds for an hour, then a search finds the cattle. They take the two best pairs of bullocks and burn the headman's cart-house. No one is killed — but the village is afraid now in a way it was not before.",
+            "stateDelta": { "resources": -2, "safety": -1, "mobility": -1 },
+            "historicalContext": "Cattle, bullocks and carts were among the most valued resources of the 1857 countryside, conscripted by both sides. Their loss crippled a household's ploughing for a season.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-20"
+          },
+          {
+            "id": "flee",
+            "label": "Take the family and flee toward relatives",
+            "summary": "Leave the village at night for a relative's holding near the river.",
+            "consequence": "You walk eleven kilometres through the dark. The relative takes you in — grudgingly, for mouths to feed — and you spend a month watching the road. When you return, the roof is intact but the winter crop is ruined. Safety, at the price of the year.",
+            "stateDelta": { "safety": 2, "mobility": -2, "resources": -2 },
+            "historicalContext": "Flight was a common response. Accounts of 1857 record villages emptied by fear, and families moving between kin. The displaced carried memory — and sometimes the news — with them.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-20"
+          }
+        ]
+      },
+      {
+        "id": "day-20",
+        "day": "Day 20",
+        "title": "The Season Turns",
+        "description": "The rains approach and the fields must be planted for the winter food supply. But no one is certain who will rule by harvest time. Elder farmers argue: 'Plant for our own mouths,' they say. 'Whatever comes, the land must be sown.' And at the edge of the discussion sits the never-solved question: who will collect the revenue, and with what right?",
+        "choices": [
+          {
+            "id": "plant",
+            "label": "Sow for the next season whatever happens",
+            "summary": "Plant the fields, borrow seed, and bet on the land itself.",
+            "consequence": "You plant early, before most others, and the rains bless the seed. By harvest, the land is the only thing that did not change sides. Your family eats. In a year of war, that is a small victory.",
+            "stateDelta": { "resources": 2, "information": 0 },
+            "historicalContext": "Peasants kept planting through the war — the harvest was the real debate about sovereignty. Whoever collected it, the field produced. The resilience of cultivation is why the Gangetic economy recovered within a few seasons.",
+            "sourceId": "marx-tribune",
+            "nextStageId": "day-30"
+          },
+          {
+            "id": "assurance",
+            "label": "Seek a written assurance from the district",
+            "summary": "Ask whichever authority holds the district to promise revenue terms in writing.",
+            "consequence": "You walk to the district town and present yourself. The officer on duty scribbles a signed slip promising to 'fix the revenue for the current year' — a scrap of paper worth less than its ink once the front moves. But you now know how the district is governed, and that knowledge keeps you out of debt.",
+            "stateDelta": { "information": 2, "connections": 1, "resources": 0 },
+            "historicalContext": "Revenue responsibility was the pivot of 1857 politics. The Company's governments fought land questions as fiercely as armies fought battles. Written promises, sighted in advance, shaped who felt safe to cooperate.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-30"
+          },
+          {
+            "id": "leave",
+            "label": "Leave part of the family with kin near a large town",
+            "summary": "Split the household — some to the relative, some to guard the fields.",
+            "consequence": "Splitting the family halves the risk and doubles the worry. Your brother's family stays at the tank village; you guard the fields. Through the autumn you receive letters carried by traders — the only post that still runs.",
+            "stateDelta": { "safety": 1, "connections": 1, "mobility": -2 },
+            "historicalContext": "Family dispersal was a buffer against loss in 1857 villages. Households that could send members to kin in another district survived shocks better than those that could not.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-30"
+          }
+        ]
+      },
+      {
+        "id": "day-30",
+        "day": "Day 30",
+        "title": "After the Storm",
+        "description": "The front has rolled past. Delhi has fallen back to Company columns; the roads are policed again, and the revenue settlement is being re-imposed. Neighbours drift back from hiding. The moneylender has reopened his ledger. The world wants its accounts settled — including yours.",
+        "choices": [
+          {
+            "id": "cooperate",
+            "label": "Return, cooperate, and settle your dues",
+            "summary": "Present yourself, pay what is owed, and rebuild on the books.",
+            "consequence": "You deal with the collector, settle the arrears with the moneylender, and go back to work. It is not a happy ending — it is a practical one. The village is whole, poorer, and strangely numb. There are no stories of heroes here, only of surviving.",
+            "stateDelta": { "safety": 2, "resources": -2, "information": 1 },
+            "historicalContext": "By late 1858, Company order was restored across most of northern India, and revenue demands rose again. The cost of the upheaval — lives, grain and cattle — was largely borne, as always, by the cultivators.",
+            "sourceId": "queens-proclamation",
+            "end": true
+          },
+          {
+            "id": "wait",
+            "label": "Return slowly, half the family first",
+            "summary": "Test the peace before committing the whole household.",
+            "consequence": "Your brother returns first and reports the roads safe. You follow a fortnight later. The delay costs you a season's crop share but saves you from the worst of the first wave of requisitions. Cautious, a little older, you rebuild more slowly than your neighbours.",
+            "stateDelta": { "safety": 1, "resources": -1, "information": 1 },
+            "historicalContext": "Rebuilding was uneven. Some villages recovered within a year; others lost plough cattle or titles and fell into debt that lasted generations. The aftermath, like the war, was experienced village by village.",
+            "sourceId": "mutiny-margins",
+            "end": true
+          },
+          {
+            "id": "keep-distance",
+            "label": "Stay low and keep your distance from officials",
+            "summary": "Never fully return; work quietly and avoid the collector's eye.",
+            "consequence": "You farm cautiously, pay little, and are marked by the village as 'the one who stayed hidden.' A year later a dispute over cattle drags you before the collector's court — where your absence comes back to count against you. The land kept you alive; the law now half-owns your time.",
+            "stateDelta": { "resources": 1, "safety": -1, "connections": -1 },
+            "historicalContext": "Distance from authority preserved lives in 1857 but entangled households in later disputes. The courts of the re-established state remembered who had absented themselves, and land titles turned on it.",
+            "sourceId": "marx-tribune",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "Your Village, One Year Later",
+      "text": "The war of 1857 passed across your life the way a flood passes across a field — it changed the lines of everything without making a sound. You did not fire a gun. You fed men who had guns. You hid wheat, counted cattle, and watched the roads. In the ledger of the rebellion, your name appears nowhere. But the rebellion happened, in part, among people exactly like you.",
+      "lessons": [
+        "Most people in the region in 1857 never fought a battle — they lived through the war.",
+        "Armies needed grain, cattle and labour, and villages paid all three.",
+        "Land revenue and debt shaped rural life long before any cartridge.",
+        "Rumour was the news media of the countryside; facts arrived late and on foot."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Grain, cattle and stores" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Ties that help in need" }
+    ]
+  },
+  {
+    "id": "soldier-1857",
+    "periodId": "india-1857",
+    "perspectiveId": "soldier",
+    "roleLabel": "The Soldier",
+    "title": "The Oath and the Cartridge",
+    "tagline": "May 1857 — a sepoy's barracks",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual.",
+    "intro": {
+      "youAre": "You are a sepoy in a regiment of the East India Company's Bengal Army — a professional soldier who has sworn to the Company, draws pay, and carries a decorated musket. You have served campaigns and citations.",
+      "where": "A cantonment of the Bengal Army in north India",
+      "when": "May 1857",
+      "context": "In your regiment there is talk — and now near-certainty — that the new Enfield cartridges are greased with animal fat that would defile both Hindu and Muslim soldiers who must bite them open. Officers say it is nonsense. Comrades say the Company has ceased to care."
+    },
+    "narrative": [
+      "You joined the colours when the Company was a known thing — orderly, regular, generous to its soldiers.",
+      "Now the order is to load the new cartridge, and every man in the line is thinking of the same things: his oath, his mother, his gods.",
+      "There is a rumour that the whole army is to be disarmed, and a letter from home that says the villages are already empty of young men."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Day 1",
+        "title": "The Cartridges Arrive",
+        "description": "The stores issue the new Enfield cartridges and a drill is announced. By the evening, the bazaar has finished the rumour: the grease is beef and pork fat. Men gather in the evening, low-voiced, outside the lamp posts. 'They wish to break our caste and our faith together,' says an elder havildar. The officers' reassurance sounds, to the ranks, thin.",
+        "choices": [
+          {
+            "id": "refuse",
+            "label": "Refuse the cartridge openly",
+            "summary": "Decline on the parade ground and face the consequence.",
+            "consequence": "You refuse, and others follow. The commanding officer's patience breaks; you are placed under arrest, tried by court-martial and sentenced to years of hard labour in irons — the exact punishment you had watched troopers receive at Meerut a week earlier. In irons, you are marched past your own regiment.",
+            "stateDelta": { "safety": -3, "connections": 2, "information": 1 },
+            "historicalContext": "The refusal at Meerut was not an isolated event — refusals and courts-martial marked the spring of 1857 across Bengal Army stations. The public spectacle of punishment embittered garrisons far beyond the men sentenced.",
+            "sourceId": "meerut-court",
+            "nextStageId": "day-4"
+          },
+          {
+            "id": "obey",
+            "label": "Obey, but speak only to your friends",
+            "summary": "Do the drill and keep your doubts private.",
+            "consequence": "You drill with the cartridge and feel the weight of your comrades' changed eyes. That night your closest friend tells you plainly: 'They are making dogs of us.' Obedience has cost you no punishment — but it has cost you standing among the men you must stand beside.",
+            "stateDelta": { "safety": 1, "connections": -2, "information": 1 },
+            "historicalContext": "Many sepoys complied under pressure while privately sharing grievances. The army was not united in refusal in early 1857 — it divided man from man, company from company.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-4"
+          },
+          {
+            "id": "wait",
+            "label": "Seek reassurance from your officers",
+            "summary": "Ask directly, man to man, what the grease really is.",
+            "consequence": "Your officer swears the fat is not animal — or swears he does not know. His discomfort tells you all you need. He is a decent man who does not know more than you do. The cartridge sits in its box between you. Neither of you has answered the question.",
+            "stateDelta": { "information": 2, "connections": 1, "safety": 0 },
+            "historicalContext": "Officer-sepoy trust disintegrated in 1857 along exactly this fault line: the Company's officers could not confirm what was in the cartridges, so every reassurance sounded like a lie — documented repeatedly in court-martial testimony. There was no grease the Company could prove clean.",
+            "sourceId": "meerut-court",
+            "nextStageId": "day-4"
+          }
+        ]
+      },
+      {
+        "id": "day-4",
+        "day": "Day 4",
+        "title": "The Example",
+        "description": "Word reaches the barracks that at Meerut, eighty-five troopers of the cavalry refused the cartridge, were court-martialled, and have been stripped, chained and marched to prison in front of the whole cantonment — those same men being the pride of the garrison. Your regiment is ordered to prepare for a similar drill. The night, in the bazaars, is loud with talk of Delhi and the emperor.",
+        "choices": [
+          {
+            "id": "rise",
+            "label": "Prepare to rise with your comrades",
+            "summary": "Join the shared plan quietly forming around the lamps.",
+            "consequence": "You are part of the plan — which most of the garrison's Indian soldiers know by nightfall. Sunday brings a sudden order: the Europeans draw arms. The plan becomes action, and you move with your regiment toward the gates, fired on from the way of the church, in the smoke and noise of a cantonment coming apart.",
+            "stateDelta": { "safety": -3, "connections": 3, "mobility": 2 },
+            "historicalContext": "The Meerut rising of 10 May 1857 was precisely such a plan-without-a-date that the army's orders ignited at a fixed hour. Soldiers chose — or were swept — into the same action across scores of garrisons in the following weeks.",
+            "sourceId": "ball-history",
+            "nextStageId": "day-7"
+          },
+          {
+            "id": "hold",
+            "label": "Hold back and watch which way the wind turns",
+            "summary": "Stand with your own and burn no bridges — yet.",
+            "consequence": "You stand guard through the night while the cantonment tears itself open. Morning finds the European camp burning and the sepoys moving off. Your restraint lets you and your section serve as messengers — but it also marks you, later, as a man the rebels could not quite trust, and the Company could not quite believe.",
+            "stateDelta": { "safety": 2, "information": 2, "connections": -2 },
+            "historicalContext": "Scores of sepoys and units tried to stay neutral in May 1857 — standing aside from an uprising without joining it. In the chaos such neutrality was almost impossible, and few maintained it for long.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-7"
+          },
+          {
+            "id": "alert",
+            "label": "Warn the officers of what you have heard",
+            "summary": "Try to hold the regiment to its colours.",
+            "consequence": "You pass word to a junior officer, who credits you and files a report. The officers disbelieve it, or cannot act; the report is buried. You have fed the machine's own rumour. When the rising comes — as the report said it would — no one remembers your warning, only that you were seen speaking with the officers.",
+            "stateDelta": { "safety": -2, "connections": -2, "information": 1 },
+            "historicalContext": "Some soldiers did warn officers of the coming storm, and their warnings were recorded in Company archives — the disbelieving officers noted as often as the informants. Loyalty was neither simple nor safe.",
+            "sourceId": "meerut-court",
+            "nextStageId": "day-7"
+          }
+        ]
+      },
+      {
+        "id": "day-7",
+        "day": "Day 7",
+        "title": "The Road to Delhi",
+        "description": "The regiment is marching — toward Delhi, toward the Red Fort, toward the old emperor who has been forced to chair a war. On the road, villagers bring food, and old men place marks of blessing on the soldiers. Ahead of you, you are told, is a war to free the faith; behind you is the oath you swore. Both are loud in your head at different hours.",
+        "choices": [
+          {
+            "id": "delhi",
+            "label": "March on with the rebels to Delhi",
+            "summary": "Carry the colours toward the Red Fort.",
+            "consequence": "You enter Delhi in mid-May amid massed regiments, drums and the emperor's uncertain blessing. For a season you are part of something: city, army, cause. Then the British columns begin their siege, and Delhi's defence eats its own soldiers — hunger, fever and desertion among the thin honours.",
+            "stateDelta": { "mobility": 2, "connections": 3, "safety": -4 },
+            "historicalContext": "Thousands of sepoys marched to Delhi in May 1857 and fought in its defence until September, when the columns stormed the city. Delhi's defence and fall is documented in extensive British and local accounts — including sepoys deserting as the siege tightened.",
+            "sourceId": "last-mughal",
+            "nextStageId": "day-60"
+          },
+          {
+            "id": "village",
+            "label": "Slip away to the villages",
+            "summary": "Leave the road and disappear into the countryside.",
+            "consequence": "You melt away at a ford before the revolt's second week, walking all night to reach your home village. Months pass in hiding — fed by kin, watched by informers. The Company's searches for 'mutinous sowars' pass within sight of your door more than once. You survive the war; the war does not end for you for another year.",
+            "stateDelta": { "safety": 2, "mobility": -2, "resources": -2 },
+            "historicalContext": "Desertion dissolved armies on both sides. Thousands of Indian soldiers slipped away from the rebellion's armies, and the Company's own ranks thinned as hastily recruited men crossed the lines to their villages.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-60"
+          },
+          {
+            "id": "company",
+            "label": "Remain with the Company's colours",
+            "summary": "Turn your section back toward regimental authority.",
+            "consequence": "You rejoin the Company's forces as the rebellion consolidates. Your section is used as scouts — trusted men who know the countryside. You serve through the reconquest of Delhi, twisting in your saddle each time the enemy is 'your own people.' The Company pays your back-arrears and never fully trusts you again.",
+            "stateDelta": { "safety": -1, "resources": 2, "connections": -3 },
+            "historicalContext": "Loyal regiments — Sikh, Punjabi, Gurkha and steadier Indian units — were the backbone of the British reconquest. Some Indian soldiers chose the Company's side and fought against the rising, a fact basic to understanding 1857.",
+            "sourceId": "queens-proclamation",
+            "nextStageId": "day-60"
+          }
+        ]
+      },
+      {
+        "id": "day-60",
+        "day": "Day 60",
+        "title": "The Siege Tightens",
+        "description": "Whichever road you chose, it is late autumn. Delhi is under artillery fire or fallen; the Company reconquers town by town. The last armies of the rising are disintegrating, and men who a season ago were soldiers are now fugitives — or garrisons. In the cold morning, the roads carry both armies, and the dust remembers everything.",
+        "choices": [
+          {
+            "id": "stay",
+            "label": "Stay to the end, whatever the end is",
+            "summary": "Hold your post through the last stand.",
+            "consequence": "You are among the last to hold, fighting through the final weeks until the lines break. Captured, you are marched with other sepoy prisoners to the tryals and the common jails. The Company calls you rebel; your comrades call you faithful. You will spend years in prison and answer for a war you never chose.",
+            "stateDelta": { "safety": -4, "connections": 2, "resources": -2 },
+            "historicalContext": "Thousands of rebel soldiers were captured, tried or simply dispersed in 1858. Wide amnesties were later declared in the Queen's Proclamation. The war's end was not clean: it left prisoners, dacoits and famished villages behind it.",
+            "sourceId": "queens-proclamation",
+            "end": true
+          },
+          {
+            "id": "slip",
+            "label": "Slip away to your home by night",
+            "summary": "Leave the colours and the cause both.",
+            "consequence": "You return to your village in the last weeks of the war, a deserter twice over. The village knows better than to ask. You sleep a year under a false name, ploughing, until the amnesty makes it safe to live as yourself again. The Company's records show one more 'missing' sowar; the village records show a man who came home.",
+            "stateDelta": { "safety": 1, "resources": 1, "mobility": -2, "connections": 2 },
+            "historicalContext": "The Queen's Proclamation of November 1858 offered amnesty and pardon to most rebels who had not murdered British prisoners. Vast numbers of deserters returned to villages under that promise, and the Proclamation's careful wording was read, and relied on, at village level.",
+            "sourceId": "queens-proclamation",
+            "end": true
+          },
+          {
+            "id": "surrender",
+            "label": "Surrender and take the amnesty",
+            "summary": "Give yourself up under the declared terms.",
+            "consequence": "You surrender under the proclamation's terms, hand in your arms, and receive the newly issued pardon. The army has been reorganised: new regiments, new pay rules, and darker suspicions where the old names are read aloud. You are discharged, not welcomed. The war ends for you with a signature on a form.",
+            "stateDelta": { "safety": 2, "resources": 0, "connections": -1 },
+            "historicalContext": "After 1858 the British restructured the army, doubling European ratios and changing recruiting practices. Indian soldiers fought for the Crown again within a generation — in a force consciously 'reorganised' in 1857's shadow.",
+            "sourceId": "queens-proclamation",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "The Colours and the Cartridge",
+      "text": "You carried the oath and the cartridge together for as long as any soldier could. In the end, the war of 1857 broke the Bengal Army into pieces — some of its soldiers became its conquerors, some its fugitives, and the army itself was rebuilt so it could never hold such a grip on its own country again. What remains, in the old muster books, are names — and behind each one a man who stood at the exact place where an empire's trust failed.",
+      "lessons": [
+        "The Bengal Army's soldiers outnumbered its British officers and soldiers many times over.",
+        "Oath, religion, family and pay pulled the same men in opposing directions.",
+        "The rebellion did not happen everywhere at once, and not every soldier joined it.",
+        "After 1858 the British rebuilt the army with different recruiting and control."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Pay, rations and arrears" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Ties that hold or break" }
+    ]
+  },
+  {
+    "id": "artisan-1857",
+    "periodId": "india-1857",
+    "perspectiveId": "artisan",
+    "roleLabel": "The Artisan",
+    "title": "The Loom and the Fire",
+    "tagline": "June 1857 — a weaver's quarter in a town of the Doab",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual.",
+    "intro": {
+      "youAre": "You are a weaver in a cloth-manufacturing quarter of a town on the Ganga-Yamuna doab. Your family has worked the loom for generations, selling to traders who carried the cloth down the trunk roads. In recent years those traders have paid less; cheaper factory-spun yarn and imported goods have narrowed the craft.",
+      "where": "A cloth-manufacturing quarter of a town in the Doab",
+      "when": "June 1857",
+      "context": "The rising has reached your town. The old shopfronts are shut; courts and treasuries have changed hands. Orders are cancelled overnight, and every armed group that passes wants cloth, thread or money. The craft that fed you has become, overnight, a thing to be defended or lost."
+    },
+    "narrative": [
+      "The loom runs, but the market has vanished.",
+      "In the quarter, talk is of two things only: what has happened to the town, and what will happen to the weavers.",
+      "Somewhere in this conflict, someone will still want cloth — the question is who, and how they pay."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Day 1",
+        "title": "The Order is Cancelled",
+        "description": "A trader cancels a year's standing order the morning after the treasury changes hands. Your stock — fine cloth, yarn, dyes — sits in the loft. Your neighbour, a darzi with a busy shop, tells you soldiers are buying cloth for turbans and uniforms on the other side of the town. Two of the quarter's weavers are already hired by the armed party holding the gate.",
+        "choices": [
+          {
+            "id": "new-patron",
+            "label": "Seek out the new buyers",
+            "summary": "Take cloth samples to the armed party holding the gate.",
+            "consequence": "You find the officer of the party and sell a roll of cloth at a good price — paid in coin that is worth less, it turns out, than it is (the treasury was emptied). The party promises further orders. For a season the loom runs steady. But your name is now on a list that a clerk will remember later.",
+            "stateDelta": { "resources": 2, "connections": 1, "safety": -1 },
+            "historicalContext": "Armies in 1857 were immediate customers for cloth — turbans, uniforms, flags and tents. Artisans dealt with whoever held the town. Post-war inquiries into 'collaboration' worked from ledgers exactly like the one you entered your name into.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "lay-low",
+            "label": "Lay low and conserve your thread",
+            "summary": "Stop the looms and guard what stock you have.",
+            "consequence": "The looms fall silent for six weeks. You live on savings and hope. When the town's trade slowly resumes, your stock is intact but your customers have scattered — the traders you trusted once have not returned. You survive, but your craft has stepped off its rhythm.",
+            "stateDelta": { "safety": 1, "resources": -1, "connections": -2 },
+            "historicalContext": "Many artisans chose hoarding and caution over alliance. The craft quarters of towns like Kanpur, Lucknow and Delhi were hit hard by months of siege, blockade and requisition — work stopped whether or not its owner chose a side.",
+            "sourceId": "marx-tribune",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "crowd",
+            "label": "Join the artisans gathering at the bazaar",
+            "summary": "Mingle where the craft and the crowd meet.",
+            "consequence": "The bazaar's artisans, dispossessed and angry, draft a letter supporting the rising in the emperor's name — and your name is added. It is a crowd act, half-coerced, half-heartfelt. Months later the letter resurfaces in an inquiry into 'leading persons of the quarter' and costs you a season under suspicion.",
+            "stateDelta": { "connections": 2, "information": 2, "safety": -2 },
+            "historicalContext": "The proclamations of 1857 made direct appeals to artisans, weavers and the urban poor, promising protection of religion and livelihood. Whether such appeals worked, or were merely read out in courtyards, is a live historical question.",
+            "sourceId": "azamgarh",
+            "nextStageId": "day-3"
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "day": "Day 3",
+        "title": "The Search",
+        "description": "Three days later, a squad of soldiers — this time from the Company's side — enters your quarter claiming deserters are being harboured. They pull bolt, loom and copper to the floor looking under the platform of the house. The roll of fine cloth you set aside for the festival is taken for 'requisition'. They leave a printed chit promising payment 'when order is restored.'",
+        "choices": [
+          {
+            "id": "sell-army",
+            "label": "Take the chit and sell to them willingly",
+            "summary": "Trade with the Company's commissariat on paper terms.",
+            "consequence": "You present the chit at the commissariat and are paid — in paper that the collectors later refuse at face value. But the supply officer remembers your work and keeps your loom busy through the end of the war, supplying cloth to the garrison at fixed prices. You are professional again; you are also, to your quarter, 'the one who works for the Company.'",
+            "stateDelta": { "resources": 2, "safety": -1, "connections": -2 },
+            "historicalContext": "The Company's wartime administration lived on such paper promises — receipts and chits that changed value when the front moved. Artisan workshops contracted to armies made real money and real enemies simultaneously.",
+            "sourceId": "ball-history",
+            "nextStageId": "day-9"
+          },
+          {
+            "id": "hide-loom",
+            "label": "Hide your best loom and thread",
+            "summary": "Dismantle the equipment into hiding and work on a spare.",
+            "consequence": "The best loom goes up into the roof space, disassembled, piece by piece through a false panel. You work on an old frame for the rest of the season, producing half the output. When peace returns, the hidden loom is worth more than everything else you own — and nothing has been lost but a season.",
+            "stateDelta": { "resources": 1, "information": 1, "safety": 0 },
+            "historicalContext": "Hiding productive equipment — looms, anvils, presses — was a documented response of craftsmen to requisitioning. Equipment was both capital and memory; hiding it was the artisan's version of hoarding grain.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-9"
+          },
+          {
+            "id": "leave",
+            "label": "Leave the quarter for another town",
+            "summary": "Pack what you can and follow traders' roads east.",
+            "consequence": "You close the house and walk with your family toward a town on the lower doab, carrying your yarn and your best shuttle. The town has not fallen into the war. You find work, poorer-paying, in another loom shed and sleep on the floor of a relative's courtyard. The quarter you left is still there when you return, months later, thinner.",
+            "stateDelta": { "safety": 2, "resources": -2, "mobility": -2, "connections": 1 },
+            "historicalContext": "Artisan mobility was shaped by the routes of trade and the reach of war. Towns off the main routes sheltered craftsmen through 1857; the cost was lower wages and harder living.",
+            "sourceId": "marx-tribune",
+            "nextStageId": "day-9"
+          }
+        ]
+      },
+      {
+        "id": "day-9",
+        "day": "Day 9",
+        "title": "After the Fire",
+        "description": "Months pass. The town changes hands once more and order is re-imposed under the Crown's new government. The quarter survives — quieter, with fewer hands. Traders return for cloth. Some weavers reopen their shops; others, the strongest, have been carried away into the army's workshops or into service. The old order of custom and credit has been rewritten in ink, and your craft must learn the new lines.",
+        "choices": [
+          {
+            "id": "rebuild",
+            "label": "Rebuild the workshop and trade again",
+            "summary": "Reopen, find traders, and let the loom speak.",
+            "consequence": "You rebuild modestly, selling to the same kinds of traders under the new administration. The market is slower and cheaper; factory yarn eats at the edges. But the loom turns, the family eats, and your name is in the 'new lists' of the quarter — a small purchase back into citizenship.",
+            "stateDelta": { "resources": 2, "connections": 1, "information": 1 },
+            "historicalContext": "In the years after 1858 the towns recovered gradually, but textile crafts faced a long squeeze as industrial imports widened. The weavers' resilience was of a kind economists now chart in official trade returns.",
+            "sourceId": "marx-tribune",
+            "end": true
+          },
+          {
+            "id": "diversify",
+            "label": "Shift to work the new demand",
+            "summary": "Adjust your craft toward what the new economy buys.",
+            "consequence": "You put down your fine looms and take up the coarser, faster work the new officials and markets want — rough cloth, cords, canvas. It is less beautiful work and more secure pay. The old dances of the festival cloth are a memory; the household is fed. You look at the fine loom on the wall like a picture of a previous life.",
+            "stateDelta": { "resources": 1, "information": 1, "connections": 0 },
+            "historicalContext": "Colonial and post-1857 demand shifted from fine handwork to coarse mass cloth. Craftsmen adapted toward the coarser goods; fine craft quarter declined. The economic reordering was as consequential as the war itself.",
+            "sourceId": "marx-tribune",
+            "end": true
+          },
+          {
+            "id": "hold-art",
+            "label": "Hold to the fine craft and its honour",
+            "summary": "Refuse the coarse shift and keep the old technique.",
+            "consequence": "You keep the fine looms and turn the few festival and court commissions that survive. It costs you years of leanness and the respect of the practical traders, who say you 'hold to the old ways.' But a museum, one day, will call what you preserved a craft — and a younger weaver, one day, will ask you how the pattern was made.",
+            "stateDelta": { "connections": 1, "resources": -2, "information": 1 },
+            "historicalContext": "Fine craft did not vanish at once; it survived in diminished channels — courts, ritual, wealth. Its preservation preserved techniques that industrial weaving later could not replace. That is why the craft continues to matter today.",
+            "sourceId": "ball-history",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "Loom and Ledger",
+      "text": "In 1857 the biggest part of your war was not a battle — it was keeping the loom turning, the thread dry, and the family fed while the world's ledgers were being rewritten around you. The rising, the reconquest, the Proclamation: they passed like weather across your quarter. What your hands held — the thread, the pattern, the craft — was small against empires. But it was what the empires fought over, and it is what survived them.",
+      "lessons": [
+        "The industrial and colonial economy had been squeezing crafts long before the war began.",
+        "Artisans supplied both sides — turbans, uniforms, tents — and were paid in promises that changed value.",
+        "Craft equipment was capital: artisans hid looms as carefully as farmers hid grain.",
+        "After 1858 the towns recovered, but the fine trades slowly yielded to coarser industrial markets."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Yarn, stock and savings" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Ties that help in need" }
+    ]
+  },
+  {
+    "id": "merchant-1857",
+    "periodId": "india-1857",
+    "perspectiveId": "merchant",
+    "roleLabel": "The Merchant",
+    "title": "The Ledger of Uncertain Roads",
+    "tagline": "June 1857 — a merchant's house, north India",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual.",
+    "intro": {
+      "youAre": "You are a merchant with a house in one of the bazaar towns of the doab. Your family's ledger runs across four towns — credit advanced to weavers and farmers, grain and cloth moved down the trunk roads, bullion and coin counted in the inner room.",
+      "where": "A bazaar town of the Ganga-Yamuna doab",
+      "when": "June 1857",
+      "context": "The rising has cut the roads. Debt spread through four towns now cannot be collected; stock sits in warehouses on both sides of a front line that moves without announcement. In such times, credit is a rumour — and rumour is the only credit that works."
+    },
+    "narrative": [
+      "Your family has always said the true wealth of a merchant is a road he can trust.",
+      "Now the road is an argument between armies.",
+      "Every choice you make tonight is a line someone will read in the ledger tomorrow."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Day 1",
+        "title": "The Warehouses",
+        "description": "Word comes that a warehouse you own has been requisitioned by soldiers holding the river crossing — grain and coarse cloth taken against a signed chit. The other warehouse, across the river, is under the Company's hand. Your cousin writes from that side: 'They are taking everything from the bazaar for the army. Come and help us, or the shop will be empty.'",
+        "choices": [
+          {
+            "id": "cover",
+            "label": "Move what you can under cover of night",
+            "summary": "Quietly shift the best stock to hidden godowns.",
+            "consequence": "Under lantern-light you move the best bolts and bullion to a potting house no one associates with you, paying moving men handsomely. The ruse holds; when the soldiers return for the remainder, they find a warehouse already emptied by their own side's fire. What you saved is worth what it always was — but the courage it took is not in any ledger.",
+            "stateDelta": { "resources": 2, "safety": -1, "mobility": -1 },
+            "historicalContext": "Merchants across the doab hid stock, moved bullion and used false ledgers in 1857. Company quartermasters and rebel collectors both lived on requisition; the merchant's craft was to keep half a step ahead of both.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-5"
+          },
+          {
+            "id": "buy-sides",
+            "label": "Play both sides with written promises",
+            "summary": "Sell promises to each authority, collect from whomever lasts.",
+            "consequence": "You deal with both camps through clerks, keeping a clean ledger for each. For a while it works — cargo moves once, then twice; both sides sign. Then the two ledgers collide in a single office, and you are brought in for fraud by the very authority you tried to satisfy. Your family's name, bought at such cost, buys you a release at a heavy fine.",
+            "stateDelta": { "connections": 2, "resources": -2, "safety": -2 },
+            "historicalContext": "Deliberate double-dealing was common and dangerous. Post-war courts-martial and commissions examined merchants' papers for precisely this pattern of 'selling to both sides' — a trade that could end in confiscation.",
+            "sourceId": "ball-history",
+            "nextStageId": "day-5"
+          },
+          {
+            "id": "stay-calm",
+            "label": "Hold steady and wait for order",
+            "summary": "Keep the house shut and let the storm pass.",
+            "consequence": "You refuse to move stock or deal. For three months your warehouses sit untouched — partly luck, partly because both armies had better targets. When trade slowly resumes, you are the rare merchant who loses nothing and gains the trust of the new administration, which pays promptly for the stock it needs. It is a lesson your grandson will repeat: 'In riot, the safest ledger is a shut one.'",
+            "stateDelta": { "resources": 1, "safety": 2, "information": 0 },
+            "historicalContext": "Neutrality was a business strategy. Merchants who kept their books shut and houses bolted weathered the war better than those who chose sides — though in some towns neutrality itself was taken for alliance.",
+            "sourceId": "marx-tribune",
+            "nextStageId": "day-5"
+          }
+        ]
+      },
+      {
+        "id": "day-5",
+        "day": "Day 5",
+        "title": "The Road Again Opens",
+        "description": "After weeks of closure, a road is reopened under a guard of armed traders. Prices at the capital are said to be double. A partner urges you to send a caravan of the grain you hold to market while the price holds. The risks: bandits, soldiers, confiscation. The reward: a season's profit in one journey.",
+        "choices": [
+          {
+            "id": "send",
+            "label": "Send the caravan while prices hold",
+            "summary": "Move the grain to market under armed guard.",
+            "consequence": "The caravan runs — and is held at three checkpoints for 'duties' that consume a fifth of its value. Still, you sell at the doubled price and return with more silver than you left with. On the third journey a soldier detaches the guard and takes the rest of the stock as 'requisition.' The profit of two journeys is lost in the third. Net result: a narrow escape and a stubborn lesson.",
+            "stateDelta": { "resources": 2, "safety": -2, "information": 1, "mobility": 2 },
+            "historicalContext": "Contested roads carried miraculously high prices and brutal tolls. Both armies taxed movement through fines, 'duties' and outright seizure — the cost of moving goods in 1857 climbed several-fold over peacetime.",
+            "sourceId": "marx-tribune",
+            "nextStageId": "day-10"
+          },
+          {
+            "id": "not-yet",
+            "label": "Sit on the grain and await real news",
+            "summary": "Hold the stock until the front draws a clear line.",
+            "consequence": "You hold while partners sell — and their profit is real, while your caution looks like cowardice. Then the front shifts: the market that was hungry is now over-supplied by captured stores, and the price collapses. You won your argument and lost your money. In the ledger of the house, caution is entered as its own cost.",
+            "stateDelta": { "resources": -1, "safety": 2, "mobility": 0, "information": 1 },
+            "historicalContext": "Price gyrated wildly with every shift of the front as grain markets swung between famine and glut. Those who timed by news agents did better than those who timed by feeling — merchants' correspondence survives to tell us so.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-10"
+          },
+          {
+            "id": "contract",
+            "label": "Lend the grain to the army on contract",
+            "summary": "Sell bulk to whichever commissariat holds the town, on paper.",
+            "consequence": "You contract the whole store to the commissariat at a fixed price — lower than the market, but certain, and in signed agreement. The agreement is honoured. When the market collapses weeks later, yours is the one house in the quarter that is paid, uninterrupted. The traders call you cautious; you call yourself covered.",
+            "stateDelta": { "resources": 1, "connections": 2, "safety": 1 },
+            "historicalContext": "Army contracts sustained many merchant houses through 1857. The commissariat's need for grain was constant, and contracts were among the few paper promises both sides kept — because they kept needed supplies coming.",
+            "sourceId": "ball-history",
+            "nextStageId": "day-10"
+          }
+        ]
+      },
+      {
+        "id": "day-10",
+        "day": "Day 10",
+        "title": "The End of the Year",
+        "description": "A year has passed. The war is over in the doab, and the Crown's new government rules the roads. Your partners want to rebuild the partnership — lend again, open branches, reclaim the old routes. The dust of the conflict has settled long enough that trade is again the talk of the bazaar. But the ledger of the last year must be closed first: who pays, who never pays, and what the house is now worth.",
+        "choices": [
+          {
+            "id": "rebuild",
+            "label": "Reopen full trade on the old terms",
+            "summary": "Resume lending, branch-houses and trunk-road caravans.",
+            "consequence": "You reopen boldly. Within two years the house has reclaimed its place — the roads are safer than they have been in a generation, and the Crown's courts enforce debts more reliably than the old Company's did. You have survived the greatest fire in the family's memory and built on the ashes. Somewhere in the boxes is the receipt of the two ledgers; you keep it to remind yourself what a year of war costs a house of commerce.",
+            "stateDelta": { "resources": 2, "connections": 2, "information": 1 },
+            "historicalContext": "In the years after 1858 the trade economy of north India recovered strongly under a more regular Crown administration and a better-enforced revenue and credit system. The merchants who had weathered the war prospered in the peace.",
+            "sourceId": "queens-proclamation",
+            "end": true
+          },
+          {
+            "id": "contractual",
+            "label": "Rebuild cautiously, with contracts only",
+            "summary": "Lend only against hard collateral and written agreements.",
+            "consequence": "You finance the rebuilding deliberately — every loan secured, every branch watched. It slows the house's growth but buys it safety in the years of settlement disputes that follow the war. When the 'mutiny claims' are processed, yours is among the first and fastest paid, because your papers were always in order.",
+            "stateDelta": { "resources": 1, "safety": 2, "connections": 1, "mobility": 0 },
+            "historicalContext": "After 1858, courts and colonial administration pushed commerce toward written contracts and registered debts. The merchant houses that adapted early to formal credit made the transition smoothest.",
+            "sourceId": "marx-tribune",
+            "end": true
+          },
+          {
+            "id": "diversify",
+            "label": "Spread capital into new ventures",
+            "summary": "Buy land, finance reform-era enterprise, open an agency.",
+            "consequence": "You diversify out of pure trade — buying village land, financing a printing venture, opening an agency that handles the new paperwork of the Crown's government. It is the decision of a house, not a merchant: your capital changes form, and with it the family. When the old bazaar traders speak of you, they say you have become 'a man of the new century' before the century has begun.",
+            "stateDelta": { "resources": 1, "information": 2, "connections": 2, "mobility": 1 },
+            "historicalContext": "The post-1858 economy rewarded those who diversified into land, services and the professions that a growing colonial state required. Some merchant capital made exactly this long turn toward the modern.",
+            "sourceId": "queens-proclamation",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "The Distance Between Two Ledgers",
+      "text": "In 1857 your true assets were never counted in grains and bolts. They were counted in roads you could trust, promises that could be redeemed, and clerks who could be believed when the front moved without warning. The war closed your ledgers for a season — and opened them again on new terms. Whatever you lost to checkpoints and requisitions, you kept the one thing that mattered: a house that could still trade when the firing stopped.",
+      "lessons": [
+        "Credit extended across four towns could not be collected when the roads closed — merchants lived or died by debt.",
+        "Both armies taxed movement through duties and requisition, and prices swung wildly with every shift of the front.",
+        "Army contracts paid well and regularly, but made a merchant a target of the other side.",
+        "After 1858 the Crown's courts and contracts rebuilt trade more durably than war had broken it."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Stock, bullion and credit" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Roads you can trust" },
+      { "key": "connections", "label": "Connections", "description": "Partners and patrons" }
+    ]
+  },
+  {
+    "id": "student-1857",
+    "periodId": "india-1857",
+    "perspectiveId": "student",
+    "roleLabel": "The Student",
+    "title": "Schoolroom Under Siege",
+    "tagline": "June 1857 — a city of letters in crisis",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual.",
+    "intro": {
+      "youAre": "You are a young person of a literate family in a north Indian city — Delhi, or one of the provincial capitals. Your learning mixes the old world (Persian and Urdu, the classics, the madrasa or pathshala) with the new (an English school, print, the new sciences).",
+      "where": "A city of learning in northern India",
+      "when": "June 1857",
+      "context": "The rising has reached your city. Schools have shut; teachers have scattered; the printing district is full of proclamations and the city's libraries are guarded and watched. Everyone with a pen or a printing press is suddenly important to both sides — and nobody studies in a siege."
+    },
+    "narrative": [
+      "Your education was meant to make you useful to a new century.",
+      "The century, so far, is choosing other methods.",
+      "But what you carry — languages, letters, the habit of careful reading — is exactly what the conflict now needs of you."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Day 1",
+        "title": "The School Closes",
+        "description": "Your teacher dismisses the class with a single sentence: 'Return when the city is quiet.' On the way home you pass the printing shops, where sheets are being run off — proclamations in Urdu and Persian, orders, denunciations. A poet friend of your uncle's calls you over and asks: 'You can read well. Come and help us check this text against the original. The whole city will read your line tomorrow.'",
+        "choices": [
+          {
+            "id": "proof",
+            "label": "Help with the text at the print shop",
+            "summary": "Read the proof against the original for the cost of another night.",
+            "consequence": "You spend the night at the print shop, checking the proclamation against the original — and catch an error that would have miswritten the name of the emperor. The printer thanks you; the sheet goes out correct. A month later, when the city changes hands, someone remembers, with interest, who helped whose papers get printed.",
+            "stateDelta": { "information": 2, "connections": 1, "safety": -1 },
+            "historicalContext": "The proclamations of 1857 were genuine, printed documents — texts in Urdu and Persian distributed across the north. Their exact wording was painstakingly controlled by both sides, and printing presses were war resources throughout the conflict.",
+            "sourceId": "azamgarh",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "study",
+            "label": "Keep studying alone at home",
+            "summary": "Read and copy texts while the city burns around you.",
+            "consequence": "You keep to your books, copying a manuscript the teacher left you, as if study were a discipline that war could not cancel. It is — but it is also a way of not looking out the window. When peace returns, your copy is intact, your reading sharper, and you are one of the few students in the city who can say what they lost before it happened.",
+            "stateDelta": { "information": 2, "resources": 1, "connections": -1 },
+            "historicalContext": "Libraries and private manuscripts were protected, buried or destroyed during the conflict. Scholarship paused in cities while their literati kept what they could — whole collections were saved by being hidden, exactly as you hid your books.",
+            "sourceId": "last-mughal",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "watch",
+            "label": "Wander the city and keep a record",
+            "summary": "Walk the streets, note what you see, and write it down.",
+            "consequence": "You keep a careful, dated record of the city through the weeks of siege — who came, who went, what was printed, what was burnt. It is a quiet act of scholarship under fire. Years later, a British official seeking 'an accurate account of the mutiny of the native quarters' will find your notebook and pay well for it. You have written a primary source without knowing it.",
+            "stateDelta": { "information": 3, "safety": -2, "mobility": 2 },
+            "historicalContext": "We know much of what happened in 1857 cities because literate residents kept records — diaries, letters and manuscript chronicles. The genre is real: Indian accounts of the siege of Delhi exist and are studied beside British ones.",
+            "sourceId": "last-mughal",
+            "nextStageId": "day-3"
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "day": "Day 3",
+        "title": "The Questionnaire",
+        "description": "A cavalry officer on the Company's side — litter of papers on his table — has a proposition. The city is under reconstruction, and the new administration wants 'trustworthy young men who write well' to transcribe seized papers: letters, proclamations, usury ledgers. The pay is real, the work is sorting the recent past, and half the bazaar regards it as 'serving the conqueror.'",
+        "choices": [
+          {
+            "id": "transcribe",
+            "label": "Take the transcription work",
+            "summary": "Copy the seized papers for the new administration.",
+            "consequence": "You transcribe cartloads of papers — proclamations, creditors' lists, letters — learning more about the city's last months than anyone else alive. The work is honest and useful, and it gives you a place at the table of the new order. But you record, page after page, the letters of men your own family knows, and you carry that knowledge like a secret.",
+            "stateDelta": { "information": 3, "resources": 2, "connections": -2 },
+            "historicalContext": "Seized papers, translated and copied by local clerks, are a core source for the history of 1857 — including the proclamations and sepoy letters studied by historians today. Clerks of that generation shaped what the archive remembers.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-9"
+          },
+          {
+            "id": "decline",
+            "label": "Decline and keep your distance from both sides",
+            "summary": "Refuse the work and stay at the margin.",
+            "consequence": "You turn down the posting politely. It costs you a quarrel with your elders and a season of poverty, but it keeps your hands clean in the street's eyes. Months later, when the administration hunts for 'collaborators' and 'loyalists' alike, your name appears in neither column — a rare and strangely valuable place to stand.",
+            "stateDelta": { "safety": 2, "connections": 1, "resources": -2 },
+            "historicalContext": "Literate young men were courted by both camps in 1857-58. Refusal to be enrolled, on either side, was a real and discreet choice — and its consequences (poverty, safety) are part of the war's ordinary history.",
+            "sourceId": "queens-proclamation",
+            "nextStageId": "day-9"
+          },
+          {
+            "id": "both",
+            "label": "Copy for both administrations",
+            "summary": "Work for whoever holds the city, and keep a second copy.",
+            "consequence": "You transcribe for whichever side holds the city — and keep a private second copy of everything. The copies become the most valuable thing you own: a full archive of the city's wartime paper. When the files are finally closed, your collection is a record no government possesses. You call it research; your family calls it dangerous.",
+            "stateDelta": { "information": 3, "safety": -3, "resources": 1 },
+            "historicalContext": "Private collectors and manuscript copyists are the reason some 1857 documents survive at all. Both official archives and private hoards preserve the paper trail — each transcription another leak in the censors' net.",
+            "sourceId": "azamgarh",
+            "nextStageId": "day-9"
+          }
+        ]
+      },
+      {
+        "id": "day-9",
+        "day": "Day 9",
+        "title": "After the Exam",
+        "description": "Two years later, the city has regained its rhythm. The English school reopens under the Crown's education department; a new course in 'vernacular and native languages' is being formed. Your old teacher urges you to take it and 'become a bridge.' The print shops have resumed, the libraries are patched, and the city is full of young men who must decide what the word 'education' now means.",
+        "choices": [
+          {
+            "id": "english",
+            "label": "Take the new course in the Crown's school",
+            "summary": "Learn the new system and become a bridge between worlds.",
+            "consequence": "You join the new course, learn the new curriculum, and in time become a teacher — a copier of the new order's books. The bridge you build carries government work and government ideas into the old city. In your diary you write that you have done what the war asked: survived, and learned a new grammar.",
+            "stateDelta": { "information": 2, "resources": 2, "connections": 2 },
+            "historicalContext": "After 1858 education was reorganised and expanded by the Crown, with 'vernacular' and English tracks dividing the school system. The generation educated in its shadow carried that division into the next century.",
+            "sourceId": "queens-proclamation",
+            "end": true
+          },
+          {
+            "id": "old-school",
+            "label": "Return to the older world of learning",
+            "summary": "Study the classics under private teachers, as the court does.",
+            "consequence": "You return to Persian and Urdu scholarship under an old master, part of the re-formed world of letters that has survived the war. In a generation this world will seem antique; your learning will be called 'traditional.' You know it as the same craft your grandfather defended — books against the wreckage of the world.",
+            "stateDelta": { "information": 2, "connections": 1, "resources": -1 },
+            "historicalContext": "The older literate world — madrasas, pathshalas, Persian and Urdu letters — was neither destroyed nor static; it reconstituted itself in the post-1857 era even as the colonial school system rose beside it.",
+            "sourceId": "last-mughal",
+            "end": true
+          },
+          {
+            "id": "print",
+            "label": "Open a small press of your own",
+            "summary": "Use the craft of letters to start a business in print.",
+            "consequence": "You gather a press, type and ink, and begin printing — schoolbooks, a newspaper, pamphlets. It is a poor man's empire, but it is the empire of news, and it grows. Your first publication is the letter you kept from the siege; your last, decades on, is the city's longest-running vernacular paper. The student who proofed the proclamation has become its historian.",
+            "stateDelta": { "information": 2, "resources": 1, "connections": 2, "mobility": 1 },
+            "historicalContext": "The press run that printed 1857's proclamations was the same industry that grew into the vernacular newspapers and print culture of the later nineteenth century — a direct line from war printing to public media.",
+            "sourceId": "azamgarh",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "Letters Against the Siege",
+      "text": "You were educated for a century that did not yet exist, in a city that did not yet exist either — both were being invented while you studied. The rising closed the schoolrooms, but it never closed the book you were writing. What you carried out of 1857 was not a victory and not a defeat, but the grammar of a new era: a language in which the old city and the new empire could finally speak to one another — and argue.",
+      "lessons": [
+        "Cities like Delhi raised literate networks of Persian, Urdu, Arabic and English learning in the decades before 1857.",
+        "Printing presses and proclamations made words a weapon in the war — studied by both sides.",
+        "Indian writers left their own records of the siege, which historians weigh against British accounts.",
+        "The education system rebuilt after 1858 carried the division between English and vernacular into the modern age."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Books, income and support" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move and print" },
+      { "key": "connections", "label": "Connections", "description": "Teachers, printers and patrons" }
+    ]
+  },
+  {
+    "id": "ruler-1857",
+    "periodId": "india-1857",
+    "perspectiveId": "ruler",
+    "roleLabel": "The Ruler",
+    "title": "The Court and the Two Flags",
+    "tagline": "June 1857 — a princely court in central India",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual.",
+    "intro": {
+      "youAre": "You are a ruler of a middling princely state in central India — a treaty ally of the East India Company whom the Company has yet to annex. Your court maintains the old forms: durbar, title, order. Beyond your border, garrisons are rising; the emperor's name is being used in proclamations calling on you to turn your arms against the Company.",
+      "where": "A princely state in central India",
+      "when": "June 1857",
+      "context": "Your position is precisely the one the Company fears and the proclamations court: a ruler with a treaty, an army of his own, and neighbours rising across the border. The Company that guaranteed your throne is the same Company that extinguished the thrones of Satara, Nagpur and Jhansi — under the doctrine the tribunal named 'lapse'."
+    },
+    "narrative": [
+      "Behind the durbar's silver doors, your real audience is a file. A treaty. An armed resident.",
+      "The proclamations speak of honour and faith; the Company speaks of subsidies and salt-posts.",
+      "Every envoy who enters your gate carries a flag you may have to follow or refuse to your cost."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Day 1",
+        "title": "The Envoys",
+        "description": "Two parties arrive at your court in the same week. From the rebel side, a messenger reading the emperor's proclamation — a call to Hindus and Muslims 'to stand by one another' and rise against the Company, promising protection of religion and property. From the Company, the resident's aide: a crisp request for troops, money and routes, 'in accordance with the treaty of alliance.' Both wait in the forecourt for your word.",
+        "choices": [
+          {
+            "id": "company",
+            "label": "Honour the treaty and send aid to the Company",
+            "summary": "Provide troops and money as the alliance requires.",
+            "consequence": "You send a contingent and a credit to the Company side. The resident thanks you with unusual warmth; neighbouring rulers hear of it. Through the months of the rising your state is left in peace, and after 1858 your treaty is renewed on terms better than most — but the price is sharp: your own durbar quarter is full of men who whisper that you served the foreigner against your own countrymen.",
+            "stateDelta": { "safety": 2, "connections": 2, "resources": -2 },
+            "historicalContext": "The great majority of princely rulers stayed loyal to the Company in 1857, aided by the undertones of the conflict and by Company arms. Loyalty drew subsidies and security — and a crowd of critics among their own people.",
+            "sourceId": "queens-proclamation",
+            "nextStageId": "day-7"
+          },
+          {
+            "id": "rebel",
+            "label": "Weigh the proclamation and join the rising",
+            "summary": "Turn your troops toward the rebellion.",
+            "consequence": "You reason as your envoys urge: the Company has broken its own oaths at Satara and Jhansi, and this is the moment to strike. Your cavalry rides to join the columns. For a season you are celebrated in the proclamations as a defender of the faith and of the country. Then the reconquest reaches your border, your forts fall, and before the year turns, your durbar is a pension and your titles a memory.",
+            "stateDelta": { "safety": -4, "connections": 2, "mobility": 2 },
+            "historicalContext": "Most rulers who joined the rising lost their thrones; a few, like those of Bundelkhand's smaller lords, fought until the end. The proclamations' promises of protection were real only as long as the rebellion held ground.",
+            "sourceId": "azamgarh",
+            "nextStageId": "day-7"
+          },
+          {
+            "id": "hedge",
+            "label": "Delay and play for time",
+            "summary": "Keep both envoys waiting through the season.",
+            "consequence": "You stall with plausible courtesy — 'the state must consult its council' — while your ambassadors sound out both sides. The Company's resident grows cold; the rebel envoy grows loud. Everyone in your durbar talks of your 'wisdom'; everyone at your borders talks of your weakness. When the Company finally wins, as you half-knew it would, you are forgiven as one who 'wavered but did not fight.' Your throne survives, and so does your reputation for something men call perhapsness.",
+            "stateDelta": { "safety": 1, "information": 2, "connections": 1, "mobility": -2 },
+            "historicalContext": "Delaying, hedging and buying time was the classic strategy of the weaker ruler in 1857 — perilous but survivable. Historians note how many thrones were kept by rulers who committed nothing and enabled everything.",
+            "sourceId": "ball-history",
+            "nextStageId": "day-7"
+          }
+        ]
+      },
+      {
+        "id": "day-7",
+        "day": "Day 7",
+        "title": "The Border",
+        "description": "A rebel column crosses your border seeking refuge, and the Company demands you deny it — 'stand with the lawful government, prince.' But the column carries the emperor's name, and your own officer corps contains men who answer to that name. It is your court's hardest hour: half the state wants the column fed and quartered; the other half wants it turned away at the guns' point.",
+        "choices": [
+          {
+            "id": "deny",
+            "label": "Deny the column passage and hold the border",
+            "summary": "Order your troops to hold the frontier against the rebels.",
+            "consequence": "Your border posts fire a single volley of warning, and the column wheels away — the Company reports your 'firm adherence to the alliance.' Inside the state, desertion begins: a third of your army slips off to join the column against your orders. The loyalty of your own colours, after that volley, is never again what it was.",
+            "stateDelta": { "safety": 2, "resources": 1, "connections": -3 },
+            "historicalContext": "The 'loyal' rulers who held their borders against rebel columns paid for it in the loyalty of their own troops — sepoys, retainers and cavalry answered older calls than treaties.",
+            "sourceId": "queens-proclamation",
+            "nextStageId": "day-20"
+          },
+          {
+            "id": "shelter",
+            "label": "Shelter the column, in secret if possible",
+            "summary": "Allow the men to rest in the forests of your marches.",
+            "consequence": "Your officers guide the column away from the roads and into the forests of your marches, where it stays two weeks. The Company's officers find nothing but trails. When the rising finally ends, the men who sheltered with you remember it to their grandchildren; the Company's intelligence remembers something too, thinner, and it weighs on your subsidies for a decade.",
+            "stateDelta": { "safety": -2, "connections": 2, "information": 1 },
+            "historicalContext": "Rulers and zamindars who quietly aided rebel columns while professing loyalty exploited exactly the ambiguity that most threatened the Company — and most protected their own houses when the war ended.",
+            "sourceId": "azamgarh",
+            "nextStageId": "day-20"
+          },
+          {
+            "id": "negotiate",
+            "label": "Negotiate a neutral corridor",
+            "summary": "Buy the column's passage with food and safe conduct.",
+            "consequence": "You send an eminently practical proposal: the column will move around your state in exchange for supplies, and the Company will see your goodwill. Both sides accept; nobody is entirely fooled; there is a quiet poetry in your durbar that a ruler has 'bought his peace with supplies and a signature.' The ledger of alliances, so often written in blood, is written this season in grain.",
+            "stateDelta": { "resources": -2, "connections": 2, "safety": 1, "information": 1 },
+            "historicalContext": "Supply and safe-conduct agreements were unofficial contracts of the war — rulers, zamindars and merchants all sold passage, and the archives preserve both the receipts and the denials.",
+            "sourceId": "mutiny-margins",
+            "nextStageId": "day-20"
+          }
+        ]
+      },
+      {
+        "id": "day-20",
+        "day": "Day 20",
+        "title": "The Reward",
+        "description": "At last the storm passes. The reconquest is complete; tributary arrangements are being re-drawn across India, and your state is being assessed as a friend, a neutral, or a liability. An officer of the new Crown government presents himself: 'Her Majesty's government will remember the conduct of the state in the late disturbances.' Your durbar must decide what sort of reputation it means to inherit.",
+        "choices": [
+          {
+            "id": "loyal-reward",
+            "label": "Press for the rewards of loyal service",
+            "summary": "Claim the honours, titles and arrangements owed a faithful ally.",
+            "consequence": "You press your claim, and the Crown responds in the idiom of the new dispensation: your state is renewed, your titles confirmed, your embassies received at the new order's courts. It is the friendship of power, formal and durable. You have done what a treaty ruler does — survived, and been remembered for it, in the clean column of the ledger.",
+            "stateDelta": { "safety": 2, "resources": 1, "connections": 2 },
+            "historicalContext": "After 1858 the Crown rewarded loyal princes with renewed treaties, adopted-heir recognition and honours. The loyalty of the princes became a pillar of the post-1857 settlement — the mirrors of the throne.",
+            "sourceId": "queens-proclamation",
+            "end": true
+          },
+          {
+            "id": "quiet-rebuild",
+            "label": "Rebuild quietly and keep the durbar modest",
+            "summary": "Accept the quiet terms and rebuild the state's own strength.",
+            "consequence": "You take the modest settlement, keep your court small, and put the state's resources into canals, troops and granaries rather than ceremony. A generation later your state is one of the best-run in central India, and its ruler is a quiet fixture of the century's long peace. You have traded glory for competence — and been repaid many times over.",
+            "stateDelta": { "resources": 2, "information": 1, "connections": 1, "mobility": 0 },
+            "historicalContext": "The princely states that flourished after 1858 commonly did so through competent, non-heroic administration — the very antithesis of the durbars' pomp. Progress and prudence, not defiance, secured their futures.",
+            "sourceId": "ball-history",
+            "end": true
+          },
+          {
+            "id": "irony",
+            "label": "Hold a quiet court and record the truth",
+            "summary": "Keep your own chronicle of who did what — and why.",
+            "consequence": "You instruct a learned clerk to write the state's true account of the disturbances: who aided the Company, who sheltered the column, whose grain kept the roads open — an honest chronicle of survival kept under the throne. It is the account of a ruler to himself, and it is the one document no conqueror will ever own. When historians one day open the family's papers, they will read — under the honours — the true costs of the year.",
+            "stateDelta": { "information": 2, "connections": 1, "safety": 1 },
+            "historicalContext": "Royal and courtly chronicles of 1857 exist — kept under the honours of the new dispensation — and are among the valuable sources for the rulers' perspective. Some were read by nobody for a century.",
+            "sourceId": "mutiny-margins",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "The Durbar After the Storm",
+      "text": "You walked the length of 1857 between two flags, and you are still seated beneath a throne. Whatever the chronicles now write about your wisdom, you know the arithmetic of the year: survival cost some of everything, friendship with power cost a little more, and honour — in the old sense — was a commodity that no treaty could price. The court endures. The country endures. Both are yours to account for.",
+      "lessons": [
+        "Most princely rulers remained loyal to the Company; those who rose, mostly lost their thrones.",
+        "The doctrine of lapse — as at Satara and Jhansi — was a standing grievance among rulers who kept their oaths.",
+        "Border politics, supplies and safe-conduct could buy a throne even when an army could not.",
+        "The Crown's post-1857 settlement built its order on loyal princes as much as on armies."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Security of the throne" },
+      { "key": "resources", "label": "Resources", "description": "Treasury, troops and grain" },
+      { "key": "information", "label": "Information", "description": "Intelligence of both camps" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom of the roads" },
+      { "key": "connections", "label": "Connections", "description": "Allies, envoys and loyalty" }
+    ]
+  },
+  {
+    "id": "ruler-coronation-raigad-1674",
+    "periodId": "maharashtra-17th-century",
+    "perspectiveId": "ruler",
+    "storyId": "coronation-raigad-1674",
+    "roleLabel": "The Ruler",
+    "title": "The Crown of the Mountain",
+    "tagline": "June 1674 — the eve of the coronation at Raigad",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual. The meters below are a gameplay device, not a historical score.",
+    "intro": {
+      "youAre": "You are the master of Swarajya — a state built from hill forts, valley loyalties and oaths, now grown from the ghats to the coast. Your coronation as an independent sovereign is being prepared at the mountain capital of Raigad.",
+      "where": "Raigad, capital of Swarajya",
+      "when": "May – June 1674",
+      "context": "For months the court has debated the ceremony: which rites, which lineage, which priests. The coronation will declare to the sultanates and the empire that the Maratha country is no client but a sovereign state. The rituals are as political as they are sacred."
+    },
+    "narrative": [
+      "A crown is a wall built of ceremony higher than any fort.",
+      "Every lord, priest, envoy and merchant watching these days will carry the story of them to a different court.",
+      "The mountain has been your witness since before the other kings knew your name."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Stage 1",
+        "title": "The Question of the Rites",
+        "description": "Learned Brahmins debate whether the consecration fitting a sovereign can be performed for your lineage, and which ceremonies must be observed. Some demand purifications that take months; others warn that delay breeds rumour. Outside, envoys from the Portuguese and English factories wait — and the empire watches for a sign of weakness.",
+        "choices": [
+          {
+            "id": "follow-rites",
+            "label": "Undertake the prescribed purifications",
+            "summary": "Accept the long, costly preparatory rites demanded by the priests.",
+            "consequence": "The rites are performed with full solemnity, and the lineage question is settled by the scholars' verdict. The preparations cost treasure and months, and a few complain the state should spend on powder rather than prayer — but when the day comes, no court can call the coronation irregular.",
+            "stateDelta": { "connections": 2, "resources": -2, "information": 1 },
+            "historicalContext": "The historical coronation was indeed delayed by disputes over the Kshatriya rites and by preparation; priests and scholars were brought from varied centres, and the ceremonies that followed were elaborate and expensive.",
+            "sourceId": "sg-coronation",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "seek-blessing",
+            "label": "Send for the learned of every tradition",
+            "summary": "Assemble sufficient witnesses and scholars to make the consecration beyond dispute.",
+            "consequence": "Envoys ride out to bring learned and influential figures to Raigad. Some arrive, some send gifts and letters. The assembly is larger and more impressive than it would have been, and the chronicles count the great names present — but the delays try the patience of your captains, who want a king crowned yesterday.",
+            "stateDelta": { "connections": 2, "mobility": -2, "resources": -1 },
+            "historicalContext": "The Raigad coronation drew a great assembly — nobles, officials, and observers from the European factories and neighbouring states — which is part of why the event is so well attested.",
+            "sourceId": "sg-sardesai",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "hasten",
+            "label": "Crown quickly, rites as they can be done",
+            "summary": "Press for the ceremony within the season, omitting what can be trimmed.",
+            "consequence": "The coronation proceeds swiftly and the mountain holds its festival while the rains still held off. Some priests refuse parts of the ceremony; a faction whispers that the full rite was cut short. Your captains are pleased — but so is the empire's news-writer, who sends word that the ceremony was done in haste.",
+            "stateDelta": { "mobility": 1, "safety": -1, "connections": 1, "resources": 1 },
+            "historicalContext": "Haste would have been a real temptation, but the historical coronation was performed with full elaboration — which itself signals how much weight was placed on legitimacy over speed.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-2"
+          }
+        ]
+      },
+      {
+        "id": "day-2",
+        "day": "Stage 2",
+        "title": "The Preparation of the Mountain",
+        "description": "Raigad receives its great day's dress: flags on the ramparts, the great drum tuned, waters fetched for the rites, gifts from all the provinces of Swarajya and beyond. The court must decide who stands nearest the throne, how the foreign factors are received, and what title the new era shall carry.",
+        "choices": [
+          {
+            "id": "grand-pageant",
+            "label": "Make the assembly as great as the realm allows",
+            "summary": "Spend rank and treasure on a spectacle every court will hear of.",
+            "consequence": "The assembled throng is vast — nobles from the forts, chiefs of the ghats, and the foreign factors in their best. The chroniclers count thousands. Your treasury is lighter and your reputation, as the news travels, is heavier than ever. One old captain mutters that a kingdom is not a fair, but he stands closest when the drum sounds.",
+            "stateDelta": { "connections": 3, "resources": -2, "information": 1 },
+            "historicalContext": "Contemporary accounts describe a large and richly dressed assembly on the mountain, with the companies' factors present — the scale of the event is one of the best-attested features of the coronation.",
+            "sourceId": "sg-coronation",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "honour-captains",
+            "label": "Honour the captains of the ghats above the envoys",
+            "summary": "Give the fort-holders and the mavals the places of honour.",
+            "consequence": "The men who bled for the forts stand close to the throne; the foreign factors stand politely further back. One factor writes home of a slight; the captains write nothing — they simply remember. The coronation binds the war-band tighter than any treaty, and this, the old guard say, is the true crown.",
+            "stateDelta": { "safety": 2, "connections": 2, "information": -1 },
+            "historicalContext": "The authority built by the movement rested on the loyalty of its commanders and the hill people; the historical coronation honoured and consolidated that warrior nobility.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "set-era",
+            "label": "Proclaim a new era in your own name",
+            "summary": "Start the count of years from the coronation, as sovereigns do.",
+            "consequence": "The courts of the Deccan begin, slowly, to date letters by a new era — some mocking, some hesitating. It is an audacious and modern gesture: time itself becomes the claim. When the era is abandoned after your death, the memory of that sovereign punctuation of history lingers in the records.",
+            "stateDelta": { "information": 2, "resources": 0, "connections": 1 },
+            "historicalContext": "The initiation of a new era (and of separate dating) at the 1674 coronation is associated with the assertion of independent rule, though its practical adoption was limited and short-lived.",
+            "sourceId": "sg-sardesai",
+            "nextStageId": "day-3"
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "day": "Stage 3",
+        "title": "The Day of the Crown",
+        "description": "The rains have held their breath. The throne is set, the umbrellas raised, the priests intoning, the drum sounding over the valleys. As the gold is laid upon you — with the words that make you sovereign — you look out over the fort you built and the country that chose you, and you know the years to come belong to whoever holds this crown well.",
+        "choices": [
+          {
+            "id": "take-title",
+            "label": "Accept the title of Chhatrapati",
+            "summary": "Take the imperial-style sovereign title before the assembly.",
+            "consequence": "The word carries through the Deccan: a sovereign has risen in the ghats, crowned beyond the reach of the sultanates and the empire. The title becomes a banner that rivals and successors will fight to carry for a century. You have turned a mountain stronghold into the seat of a dynasty's claim.",
+            "stateDelta": { "connections": 3, "information": 3, "resources": -1 },
+            "historicalContext": "The coronation and the Chhatrapati title were the movement's declaration of sovereign legitimacy — the claim the later Maratha state and its rivals inherited.",
+            "sourceId": "sg-coronation",
+            "end": true
+          },
+          {
+            "id": "vow-protection",
+            "label": "Vow protection of faiths and of the land",
+            "summary": "Bind the new crown, publicly, to protect worship and cultivation alike.",
+            "consequence": "The vow is remembered long after the gold has been put away: a sovereign who swore on the crown to guard temples, mosques and fields of every community under his hand. When later rulers weigh tolerance against zeal, your words on the mountain remain a standing measure.",
+            "stateDelta": { "connections": 2, "safety": 1, "resources": 0 },
+            "historicalContext": "Swarajya's administration cultivated legitimacy across communities; Shivaji's recorded policy of protecting places of worship and cultivators, and respecting the rites of other faiths even while asserting sovereignty, is documented in the period's evidence.",
+            "sourceId": "sg-sarkar",
+            "end": true
+          },
+          {
+            "id": "festival",
+            "label": "Turn the mountain into festival",
+            "summary": "Give the people their share of the day — food, gifts and celebration.",
+            "consequence": "The gifts and the feasts set the fort alight with relief and joy; the ghats below see a mountain burning bright for a week. The memory of the day fixes the coronation in the people's hearts — and folk memory, you have learned, is a fort that no army storms.",
+            "stateDelta": { "information": 1, "resources": -3, "connections": 2, "safety": 1 },
+            "historicalContext": "The coronation included distributions and festivities recorded in the chronicles; communal celebration was integral to its political effect.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "Sovereign of the Mountain",
+      "text": "The crown came to the mountain, and the mountain kept it. What you built was not only forts — it was a claim so firm that the sultanates and the empire could no longer pretend you were their servant. The coronation of 6 June 1674 told every court and country the same thing: here, in the Maratha country, a sovereign has risen. Whatever came after, that single day on the windswept fort made Swarajya a name that no power could unmake.",
+      "lessons": [
+        "Legitimacy in the 17th-century Deccan was built with ceremony as much as with arms.",
+        "The coronation declared sovereignty against both the Deccan Sultanates and the Mughal empire.",
+        "The title Chhatrapati became a banner inherited by the whole Maratha state after 1674.",
+        "The assembly and foreign observers at Raigad make the coronation among the best-attested events of the reign."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Treasure, grain and stores" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Allies, envoys and loyalty" }
+    ]
+  },
+  {
+    "id": "soldier-pratapgad-1659",
+    "periodId": "maharashtra-17th-century",
+    "perspectiveId": "soldier",
+    "storyId": "pratapgad-1659",
+    "roleLabel": "The Soldier",
+    "title": "The Decisive Meeting",
+    "tagline": "November 1659 — the hills around Pratapgad",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual. The meters below are a gameplay device, not a historical score.",
+    "intro": {
+      "youAre": "You are a soldier of the maval country — a hillman of the ghats who has followed your leader since the fort-captures began. The armies of Bijapur, sent to crush everything you have built, are camped in the valleys below the new fort.",
+      "where": "Pratapgad and its passes, Satara hills",
+      "when": "November 1659",
+      "context": "Afzal Khan of Bijapur holds the plain with a large force. Your leader has met him to talk. No one knows what the meeting will bring; the passes must be watched, the fort held, and every moment of the encounter kept secret until it is done."
+    },
+    "narrative": [
+      "The hills have ears, and today every ear is trained on the same meeting.",
+      "A fort is only as strong as the men who watch its passes when the valley is full of the enemy.",
+      "If the meeting goes wrong, the whole country will hang on how fast the word travels — and on who holds the high ground."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Stage 1",
+        "title": "The Enemy in the Valley",
+        "description": "Below the fort the Bijapur army spreads across the fields — horsemen, musketeers and the baggage of a great campaign. Your captain orders the gates barred and the passes watched. As night falls, a messenger confirms the two leaders will meet at the foot of the hill tomorrow.",
+        "choices": [
+          {
+            "id": "hold-walls",
+            "label": "Hold the walls and watch the valley",
+            "summary": "Keep every post armed and every eye on the enemy camp.",
+            "consequence": "You stand the night watch on the ramparts, counting campfires. When the morning comes and the meeting begins below, the fort is ready — powder dry, fuses lit, the gates braced. Whatever happens in the hollow, the high ground will answer for you.",
+            "stateDelta": { "safety": 2, "information": 1, "mobility": -1 },
+            "historicalContext": "Forts and the high passes were the decisive advantage of the movement; holding them while giving battle in the valleys was the pattern of raiding and defensive warfare documented in the campaigns.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "scout-gorge",
+            "label": "Scout the meeting ground by night",
+            "summary": "Creep down to learn the lie of the ground where the leaders will meet.",
+            "consequence": "You thread the dark hills and come back with what you need: the hollow, the trees, the path the general must climb, the place where men could be hidden. When the order comes, your company moves like it belongs to that ground — because you have seen it with your own eyes.",
+            "stateDelta": { "information": 2, "safety": -2, "mobility": 1 },
+            "historicalContext": "Intimate terrain knowledge of the maval soldiers was the military foundation of the movement, and reconnaissance of the passes preceded every action of the period.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "prayer",
+            "label": "Prepare the men and hold them steady",
+            "summary": "Move among the company, still nerves and keep faith together.",
+            "consequence": "You pass the night by the cooking fires and the muster points, speaking plainly with the young soldiers who have never faced a host so large. When the meeting below ends in a shout, your line does not waver: each man steps up as though the ground were his own field.",
+            "stateDelta": { "connections": 2, "information": 1, "safety": 0 },
+            "historicalContext": "Cohesion of small, kin-like units was a hallmark of the movement's army, whose strength lay in reliable hillmen rather than in numbers of raw levies.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-2"
+          }
+        ]
+      },
+      {
+        "id": "day-2",
+        "day": "Stage 2",
+        "title": "The Meeting",
+        "description": "The word comes down like thunder: the meeting has turned. What exactly happened in the hollow — who struck first, what was said — will be argued for centuries. All you know is the signal, the shouting, and that Afzal Khan's camp has suddenly become a headless army. Now the order is given: fall on them from the fort and the passes before they can form.",
+        "choices": [
+          {
+            "id": "fall-on",
+            "label": "Fall on the camp with the fort's men",
+            "summary": "Strike the disordered host at once, from the heights.",
+            "consequence": "You come down with the colours, and the panic is all one way. The Bijapur force has no general, no order — only tents, treasure and road. By evening the passes are full of fugitives and your own men laden with what a great campaign had carried up the hills. Never again will a sultanate dismiss Swarajya as a band of hill robbers.",
+            "stateDelta": { "mobility": 2, "resources": 2, "safety": -3 },
+            "historicalContext": "The outcome of 10 November 1659 — the general's death and the rout of his army, with the high passes sealing the disaster — is attested across the sources; the precise events of the meeting itself remain debated.",
+            "sourceId": "sg-afzalkhan",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "seal-passes",
+            "label": "Seal the passes first, strike at the retreat",
+            "summary": "Deny the enemy every way out, then harvest the retreat.",
+            "consequence": "Your company takes the western defile just in time: the fugitives heading for the Konkan meet a wall of pikes in a fold of the hills. The retreat becomes a rout that carries nowhere safe. Some say you let treasure escape through a side path to save speed — but no one who sealed the pass at sunset doubts what you did.",
+            "stateDelta": { "safety": 2, "connections": 1, "resources": 1, "mobility": -1 },
+            "historicalContext": "The narrow passes of the ghats made retreat as deadly as defeat for the Bijapur forces — the same terrain advantage the movement used again and again.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-3"
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "day": "Stage 3",
+        "title": "The Mountain Keeps Its Name",
+        "description": "Three days later, the valley is quiet. The prisoners are being ransomed or let go; the captured war-treasure is being counted; and the news is already riding on every road — to the Konkan ports, to Bijapur, to the empire. One general is dead, a host is gone, and a new power stands before the Deccan as what it always said it was: sovereign of its own country.",
+        "choices": [
+          {
+            "id": "garrison",
+            "label": "Garrison the captured ground",
+            "summary": "Hold what the win has opened — the road to the Konkan.",
+            "consequence": "You are ordered forward with the first garrisons sent toward the coast, holding the captured passes and towns that the victory laid open. Swarajya gains its sea-facing provinces, and your name is written in the grants that parcel out the new country. The battle's fruit is land, and land is its own kind of loyalty.",
+            "stateDelta": { "connections": 2, "safety": 1, "mobility": -1 },
+            "historicalContext": "After Pratapgad the movement advanced toward the Konkan coast, gaining ports and revenues — the documented territorial result of the campaign.",
+            "sourceId": "sg-sarkar",
+            "end": true
+          },
+          {
+            "id": "carry-token",
+            "label": "Carry the first news to the country",
+            "summary": "Be the man who brings the word of the victory home.",
+            "consequence": "You ride the ghats with the news, and the valleys throw open their doors to you — grain, water, blessings, and the questions of every chieftain who wants to know if it is truly over. You learn, riding that road, that news is a weapon the movement will keep using with as much care as any siege.",
+            "stateDelta": { "information": 2, "mobility": 2, "resources": 1 },
+            "historicalContext": "News of the victory spread rapidly and shaped the movement's reputation across the Deccan; the reporting of events was itself a political act of the period.",
+            "sourceId": "sg-afzalkhan",
+            "end": true
+          },
+          {
+            "id": "bury-fallen",
+            "label": "Bury the fallen and tend the wounded",
+            "summary": "See to the accounting of the dead, friend and foe.",
+            "consequence": "You spend the days after the fight with the surgeons and the priests, naming the dead, mending the wounded, and burying the strangers who died for a general they would not memorialise. A soldier remembers the victory in banners; you remember it in the quiet of the ground where friends and enemies lie equally. The country is safer, and it is also poorer — and you carry both truths with you.",
+            "stateDelta": { "information": 1, "safety": -1, "connections": 2 },
+            "historicalContext": "War's human cost — dead, wounded and displaced across the countryside — is part of the documented record of the campaigns, even where specific casualty numbers are not precisely known.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "The Pass Remembered",
+      "text": "You were one soldier among hundreds on a mountain that decided the fate of a country. The meeting in the hollow, the camp thrown into confusion, the passes sealed — the details would be argued over for centuries. What you know, from where you stood, is simpler: an army sent to erase your people from the hills was erased instead. After that day, when the drums of the Deccan spoke of the Maratha power, they spoke of an enemy that had become a nation.",
+      "lessons": [
+        "Terrain and the high passes were the movement's decisive advantage.",
+        "The outcome of 10 November 1659 is documented; the events of the meeting itself are debated between sources.",
+        "The victory opened Swarajya's expansion toward the Konkan coast.",
+        "In a raiding, mobile army, shock and speed mattered more than numbers."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Pay, powder and stores" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Allies, envoys and loyalty" }
+    ]
+  },
+  {
+    "id": "soldier-panhala-1660",
+    "periodId": "maharashtra-17th-century",
+    "perspectiveId": "soldier",
+    "storyId": "panhala-siege-escape",
+    "roleLabel": "The Soldier",
+    "title": "The Rain Falls, the Gate Opens",
+    "tagline": "July 1660 — the besieged fort of Panhala",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual. The meters below are a gameplay device, not a historical score.",
+    "intro": {
+      "youAre": "You are a soldier of the garrison inside the great fort of Panhala, blockaded for months by a Bijapur army under Siddi Jauhar. Food is running short, the monsoon has turned the world to water, and tonight your leader intends to slip through the enemy's lines.",
+      "where": "Panhala Fort, Kolhapur",
+      "when": "A July night, 1660",
+      "context": "The blockade has tightened since March. Siddi Jauhar's camps ring the fort; every route out is watched. The escape that is being prepared will move not by force but by timing and terrain — and the foe must not learn of it until the party is gone."
+    },
+    "narrative": [
+      "The rain is the only friend that will move tonight.",
+      "A fort is a promise: as long as men hold the wall, the country below still has a name.",
+      "If the escape is to work, every step must be as quiet as the drop of rain on stone."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Stage 1",
+        "title": "The Hungry Walls",
+        "description": "Rations are down to a handful. Siddi Jauhar's lines circle the mountain, and a message has returned from the search for a way out: there is a route, but it passes close to the enemy watch-fires and crosses the worst ground of the ghats. The captains are told tonight may be the night.",
+        "choices": [
+          {
+            "id": "quiet-gate",
+            "label": "Silence the gate and muffle the party",
+            "summary": "Prepare a silent departure that the camp will not hear.",
+            "consequence": "The gate is oiled, the horses wrapped, every bell silenced. Word is passed man to man without a horn or a shout. When the wicket swings in the downpour, the enemy hears nothing but the rain — and the first the camp knows of the escape is the dust (or the mud) of the morning after.",
+            "stateDelta": { "information": 2, "mobility": 2, "safety": -1 },
+            "historicalContext": "The documented escape of 13 July 1660 was conducted by night in heavy rain, using a little-known route — precisely the kind of terrain-dependent, secretly-arranged movement the hill forces excelled at.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "false-fire",
+            "label": "Light decoy fires to hold the enemy's eye",
+            "summary": "Send part of the garrison to draw the watch the other way.",
+            "consequence": "Feints at the eastern wall pull the enemy's watches and a couple of their pickets onto false ground. The main gate opens while they are looking the wrong way, and the escape party is away down the west face. The decoys slip back behind the walls before dawn — tired, breathing hard, and quietly proud.",
+            "stateDelta": { "connections": 2, "safety": 1, "mobility": 1, "resources": -1 },
+            "historicalContext": "Deception, feints and diversions were standard tools of the hill warfare documented across the campaigns; a sleepless or misdirected enemy was worth a whole garrison of extra men.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "forced-march",
+            "label": "Move fast and trust the mountain legs",
+            "summary": "Abandon stealth for speed — outrun the camp's response.",
+            "consequence": "The party moves with the freedom of men bred in the ghats, eating distance in the dark. The pursuit is slower — harnesses catch, horses flounder, orders shout across the wet blackness. You gain the head start, but the risk was real: one stumble, one mis-sound, and the whole gamble would have collapsed into a running fight in the dark.",
+            "stateDelta": { "mobility": 3, "safety": -3, "resources": 0 },
+            "historicalContext": "The movement's soldiers were famed for mobility in the ghats; speed was a form of defence even against far larger forces, as documented in the campaigns of the 1660s.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-2"
+          }
+        ]
+      },
+      {
+        "id": "day-2",
+        "day": "Stage 2",
+        "title": "The Pursuit",
+        "description": "Day breaks grey and wet. The alarm has gone up behind you — tracks found, horns blown, a detachment of horsemen and infantry hurrying onto your trail. Ahead lies the long road to Vishalgad, and between you and it there is a defile where a small party could stop an army — or be caught and destroyed.",
+        "choices": [
+          {
+            "id": "rearguard",
+            "label": "Volunteer for the defile",
+            "summary": "Take a chosen few and hold the pass while the rest rides on.",
+            "consequence": "You serve the rearguard in the defile, and you learn what a handful of men can mean when the ground is theirs. The pursuit surges, breaks, and surges again, and each time the pass holds. By the time the leading rider of the party reaches Vishalgad, the defile has cost the pursuit its afternoon — and cost the rearguard its bravest. Several do not walk out; the memory of the pass keeps them for you.",
+            "stateDelta": { "safety": -4, "connections": 3, "mobility": 1 },
+            "historicalContext": "The action at Ghod Khind (Pavankhind) — a rearguard stand in a defile that covered the escape to Vishalgad, and in which Baji Prabhu and his brother fell — is the documented core of the flight, even as the chronicles colour the details.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "split-trail",
+            "label": "Split the party to confuse the chase",
+            "summary": "Send a false group one way to draw pursuit off the true road.",
+            "consequence": "Your group takes the false track, dragging folds of cloth through the mud and leaving every sign the hunters expect. The pursuit follows you for hours into a dead valley before the ruse is found — and by then the true party is far ahead. You rejoin at the rendezvous with your skin, and a new story to tell about the mud.",
+            "stateDelta": { "safety": 1, "information": 2, "mobility": 1 },
+            "historicalContext": "Decoying and misleading pursuit was a practiced art in the Deccan's guerrilla warfare and is described in the period's accounts of fast-moving columns.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "turn-and-check",
+            "label": "Turn and check the pursuit at the ford",
+            "summary": "Hold the crossing long enough to break the chase's nerve.",
+            "consequence": "You make a stand at a rain-swollen ford, and the first horsemen who press into the water pay dear for it. The pursuit's captains call a halt to count their losses, and the halt stretches into delay. When the army finally crosses, the trail is hours cold — the march of a people's leader into the hills has become, in one stroke, a successful retreat.",
+            "stateDelta": { "safety": -2, "information": 1, "resources": 0, "connections": 1 },
+            "historicalContext": "Delaying actions at natural bottlenecks — fords, defiles, passes — recur throughout the Raiding warfare of the period and were a core tactical necessity for smaller forces.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-3"
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "day": "Stage 3",
+        "title": "Vishalgad and Beyond",
+        "description": "The fort of Vishalgad appears through the rain, and the escape is complete. Behind you, the pass tells its story in the silence of those who did not come through. The blockade of Panhala has produced, instead of a captured king, a legend of a night march and a mountain kept against an army. The country will feed on this for years.",
+        "choices": [
+          {
+            "id": "hold-refuge",
+            "label": "Stand the defence of the refuge",
+            "summary": "Hold Vishalgad and the surrounding hills until the siege is lifted.",
+            "consequence": "You take post on the walls of the refuge while the pursuit camps sullenly below. Provisions, powder and patience carry the weeks; a detachment sent from the rest of the country finally clears the approaches, and the siege of the escape dissolves. When you ride down at last, the country opens to you as to men who have come back from the dead.",
+            "stateDelta": { "safety": 2, "connections": 2, "resources": -2, "mobility": -1 },
+            "historicalContext": "After reaching Vishalgad, the escape party and the relief directed by the movement secured the position; the 1660 campaign ended without the movement's leader being captured.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          },
+          {
+            "id": "spread-news",
+            "label": "Spread word of the escape to the country",
+            "summary": "Ride ahead so the valleys know their leader is alive.",
+            "consequence": "You carry the news across the valleys, and the effect is like water in a dry field: everywhere the people hear their leader slipped free of the great siege, hope returns with the rain. The story of the pass is told and retold until it passes into the memory of the whole country — becoming, in time, one of the founding tales of the Maratha spirit.",
+            "stateDelta": { "information": 2, "mobility": 2, "resources": 1 },
+            "historicalContext": "The flight from Panhala became a celebrated tradition of the movement; the transmission of such stories was itself a documented feature of how the Maratha country remembered its founding era.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          },
+          {
+            "id": "remember-dead",
+            "label": "Tend the fallen of the pass",
+            "summary": "Return to the defile to honour those who did not come through.",
+            "consequence": "You walk the pass again in the quiet weeks after, counting the marks of the fight and marking the ground where the rearguard's captains died. What you find — the torn cloth, the spent weapons, the silence — you carry home as a kind of scripture. In the years that follow, when they raise a shrine and a story at Pavankhind, you will be among the men who can testify: it was true, and it was as costly as they say.",
+            "stateDelta": { "information": 2, "connections": 1, "safety": -1, "resources": -1 },
+            "historicalContext": "The memorialisation of Pavankhind — in tradition, story and later inscription — is itself part of the historical record of how the flight was remembered.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "The Defile That Saved a Nation",
+      "text": "Every account of the flight from Panhala agrees on the shape of it: a leader who gambled his life on a night march, and a rearguard who gave theirs in a defile so that the rest could live. The rain, the mud, the pass — these were not scenery. They were the difference between a captured king and a legend. You walked out of that July with the mud of the ghats on you, and with the knowledge that some walls are not made of stone.",
+      "lessons": [
+        "The night escape of 13 July 1660 (traditional date) turned near-defeat into survival.",
+        "The rearguard stand at Ghod Khind — Pavankhind — cost the lives of Baji Prabhu and his brother.",
+        "Terrain knowledge and deception were the movement's greatest weapons against larger armies.",
+        "The story of the flight became one of the founding memories of the Maratha country."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Grain, powder and stores" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Friends and fidelity" }
+    ]
+  },
+  {
+    "id": "farmer-torna-1646",
+    "periodId": "maharashtra-17th-century",
+    "perspectiveId": "farmer",
+    "storyId": "torna-beginning-expansion",
+    "roleLabel": "The Farmer",
+    "title": "The Fort Above the Field",
+    "tagline": "c. 1646 — a valley below Torna Fort",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual. The meters below are a gameplay device, not a historical score.",
+    "intro": {
+      "youAre": "You are a cultivator in the valley beneath Torna Fort. For a generation your fields have paid revenue to the officers of the sultanate's commandants, and the fort above you has changed governors without ever changing your life. Now word spreads that a young lord of the neighbourhood is taking the high places — and that he promises to govern better than those who came before.",
+      "where": "A valley below Torna Fort, Pune hills",
+      "when": "c. 1646",
+      "context": "The fort of Torna has fallen into the hands of Shivaji — by persuasion and surprise, the accounts say. The change of lordship on the hill above may change the demands on your field below: who will collect, at what rate, and whether the new men are better or worse for the village."
+    },
+    "narrative": [
+      "The fort looks down on the valley, and tor the valley the fort has always been the tax-gatherer's weather.",
+      "A new master on the hill is like a new monsoon: everyone hopes, nobody knows.",
+      "The clever farmer listens more than anyone and commits less than anyone."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Stage 1",
+        "title": "A New Flag on the Summit",
+        "description": "The banner on Torna changes, and the commandant's deputy rides down to take the tallies of the villages. There is talk that the new lord will leave fields alone and tax only trade; there is also talk that he needs grain for a fort full of men. Either way, the harvest is coming, and the collector is on the road.",
+        "choices": [
+          {
+            "id": "wait-listen",
+            "label": "Wait, listen, and keep your grain in the field",
+            "summary": "Hold off committing until the new collector's terms are known.",
+            "consequence": "You keep the harvest standing a day longer than prudence allows and send your sons to the well-side and the market to see who arrive. Whenthe collector's deputy comes, you know already what he will ask — and you negotiate, village by village, from the strength of having seen him coming. The new lord's first revenue round is gentler than the old one's last.",
+            "stateDelta": { "information": 2, "resources": 1, "safety": 0 },
+            "historicalContext": "Villages learned to read a change of lordship through its first revenue demands; the terms and rates of collection were the practical face of any new power for the countryside.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "pledge",
+            "label": "Pledge grain to the new fort",
+            "summary": "Offer supplies openly, and ask for protection from raiders.",
+            "consequence": "You deliver grain through the summer, marked in the new registers, and receive a written promise of protection. When a band of raiders descends from the ghats, officers sent from the fort do answer — the promise is honoured. The village pays, but it also sleeps; and next season, when the old sultanate sends a collector to test the new lord, your name is in the book of those the fort protects.",
+            "stateDelta": { "resources": -2, "safety": 2, "connections": 1 },
+            "historicalContext": "The early movement's legitimacy rested on the promise of better and fairer government; protection for villages was the concrete form that promise took, even where its consistency should not be overstated.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "hide-store",
+            "label": "Hide a share of the harvest in the hills",
+            "summary": "Bank a surplus against whichever master turns out worse.",
+            "consequence": "You stash grain in a cave your grandfather marked, against the day when a bad year follows a changing ruler. The village survives the next requisition with a skimpy look to it — and the stored grain feeds the household in the late summer when others scrape. The hiding costs you a little honour and a few lies, and buys you the rarest thing in the valley: a margin.",
+            "stateDelta": { "resources": 2, "safety": -1, "connections": -1 },
+            "historicalContext": "Hoarding and concealment of grain were standard village defences against requisition in the war-torn Deccan of the 1600s, documented across the region's revenue history.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-2"
+          }
+        ]
+      },
+      {
+        "id": "day-2",
+        "day": "Stage 2",
+        "title": "The Campaign Season",
+        "description": "The new power rides out on its first campaigns, and the valleys around you fill first with its own men and then — after word of the fights — with fugitives and rumour. Soldiers march past the fields; your best pair of bullocks is eyed twice. Every village must decide how much to offer, how much to hide, and how to stay alive between armies.",
+        "choices": [
+          {
+            "id": "furnish",
+            "label": "Furnish carts and forage to the new army",
+            "summary": "Support the camp locally and accept its papers.",
+            "consequence": "Your carts and grass feed the column through the season, and the officers write you a chit against future revenue — honoured, to everyone's surprise, at the next settlement. The burden is real but regular, and the village learns that under this flag, an army takes what it needs WITH a receipt. Some call it heavy; you call it legible.",
+            "stateDelta": { "resources": -2, "connections": 2, "information": 1 },
+            "historicalContext": "Armies requisitioned carts, fodder and grain; the movement's administration is associated with more orderly revenue and written obligations, though records of actual practice are uneven.",
+            "sourceId": "sg-sardesai",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "leave-road",
+            "label": "Move the precious stock off the road",
+            "summary": "Drive the best cattle to kin in a side valley until the march passes.",
+            "consequence": "The cattle spend the season with a cousin in a fold of the hills, out of the column's way, and your fields are worked by hand and patience. When the army moves on, the stock returns — fat, in its way, and alive. The technique of 'reading the road' keeps the household intact while the country moves past it.",
+            "stateDelta": { "resources": 1, "mobility": 1, "safety": 1, "connections": 1 },
+            "historicalContext": "Moving livestock and moving households to kin was a documented strategy of farming communities during the campaigns that crossed the Deccan.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "refuse-flat",
+            "label": "Refuse the requisition and hide the carts",
+            "summary": "Pretend you have nothing, and hope the column passes.",
+            "consequence": "The ruse holds for a day, and then a search turns the barn's loosened axle into proof of the lie. The carts go anyway — with a fortnight's fury added to the taking. Nothing is killed, but the grain store is thinner and the officers' memory of this valley is warm. In a year of war, refusing has a price; you pay it, and you remember it.",
+            "stateDelta": { "resources": -3, "safety": -2, "information": 1 },
+            "historicalContext": "Villages that refused requisitions drew searches and confiscations; the balance between hospitality, concealment and refusal was the practical politics of every valley.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-3"
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "day": "Stage 3",
+        "title": "The Year After",
+        "description": "By the following season, the new power has held the hill through a full round of sowing and harvest, and the revenue registers show a steadier hand than the sultanate's commandants ever offered. The fort above the field is now a settled part of the skyline — and every village in the valley is asking the same question: has this lordship earned its place over the field, or is it only the old wolf in a new flag?",
+        "choices": [
+          {
+            "id": "stay-plant",
+            "label": "Put down seed and trust the new order",
+            "summary": "Plant for a settled future under the new master.",
+            "consequence": "You sow your best fields early, borrow seed, and bet on the new order's regularity. The rains come, the harvest is real, and the new collectors keep their promised rates. By the end of the season the fort above the field is no longer a stranger's roof but, in its way, your own government's — and the valley's confidence in it spreads with the seed.",
+            "stateDelta": { "resources": 2, "information": 1, "connections": 1 },
+            "historicalContext": "The movement's early success depended on convincing the countryside that its rule was better — more regular, less rapacious — which the documented revenue experiments partially delivered.",
+            "sourceId": "sg-sardesai",
+            "end": true
+          },
+          {
+            "id": "balance",
+            "label": "Keep a foot in both worlds",
+            "summary": "Pledge lightly to the fort and quietly to the old order's contacts.",
+            "consequence": "You pay the new collectors their due and keep quiet letters open toward the old sultanate's networks. It costs you a little honour and a few meetings in barns, and it buys the household insurance against whichever tide turns. For a farmer, survival is not a banner; it is a crop in the barn and a son alive. This is the wisdom of the valley, and you live it.",
+            "stateDelta": { "safety": 1, "resources": 1, "connections": 1, "information": 1 },
+            "historicalContext": "Villagers and village headmen commonly kept relations with more than one authority while it was possible; such multiple loyalties are documented in the revenue histories of contested Deccan territories.",
+            "sourceId": "sg-sarkar",
+            "end": true
+          },
+          {
+            "id": "petition",
+            "label": "Petition the fort for a written rate",
+            "summary": "Ask the new rulers to fix the village's demand in writing.",
+            "consequence": "You walk up the mountain and stand in line before the fort's office, and — to the astonishment of every elder — a written paper comes back naming the village's fixed dues. It is not a promise of paradise; it is a promise of predictability, and in the Deccan of the 1600s predictability was worth more than gold. The paper becomes the village's talisman and the seed of its loyalty.",
+            "stateDelta": { "information": 2, "connections": 2, "resources": 0 },
+            "historicalContext": "Written settlement of revenue demands — making the state legible and bounded — was among the most valued innovations associated with the rising Maratha administration.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "The Fort Becomes a Roof",
+      "text": "For the cultivator, the change of lordship on the hill was not a battle but a weather system: it altered the rain of demands, the timing of the collector, the safety of the harvest. The young lord who took Torna and promised steadier government was, for once, as good as a written line. A power that asks only what it has named, and protects what it has promised, earns the seed of the valley — and the valley, sowing, sows loyalty with the wheat.",
+      "lessons": [
+        "For the countryside, a change of ruler meant a change of revenue — the practical face of every lordship.",
+        "The early movement traded on the promise of fairer, more regular government.",
+        "Villages used concealment, kin networks and written obligations to survive contested rule.",
+        "Documented revenue practice is the ground on which the movement's legitimacy was really built."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Grain, cattle and stores" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Ties that help in need" }
+    ]
+  },
+  {
+    "id": "merchant-surat-1664",
+    "periodId": "maharashtra-17th-century",
+    "perspectiveId": "merchant",
+    "storyId": "surat-campaign-1664",
+    "roleLabel": "The Merchant",
+    "title": "The Port with No Walls",
+    "tagline": "January 1664 — the great port of Surat",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual. The meters below are a gameplay device, not a historical score.",
+    "intro": {
+      "youAre": "You are a merchant with a shop and a warehouse in Surat — the richest port of the Indian Ocean's western side. Your goods, your credit and your family's future sit in the lanes around you. And this January, word is racing down the road that a Maratha army out of the Deccan is marching on the town.",
+      "where": "Surat, the Mughal emporium on the Gujarat coast",
+      "when": "January 1664",
+      "context": "Surat has no proper walls. Its wealth is defended by the sea, by the Mughal name, and by the assumption that no one would dare. The Deccan's new power, three hundred miles of bad road away, has just disproved the assumption. Traders, factors and shroffs all speak of flight; the town's protections are about to be tested."
+    },
+    "narrative": [
+      "Credit is a rumour, and rumour is now the only credit that works.",
+      "A port's true walls are the confidence of its merchants — and confidence has just taken the road south.",
+      "Somewhere between the demand to save the goods and the need to save the family, every merchant in Surat must choose."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Stage 1",
+        "title": "The Word on the Road",
+        "description": "The first riders reach the gate with alarmed faces: an army has crossed the passes, moving swiftly, taking supplies and not pausing. The town's notables meet in the coffee-house lanes; some merchants have already packed wives and ledgers toward the ships. The question is before every trader's door — quick passage to safety, or stay and guard the stock?",
+        "choices": [
+          {
+            "id": "stay-guard",
+            "label": "Stay and guard the stock",
+            "summary": "Remain with the warehouse and see which way the storm turns.",
+            "consequence": "You stay, and in the days that follow you are among the handful who can still move goods when the raid hits — and among the handful who are required to. Your warehouse loses a heavy share, but your standing suffers nothing, for the town remembers who remained while others fled. In the reckoning after the raid, presence becomes reputation.",
+            "stateDelta": { "connections": 2, "resources": -3, "safety": -2 },
+            "historicalContext": "The raid of January 1664 fell on a largely unwalled town; merchants' accounts, English factory letters and Persian chronicles all record the sack and its costs.",
+            "sourceId": "sg-surat",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "shift",
+            "label": "Shift your best goods to the hire-boats",
+            "summary": "Move the movables out on the river while there is still time.",
+            "consequence": "Under last light you transfer your finest bales and your ledgers onto boats bound upriver. The raid finds your warehouse half-empty, and your family's core capital survives — at the price of weeks in the reeds and a season of your trade's goodwill where you laded goods without permission. Survival is a kind of solvency, but it does not always pay interest.",
+            "stateDelta": { "resources": 2, "safety": 1, "mobility": 1, "connections": -1 },
+            "historicalContext": "Moving goods onto boats and toward the hinterland was a documented merchant response to raiding on the coast; the monsoon rivers and creeks were used as escape routes.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "factor",
+            "label": "Cultivate the fort's and the factory's men",
+            "summary": "Build relations with whoever might protect — or ransom — your goods.",
+            "consequence": "You spend the days before the raid close to the English factory and the qazi's circle, making yourself known, useful and remembered. When the town falls, the factory's compound holds a set of people whose names matter later — and your name is among them. You lose goods; you gain a network that outlasts the year's losses.",
+            "stateDelta": { "connections": 3, "resources": -1, "information": 2 },
+            "historicalContext": "European factory compounds and prominent local households were the focus of attempts at protection during the sack, as the English records themselves show.",
+            "sourceId": "sg-surat",
+            "nextStageId": "day-2"
+          }
+        ]
+      },
+      {
+        "id": "day-2",
+        "day": "Stage 2",
+        "title": "The Taking of the Town",
+        "description": "The army is in the lanes. Shops are broken, warehouses emptied, the great houses stripped, and even the European factors' chests are being carried off. In the chaos, every merchant must decide how to meet the raiders: hide further, negotiate, or move among the soldiery and buy back what can be bought.",
+        "choices": [
+          {
+            "id": "hidevault",
+            "label": "Hide the silver in the false floor",
+            "summary": "Conceal the last bullion where no search will reach.",
+            "consequence": "The false floor under the storeroom holds through the searches that turn over the house twice. When the army leaves, you are one of the thinner but solider merchants of the port — and the first to re-open a reliable line of credit in a town where everyone else's word is in ashes. Hidden silver becomes visible standing.",
+            "stateDelta": { "resources": 2, "safety": -1, "information": 1 },
+            "historicalContext": "Merchants concealed bullion and records below floors and in walls during the sack; the survivors' capacity to re-issue credit was crucial to Surat's recovery.",
+            "sourceId": "sg-surat",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "redeem",
+            "label": "Redeem goods directly from the soldiers",
+            "summary": "Move among the raiders and buy your own stock back.",
+            "consequence": "You pass among the soldiery buying back your own bales at a fifth of their true worth — a bitter arithmetic, and a hazardous one, for the soldiers respect no precedent of ownership. You recover a slice of your goods for a fraction, and the loss is survivable. It is also, you learn, how the town will be rebuilt: bit by bit, from ruin-bought returns.",
+            "stateDelta": { "resources": 1, "safety": -3, "information": 1 },
+            "historicalContext": "After sacks and raids, merchants commonly bought back plundered goods from the soldiery — a practice recorded in the literature of Indian Ocean ports under attack.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "seek-fort",
+            "label": "Plead for the town's protection with the raiders' officers",
+            "summary": "Use your standing to bargain for an exemption for certain houses.",
+            "consequence": "You face the officers' captains with gifts and eloquence, and secure a mark on a few compounds — your own and your kin's — that spares them the worst. The town learns the mark is as good as a wall. From the ashes you emerge as a broker between worlds: the man who could talk to the new power. In the years that follow, that is worth more than the lost bales.",
+            "stateDelta": { "connections": 3, "resources": -2, "safety": 0 },
+            "historicalContext": "The raid was followed by negotiations, ransoms and the payment of protection arrangements; mediators who could speak to the Deccan power became valuable figures in Surat's politics.",
+            "sourceId": "sg-surat",
+            "nextStageId": "day-3"
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "day": "Stage 3",
+        "title": "After the Fire",
+        "description": "The army has gone, back over the passes with its treasure. Surat is poorer, smokier, and humbler; the Mughal governor is sending dispatches all the way to the court, and the European factors are demanding indemnities that will be argued over for a decade. The town must rebuild its credit, its quays and its belief in itself. Merchants who survive the winter will define what the port becomes.",
+        "choices": [
+          {
+            "id": "reopen",
+            "label": "Re-open early and lend to the rebuild",
+            "summary": "Bet on the port's recovery by resuming credit at once.",
+            "consequence": "You are among the first to unboard and to honour old debts while your own are still being counted. The gesture is remembered; within a season your name heads the lists of the town's sound men, and the flow of trade, like water, reoccupies the channel you kept open. Leaders in the market, as on the land, are the ones who re-sow first.",
+            "stateDelta": { "resources": -2, "connections": 3, "information": 1 },
+            "historicalContext": "Surat recovered its trade remarkably quickly after 1664 in historical terms; the early resumption of credit by surviving merchants was the mechanism of that recovery.",
+            "sourceId": "sg-surat",
+            "end": true
+          },
+          {
+            "id": "invest-defence",
+            "label": "Invest in the town's future walls",
+            "summary": "Press the notables to build the protection the port never had.",
+            "consequence": "You put your name and your purse behind the building of fortifications and the stationing of a garrison, in coalition with the factors who suffered the same loss. The walls rise slowly, in the arguments of committees, and eventually the port has a strength to match its pride. The next raid, years later, finds Surat a harder target — and your children inherit a better defended name.",
+            "stateDelta": { "resources": -2, "safety": 2, "connections": 2 },
+            "historicalContext": "After 1664 the question of Surat's defences became a live political issue, and the town's vulnerability was a standing theme in the English factory's complaints.",
+            "sourceId": "sg-surat",
+            "end": true
+          },
+          {
+            "id": "diversify",
+            "label": "Diversify the routes — the sea and the Deccan",
+            "summary": "Open trade toward the new power's ports instead of only the Mughal road.",
+            "consequence": "You begin, cautiously, to send factors toward the Konkan outlets that Swarajya's coast now commands — diversifying your routes so that no single lord can take everything you are. Some call it trading with the raiders; you call it reading the map as it is. In time the new ports grow into legitimate harbours, and you are standing where the old and the new roads meet.",
+            "stateDelta": { "information": 2, "resources": 1, "connections": 2, "safety": -1 },
+            "historicalContext": "The growth of the Konkan ports after the movement reached the coast created new commercial opportunities that traders and pilots gradually exploited.",
+            "sourceId": "sg-sardesai",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "The Ledger of the Raid",
+      "text": "January 1664 burned up a great deal of Surat's wealth and pride, and the merchants who weathered it wrote the port's next chapter. The raid announced a new power to the Indian Ocean — and it taught every trader on that coast a hard lesson about walls, credit and the difference between knowing where wealth lies and being able to hold it. In the aftermath, the survivor's craft was the same as always: measure the loss, re-sow the trust, and read the map as it is, not as you wish it were.",
+      "lessons": [
+        "The sack of Surat in January 1664 is documented in English factory letters and Persian chronicles.",
+        "Un-walled wealth was hostage to any power able to reach it.",
+        "The raid put Swarajya on the map of Indian Ocean politics.",
+        "Credit and trust were the true walls of the port — and the first to be rebuilt."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Goods, bullion and credit" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Allies and credit-names" }
+    ]
+  },
+  {
+    "id": "artisan-rajgad-1650",
+    "periodId": "maharashtra-17th-century",
+    "perspectiveId": "artisan",
+    "storyId": "rajgad-building-new-power",
+    "roleLabel": "The Artisan",
+    "title": "The Building of the Mountain",
+    "tagline": "The later 1640s–1650s — building at Rajgad",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual. The meters below are a gameplay device, not a historical score.",
+    "intro": {
+      "youAre": "You are a master builder — a mason and carpenter of the hill country, skilled in stone, timber and the watercraft of tanks and channels. A new sovereign-in-the-making has taken the great plateau-fort of Rajgad and wants it rebuilt as a capital: gates, reservoirs, palaces, workshops. Your craft is now a matter of state.",
+      "where": "Rajgad, the mountain capital",
+      "when": "The late 1640s into the 1650s",
+      "context": "The fort's plateau must be transformed: great gates fitted, cisterns and tanks dug and lined, dwellings and storehouses raised, and the crown walls made worthy of a kingdom that is still being invented. For a builder, this is a generation's work, and it begins with a summons."
+    },
+    "narrative": [
+      "Every fort the enemy surrenders, a craftsman must build.",
+      "Stone is patient; rulers are not.",
+      "The water that fills a tank on a mountain summit is saved by the hands that line its bed."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Stage 1",
+        "title": "The Summons",
+        "description": "Word reaches your town that the new lord of the hills wants masters — masons, smiths, timber-men — at Rajgad, and will pay in grain and coin, with exemption of dues for the season's work. Half the trade calls it a trap; half calls it the chance of a generation. The mountain is a long walk with all your tools.",
+        "choices": [
+          {
+            "id": "answer",
+            "label": "Go up with your tools",
+            "summary": "Answer the summons and drive a fair bargain.",
+            "consequence": "You climb to Rajgad and stand on the plateau, and the work is as real as promised: gates to be set, cisterns to be bound, workshops to be framed. You bargain hard — grain now, coin when the gate opens — and the officers keep their word. Your name enters the fort's roll of builders, and the wall you raise will carry your hand's mark.",
+            "stateDelta": { "connections": 2, "resources": 2, "mobility": -1 },
+            "historicalContext": "The fortifications attributed to Shivaji's reign required large construction work — skilled and unskilled labour drawn from the surrounding areas — which is documented in the material record of forts like Rajgad.",
+            "sourceId": "sg-sardesai",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "train",
+            "label": "Send apprentices first, gauge the terms",
+            "summary": "Commit your young men, and join once the terms prove good.",
+            "consequence": "Your apprentices climb first and return with honest reports: the pay is regular, the officers are straight, and the work is worthy. You follow, a season late and with a pocket of questions answered. The fortress gains your craft at full strength, and you gain a position of the work without ever having to petition for it.",
+            "stateDelta": { "information": 2, "connections": 1, "resources": 1, "mobility": -1 },
+            "historicalContext": "Craft labour moved between patrons by reputation; the speed with which a fort of Rajgad's scale was built implies a substantial pool of skilled regional labour responding to the new patron.",
+            "sourceId": "sg-sardesai",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "hold-craft",
+            "label": "Stay and keep your town's craft",
+            "summary": "Work locally, and serve the mountain with goods instead of hands.",
+            "consequence": "You stay below and supply lime, timber and worked iron to the fort's buyers. Your craft feeds the summit without climbing it, and the village Trade continues while the mountain rises. When the fort's officers press for skilled hands, your name is on the list of reliable suppliers — a credit that turns to your household's protection in hard years.",
+            "stateDelta": { "resources": 2, "connections": 1, "safety": 0, "mobility": 0 },
+            "historicalContext": "Forts drew on surrounding villages for materials and support; supply contracts and requisition alike connected the new power to the craft economy of its neighbourhoods.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-2"
+          }
+        ]
+      },
+      {
+        "id": "day-2",
+        "day": "Stage 2",
+        "title": "The Work of the Plateau",
+        "description": "The mountain is a world under construction: stone hauled by ropes and winches, lime burned in great pits, timber dragged up the escarpment, and the water of the rainy season to be caught before it escapes over the edge. The schedule is the monsoon's — once the rains begin, walls must be up and cisterns lined.",
+        "choices": [
+          {
+            "id": "water-first",
+            "label": "Bind the waterworks before the walls",
+            "summary": "Dig and line the tanks and cisterns so the fort can live and siege.",
+            "consequence": "You throw your craft into the tanks, and when the monsoon comes the summit drinks — storage that in a siege is worth a thousand matchlocks. The officers understand, and your mastery of water is spoken of at the daily muster. A fort that can hold its own rain can hold its own freedom.",
+            "stateDelta": { "safety": 2, "connections": 2, "resources": -1, "mobility": -1 },
+            "historicalContext": "Water-harvesting tanks and cisterns on forts like Rajgad are among the most significant surviving engineering works of the period; their construction reflects deliberate planning for defence.",
+            "sourceId": "sg-sardesai",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "gates",
+            "label": "Set the gate workings and the crown walls",
+            "summary": "Give the fort its doors and first defence.",
+            "consequence": "The great gates take form under your hands — the strapping, the pivots, the masonry jambs, the killing-holes above. The day the first gate swings true in its socket, a cheer goes up from the labour gangs. Workmen say the gate is the fort's face, and you have given this face honour before the enemy ever comes to knock.",
+            "stateDelta": { "safety": 2, "mobility": 1, "resources": -1 },
+            "historicalContext": "The gateways and bastions of the period's forts are among their most distinctive surviving features, showing careful stone masonry and defensive planning.",
+            "sourceId": "sg-sardesai",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "craft-quarter",
+            "label": "Build the workshops and the stores",
+            "summary": "Raise the spaces where armour, powder, grain and craft will live.",
+            "consequence": "You frame the workshops and storehouses that allow the fort to work as a town: smiths under cover, grain in dry lofts, powder away from fire, and iron and timber accounted. When the sovereign arrives for a long stay, everything he needs already has a room named for it — and the officers begin to call the plateau 'the master's city'.",
+            "stateDelta": { "connections": 2, "resources": 1, "information": 1, "mobility": -1 },
+            "historicalContext": "Forts of the period functioned as administrative and storage centres with workshops, granaries and treasuries; the developed Rajgad fits this documented pattern.",
+            "sourceId": "sg-sardesai",
+            "nextStageId": "day-3"
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "day": "Stage 3",
+        "title": "The Fort That Holds",
+        "description": "Season follows season, and the summit becomes a capital. One morning you stand on the crown wall and look down over the valleys you walked up from — fields, roads and distant forts — and understand that the work of your hands has outlived the need for it to be merely useful. The mountain keeps the country. In the years ahead, your students will build other forts in its image.",
+        "choices": [
+          {
+            "id": "pass-craft",
+            "label": "Teach the next generation of builders",
+            "summary": "Pass the loot of a lifetime of craft to younger hands.",
+            "consequence": "You take sons of the craft under your eye — the level, the plumb, the discipline of the lime and the line — and when the state needs more forts raised, there are two dozen hands who can raise them properly. The craft becomes part of the country's strength, carried by people who will never hold a sword but will hold every wall that the sword protects.",
+            "stateDelta": { "connections": 3, "information": 2, "mobility": 0 },
+            "historicalContext": "The building tradition of the Maratha forts was a regional inheritance passed between generations of craftsmen; its masterwork is still visible in the forts' standing ruins.",
+            "sourceId": "sg-sardesai",
+            "end": true
+          },
+          {
+            "id": "armoury",
+            "label": "Turn your hand to the armourer's work",
+            "summary": "Shrink your craft into the weapons the walls will need.",
+            "consequence": "You learn the armourer's arts at the fort — straps, buckles, matchlock fittings, the repair of harness — and the summit's defence deepens with your forge. The price is the fine stonework you used to love. But in the years of campaign, when the fort must arm and re-arm, the officers count you with the soldiers, for your craft has become a weapon.",
+            "stateDelta": { "safety": 1, "resources": 1, "connections": 1, "mobility": -1 },
+            "historicalContext": "Forts maintained armourers and workshops for weapons and their repair; the craft production of fort-basing armies is documented in the records of the period's strongholds.",
+            "sourceId": "sg-sarkar",
+            "end": true
+          },
+          {
+            "id": "return-valley",
+            "label": "Take the summit's earnings home to the valley",
+            "summary": "Return with your due, and build the prosperity your neighbours share.",
+            "consequence": "When the term of your service is met, you go down with grain, coin and letters of exemption, and the valley gains a house rebuilt, a debt cleared, and a reputation for having sent up a master who came back whole. Other craftsmen follow your road up the mountain; the loop between the valley's skill and the summit's need grows, and the country stitlaker together by that thread.",
+            "stateDelta": { "resources": 2, "connections": 1, "safety": 1, "mobility": 1 },
+            "historicalContext": "Craft and labour moved seasonally between valleys and fort-works in the period; the rewards of fort service flowed back into housing, tools and village economies.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "The Stone That Became a Kingdom",
+      "text": "You were a builder, not a banner, and you did what every fort in the country depends on: you made the mountain hold. The tanks you lined, the gates you hung, the workshops you framed — they turned a stronghold into a capital, and a capital into the seat of a state. When the chronicles speak of Rajgad, they will speak of the sovereign who commanded it. But the stones know better. The country was also built by hands like yours, and it remembered.",
+      "lessons": [
+        "The construction works attributed to Shivaji's reign turned forts like Rajgad into functioning capitals.",
+        "Water-harvesting systems were among the most important engineering achievements of the forts.",
+        "Forts functioned as towns — workshops, granaries and treasuries as well as walls.",
+        "The 'history from below' of the Maratha state includes the un-named craftsmen who built it."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Grain, coin and materials" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Patrons and fellow craftsmen" }
+    ]
+  },
+  {
+    "id": "commoner-shivneri-1630",
+    "periodId": "maharashtra-17th-century",
+    "perspectiveId": "commoner",
+    "storyId": "birth-shivneri-1630",
+    "roleLabel": "The Commoner",
+    "title": "The Child in the Fort",
+    "tagline": "1630 — the town of Junnar below Shivneri",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual. The meters below are a gameplay device, not a historical score.",
+    "intro": {
+      "youAre": "You are a householder of Junnar, the old town that lies in the shadow of Shivneri Fort. Your life is water, grain, market and festival — and the knowledge that the fort above you can change masters without changing your work. This winter, the fort's Maratha family is awaiting a child, and the town is full of excitement, prophecy and fear.",
+      "where": "Junnar, beneath Shivneri Fort",
+      "when": "The winter of 1629–30",
+      "context": "The 1620s have been hard years in the region — famine and disease have touched the country, and the Deccan is full of the troubles of competing lords. The birth of a son to the fort's family is, for most people, a small and distant matter. For the family itself, and for the seers and servants of the fort, it will come to mean a great deal."
+    },
+    "narrative": [
+      "A town is a thing that watches: it notices who allows the markets, who keeps the roads, and who bears what name in the fort above.",
+      "No one in the market knows that the child born in the fort will be counted, later, by the whole country.",
+      "For now, the child is simply news — a lucky hour to name a festival, a reason for grain to be given."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Stage 1",
+        "title": "The Town in a Hard Winter",
+        "description": "The season is lean. The wells hold, but the grain is dear, and there is talk of sickness in the villages up the valley. At the same time the fort is alive with preparation — a birth is expected, and the town has been told the family will distribute grain in thanks. Some are for climbing to the gate for the dole; others for staying away from the crowds and the sickness.",
+        "choices": [
+          {
+            "id": "take-dole",
+            "label": "Take the fort's grain at the gate",
+            "summary": "Accept the distribution and be counted in its papers.",
+            "consequence": "You stand in the queue at the gate and receive your dole of grain, and your name is written in the distribution roll — a small document of an obscure kind, but one that binds the town to the fort's family in gratitude. In a hard winter the dole is bread; the roll is a kind of allegiance, signed in the waiting line.",
+            "stateDelta": { "resources": 2, "connections": 1, "safety": 0 },
+            "historicalContext": "Fort families and lords distributed grain on occasions of festival and rite in the 17th-century Deccan; such distributions anchored local loyalty and were recorded in period documents.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "keep-home",
+            "label": "Keep the household close and the stores hidden",
+            "summary": "Avoid the crowds; guard what little you have.",
+            "consequence": "You stay within your own walls through the lean season, bartering quietly and avoiding both the queue and the cough. The household comes through the winter intact though thin. When spring arrives you are among the neighbours with a full boxcupboard left — and among those who must explain, at every festival, why they did not go up to the fort for the dole.",
+            "stateDelta": { "safety": 1, "resources": 1, "connections": -1, "information": 1 },
+            "historicalContext": "Famine and epidemic years hit the Deccan in the late 1620s; households that could isolate and conserve survived better, a documented pattern of village response to dearth.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "carry-gift",
+            "label": "Carry a small gift to the fort's servants",
+            "summary": "Offer your goodwill in the old way — a little curd, a cloth, a blessing.",
+            "consequence": "You climb with the neighbours and offer modest gifts to the fort's people at the time of the birth, as custom holds neighbours to do. The servants remember you among the well-wishers, and in the years to come — when the fort becomes more famous and its family looks back at the days of the child — the town holds a faint claim on its goodwill that costs you nothing and warms the memory of the town.",
+            "stateDelta": { "connections": 2, "safety": 0, "resources": -1 },
+            "historicalContext": "Customary gifts and expressions of goodwill between town and fort households are recorded in the social practices of the Deccan; they formed one of the bonds of neighbourhood loyalty.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-2"
+          }
+        ]
+      },
+      {
+        "id": "day-2",
+        "day": "Stage 2",
+        "title": "The Name in the Fort",
+        "description": "The child is born — a son — and the fort rings with music and the distribution of grain and sweets to the gathering town. The seers announce the name, and the gate is opened wide for the celebration. For the town this is a few days of relief in a lean year; for you it is also a moment to decide how you will remember this house of the fort in the years ahead.",
+        "choices": [
+          {
+            "id": "join-feast",
+            "label": "Join the feast and the blessings",
+            "summary": "Take your place in the celebration, and carry its story home.",
+            "consequence": "You eat your share of the festival and carry the news to the market then next day: a son, born at the fort, given the name of a deity and blessed by the town's elders. In the retelling, the town begins to keep this child's story — the first of many tellings, for the child, as the country will learn, is carried by the people's memory as much as by any army.",
+            "stateDelta": { "connections": 2, "resources": 1, "information": 1 },
+            "historicalContext": "Birth traditions of the period involved distribution, naming rites and local celebration; the memory-tradition of Shivaji's birth became a fixture of Maratha collective identity long before the historical records were written.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "mark-omens",
+            "label": "Note the omens with the elders",
+            "summary": "Sit with those who read meanings into the child's arrival.",
+            "consequence": "You sit late with the old ones who trade omens — a fort born in a famine year, a name from the god of auspiciousness, a gate thrown open in a lean season. The elders murmur that such a birth in such a house is not an ordinary thing. You carry that murmur for the rest of your life, and in the far future, when the child's name is on every lip, you will say simply: 'I was there when he was born under the sign of a hard year.'",
+            "stateDelta": { "information": 2, "connections": 1, "resources": -1 },
+            "historicalContext": "Auspicious and inauspicious signs attended birth in the period's social world; such traditions shaped how communities remembered events before formal records existed.",
+            "sourceId": "sg-sabhasad",
+            "nextStageId": "day-3"
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "day": "Stage 3",
+        "title": "The Long County",
+        "description": "Years pass. The child grows, and stories of the young lord of the ghats begin to reach even the market of Junnar: fort taken, companions sworn, valleys brought under one name. Your own household plants, harvests and pays what it owes — sometimes to one master, sometimes to another. And then, one market day, the town of Junnar must decide what it believes about the story that grew from the infant in the fort above.",
+        "choices": [
+          {
+            "id": "tell-true",
+            "label": "Tell the town what you remember",
+            "summary": "Testify to his beginnings when the new fame reaches the district.",
+            "consequence": "You become one of the old voices who can say, of the now-famous master of the ghats, 'I saw the fort gates opened for his birth; I stood in the dole-line of his infant dole.' The town listens; memory, you discover, is a kind of property, passed from the old to the young like a well-tended field. You have done your small part to make a man into a memory.",
+            "stateDelta": { "information": 2, "connections": 2, "safety": -1 },
+            "historicalContext": "Attestation of birth and early years in local memory contributed later to the written chronicles; oral tradition was a documented vehicle for the founding narratives of the Maratha state.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          },
+          {
+            "id": "keep-name",
+            "label": "Keep your distance from the great name",
+            "summary": "Live quietly; serve the crops, not the banners.",
+            "consequence": "You watch the new fame roll past your door like weather, and keep your household to its own road — sowing, hiding, paying a little to whoever can tax, and saying little in the market about the fort. It is not disloyalty; it is the caution of a man who has seen many banners. In the end your barn and your sons survive the century's changes, which is the market's quiet answer to every empire.",
+            "stateDelta": { "safety": 1, "resources": 1, "information": 0, "connections": -1 },
+            "historicalContext": "Most commoners took no public part in the movement's rise; their lives of cultivation, commerce and caution were both the unwitnessed ground and the enduring base of the period.",
+            "sourceId": "sg-sarkar",
+            "end": true
+          },
+          {
+            "id": "story-shrine",
+            "label": "Give the memory a place in the town",
+            "summary": "Turn the seasons of the town itself toward remembering the child.",
+            "consequence": "Where you and the elders keep the story, a small place of memory takes root — a shrine or a festival day that ties the town's calendar to the fort's founding hour. It is a modest act of kinship between a town and a legend. In the centuries that follow, people will climb to places of that kind to touch the story with their own hands — and the town that first remembered will be remembered because it remembered.",
+            "stateDelta": { "connections": 3, "information": 1, "resources": -1 },
+            "historicalContext": "Sites of popular memory connected to Shivaji's birth and youth multiplied in the Maratha country, showing how a community's remembrance built the larger tradition.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "The Story the Town Kept",
+      "text": "You were nobody in the fort's history — a face in the queue, a name on a dole-roll, a neighbour at the gate. And you were everything, because the child who was born there entered the world in the arms of people like you, and the story of him was first sing in the market and the lane, not in the court. The country that came after was built of grain and stone and loyalty — and the loyalty, in the beginning, was simply this: a town that remembered the day the gates opened, and the child, and the promise of a hard year that somehow kept itself.",
+      "lessons": [
+        "Local memory and town tradition were the first records of the movement's beginnings.",
+        "The birth date of 1630 is traditional; the later history is better documented.",
+        "Ordinary people were the witnesses, not the writes, of the founding decades.",
+        "The stories of a people are a kind of fort no army takes."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Grain, stores and coin" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Family and neighbours" }
+    ]
+  },
+  {
+    "id": "commoner-coronation-1674",
+    "periodId": "maharashtra-17th-century",
+    "perspectiveId": "commoner",
+    "storyId": "coronation-raigad-1674",
+    "roleLabel": "The Commoner",
+    "title": "The Mountain Before the Crowd",
+    "tagline": "June 1674 — the roads to Raigad and the day itself",
+    "disclaimer": "FICTIONAL RECONSTRUCTION. This scenario is created for educational purposes and is based on documented historical conditions. You are playing a fictional character — it does not represent the exact life of a specific historical individual. The meters below are a gameplay device, not a historical score.",
+    "intro": {
+      "youAre": "You are a common person of the Deccan country that Swarajya has made its own. Word has passed through every town and village that the master of the mountain is to be crowned a sovereign at Raigad — and that the people are welcome on the roads, in the assembly, and at the festival of the day.",
+      "where": "The roads of the ghats and the platform of Raigad",
+      "when": "June 1674",
+      "context": "For a generation the country has known war, revenue and rumour. Now its ruler will be crowned in full public ceremony. For most people the coronation is less a matter of state than of spectacle and hope: a rare day when the people are told that a throne has at last been set in their own country, by their own hands-forged authority."
+    },
+    "narrative": [
+      "When a throne is set on a mountain, the people climb to see it.",
+      "The road to the crown passes through the villages, and the villages line it.",
+      "A country, too, must be crowned — and it is crowned by being present."
+    ],
+    "stages": [
+      {
+        "id": "day-1",
+        "day": "Stage 1",
+        "title": "The Road to Raigad",
+        "description": "Every road to the mountain is loud with movement: villages sending their notables with gifts and flowers, families walking for days to stand at the foot of a single ceremony. There is also cost — the journey takes time from the fields, and the way is crowded. The choice is plain: go up and be part of the day, or stay and hold the harvest.",
+        "choices": [
+          {
+            "id": "walk",
+            "label": "Walk up for the day",
+            "summary": "Join the pilgrimage of the ordinary people to the summit.",
+            "consequence": "You walk the ghat roads with your neighbours, singing and resting by the streams, and the climb itself becomes part of the event — a whole country climbing to see its own throne set. When you stand at the foot of the assembly, the miles are in your legs and the day in your memory, and you understand that a coronation is also a census: everyone who came is counted in the country's self-knowledge.",
+            "stateDelta": { "connections": 2, "information": 2, "mobility": 2, "resources": -1 },
+            "historicalContext": "Contemporary accounts describe a great assembly at the coronation, including a large crowd of the local people and notables; the movement's legitimacy drew visibly from the presence of the country itself.",
+            "sourceId": "sg-coronation",
+            "nextStageId": "day-2"
+          },
+          {
+            "id": "send-gift",
+            "label": "Send a gift and stay with the fields",
+            "summary": "Share in the day through a village offering, without the climb.",
+            "consequence": "Your village sends its bundle of good wishes — cloth, grain, flowers — carried up in the name of the neighbourhood, and you stay behind with the sowing and the calves. When the village's messengers return with the news and the small cloths handed back as keepsakes, the whole neighbourhood hears the day through their telling. Presence by proxy, but presence nonetheless.",
+            "stateDelta": { "resources": 1, "safety": 1, "connections": 1, "information": 1 },
+            "historicalContext": "Village participation by offering and representation was a standard way rural communities took part in distant state ceremonies, documented across the period's gift-economy politics.",
+            "sourceId": "sg-sarkar",
+            "nextStageId": "day-2"
+          }
+        ]
+      },
+      {
+        "id": "day-2",
+        "day": "Stage 2",
+        "title": "The Day on the Mountain",
+        "description": "The platform is full: nobles in their finery, officers in armour, priests chanting, drums and trumpets, and around it all the pressed-back crowd of the people, silent in a way that itself sounds like awe. The gold umbrella is raised over the throne. The crown is laid on. A name, a title, a new calendar is declared — and the mountain roars.",
+        "choices": [
+          {
+            "id": "shout",
+            "label": "Let the roar out — and carry it home",
+            "summary": "Take part with your voice in the moment of the proclamation.",
+            "consequence": "Your shout joins the roar that rolls down the mountain and the people carry it through the valleys for weeks. When you return home, you become the town's witness of the day — tillers and weavers alike gathering to hear how the gold came down on the mount, and how the country before you stood and honoured its own. The memory of the sound becomes the memory of the state.",
+            "stateDelta": { "information": 2, "connections": 2, "resources": 0 },
+            "historicalContext": "The proclamation of the Chhatrapati at Raigad in 1674 was accompanied by ceremony and celebration attested in the accounts; the aural and festive memory of the day carried forward into tradition.",
+            "sourceId": "sg-coronation",
+            "nextStageId": "day-3"
+          },
+          {
+            "id": "watch-quiet",
+            "label": "Watch quietly and remember for yourself",
+            "summary": "Hold your own counsel on a day of noise.",
+            "consequence": "You stand near the edge of the crowd and watch the ceremony with your own eyes, saying little.Weeks later, asked what it was like, you will be able to describe it with the precision of a witness rather than the colour of a caller: the gold, the crowd, the breath of the mountain held and released. Some hold the day by shouting; you hold it by keeping it. Both are ways of carrying a country's crown.",
+            "stateDelta": { "information": 2, "safety": 0, "resources": 0, "connections": 0 },
+            "historicalContext": "The number of ordinary witnesses is unknown, but the documented assembly and the later interest of the country suggest a genuinely public and remembered ceremony.",
+            "sourceId": "sg-sardesai",
+            "nextStageId": "day-3"
+          }
+        ]
+      },
+      {
+        "id": "day-3",
+        "day": "Stage 3",
+        "title": "The Country After the Crown",
+        "description": "The festival is over; the rains come; the fields are planted again. The crowning changes no single furrow, yet something has changed in how the country speaks of itself: the fortress-state now has a crowned head, and its courts, roads and names are being made anew in that light. For you and the neighbourhood, the question is quiet and practical: what will the king's peace and the king's tax mean for the coming years?",
+        "choices": [
+          {
+            "id": "furrow",
+            "label": "Plant for the king's peace",
+            "summary": "Bet the season on the promise of ordered rule.",
+            "consequence": "You sow your fields under the new sovereign's peace, and the collector comes when he says, at the rates he said, and the harvest stands its ground. The regularity of it is the miracle: a country that gives its word and keeps it. In the years that follow, when trouble comes from outside, you will find that the taxed and the protected have grown a single conviction — better one honest king of your own than many strange masters.",
+            "stateDelta": { "resources": 2, "connections": 1, "information": 1 },
+            "historicalContext": "The movement's revenue administration aimed at regularity and constraint; the practical experience of the countryside under the new state's rule shaped the loyalty documented in the period records.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          },
+          {
+            "id": "mend",
+            "label": "Mend what the wars broke",
+            "summary": "Use the peace to restore the household's line.",
+            "consequence": "You spend the settled seasons repairing what a generation of campaigns wore down: the tank, the cart, the barn, the family's standing in the village. Peace, you find, is a working material like stone or timber — you can build with it only if you use it while it lasts. By the end of the decade your holding is sounder than it has been in a lifetime, and the crowning of the mountain has, in its quiet way, bought back the furrow.",
+            "stateDelta": { "resources": 2, "safety": 1, "connections": 1, "mobility": 1 },
+            "historicalContext": "After decades of campaigns and contested rule, the consolidation of Swarajya brought a period in which the countryside could rebuild — a documented outcome even where village specifics are not individually recorded.",
+            "sourceId": "sg-sardesai",
+            "end": true
+          },
+          {
+            "id": "testify",
+            "label": "Keep a plain record of the day for the young",
+            "summary": "Leave the memory as a letter, simple and honest, for the next generation.",
+            "consequence": "You mark down the day in your own hand or your own telling — the climb, the gold, the roar — so the children of the village know that their country was crowned before their faces. When the written histories and the chronicles come later, they will not be built from nothing: behind every 'great' account stands an ordinary witness who kept the story simple and true. That is your politics, and you bequeath it.",
+            "stateDelta": { "information": 2, "connections": 2, "resources": -1 },
+            "historicalContext": "Popular memory and the later chronicles of the coronation draw on the lived tradition of the people who were present; the documentation of the event rests partly on such transmitted memory.",
+            "sourceId": "sg-sabhasad",
+            "end": true
+          }
+        ]
+      }
+    ],
+    "ending": {
+      "title": "The Crown the Country Carried",
+      "text": "The mountain held the ceremony; the country held the meaning. To the nobles it was legitimacy, to the envoys a fact to report to distant courts, and to the empire a challenge. But to the man and the woman in the crowd, it was simpler and stranger: their own country's master, crowned before their eyes, on a fort their own hands and fathers' hands had helped to raise. The crown came down to the mountain, and the crowd took it home in their voices and their memory — so that when the rulers changed and the empire came and went, the people kept the sure knowledge that a throne had once been set in their own country, and that they had been there to see it.",
+      "lessons": [
+        "The coronation of 6 June 1674 was a public, attested event with a large assembly.",
+        "The event asserted sovereignty against the sultanates and the Mughal empire.",
+        "Popular memory of the day outlived the ceremony and fed the later chronicles.",
+        "For ordinary people, the crown mattered as a promise of regular peace."
+      ]
+    },
+    "variablesMeta": [
+      { "key": "safety", "label": "Safety", "description": "Chance of avoiding harm" },
+      { "key": "resources", "label": "Resources", "description": "Grain, stores and coin" },
+      { "key": "information", "label": "Information", "description": "What you truly know" },
+      { "key": "mobility", "label": "Mobility", "description": "Freedom to move" },
+      { "key": "connections", "label": "Connections", "description": "Family and neighbours" }
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "maharashtra",
+    "regionId": "maharashtra",
+    "name": "Maharashtra",
+    "code": "MH",
+    "mode": "state",
+    "available": true,
+    "note": "The Maratha country — forts of the Western Ghats and the Deccan plateau"
+  },
+  {
+    "id": "gujarat",
+    "regionId": "gujarat",
+    "name": "Gujarat",
+    "code": "GJ",
+    "mode": "state",
+    "available": false,
+    "note": "Coming soon"
+  },
+  {
+    "id": "india",
+    "regionId": "other",
+    "name": "India",
+    "code": "IN",
+    "mode": "national",
+    "available": false,
+    "note": "National mode is not open yet"
+  },
+  {
+    "id": "world",
+    "regionId": "other",
+    "name": "India and the wider world",
+    "code": "WW",
+    "mode": "international",
+    "available": false,
+    "note": "International mode is not open yet"
+  }
+]

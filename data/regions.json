@@ -1,0 +1,65 @@
+[
+  {
+    "id": "maharashtra",
+    "name": "Maharashtra",
+    "region": "Western India",
+    "available": true,
+    "note": "17th century — Chhatrapati Shivaji Maharaj"
+  },
+  {
+    "id": "gujarat",
+    "name": "Gujarat",
+    "region": "Western India",
+    "available": false,
+    "note": "Coming soon"
+  },
+  {
+    "id": "rajasthan",
+    "name": "Rajasthan",
+    "region": "North-western India",
+    "available": false,
+    "note": "Coming soon"
+  },
+  {
+    "id": "bengal",
+    "name": "Bengal",
+    "region": "Eastern India",
+    "available": false,
+    "note": "Coming soon"
+  },
+  {
+    "id": "tamil-nadu",
+    "name": "Tamil Nadu",
+    "region": "Southern India",
+    "available": false,
+    "note": "Coming soon"
+  },
+  {
+    "id": "delhi",
+    "name": "Delhi",
+    "region": "North India",
+    "available": false,
+    "note": "Coming soon"
+  },
+  {
+    "id": "uttar-pradesh",
+    "name": "Uttar Pradesh",
+    "region": "North India",
+    "available": false,
+    "note": "Coming soon"
+  },
+  {
+    "id": "karnataka",
+    "name": "Karnataka",
+    "region": "Southern India",
+    "available": false,
+    "note": "Coming soon"
+  },
+  {
+    "id": "other",
+    "name": "Other regions",
+    "region": "Beyond India",
+    "available": false,
+    "note": "Coming soon"
+  }
+]

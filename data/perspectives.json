@@ -1,0 +1,140 @@
+[
+  {
+    "id": "ruler",
+    "role": "The Ruler",
+    "tagline": "A prince or noble building power among rival dominions.",
+    "icon": "ruler",
+    "knows": [
+      "The map of forts, passes and harvests — who holds what, and who owes what",
+      "The fragile balance between the Sultanates of Bijapur and Ahmadnagar, the Mughal empire, and the English and Portuguese ports",
+      "That legitimacy needs both an army and a ceremony: coronations, titles and seals",
+      "How quickly a desh — a homeland — can be built out of loyalty and land grants"
+    ],
+    "sees": "From the ramparts: the Western Ghats falling toward the Konkan, the plateau fields below, and every road that an army could climb.",
+    "concerns": [
+      "Building and holding fortresses that no artillery could easily take",
+      "Turning sworn companions and mavals (hillmen) into a reliable following",
+      "Keeping revenue flowing without emptying the countryside",
+      "Choosing when to negotiate and when to strike"
+    ],
+    "risks": ["Assassination", "A field defeat that dissolves loyalty", "Court intrigue and betrayal by new allies"],
+    "resources": ["Fortresses and their garrisons", "Devoted commanders", "The loyalty of the hill country"],
+    "experience": "A ruler's life in this world moved between the saddle and the court — inspecting walls, honouring captains, receiving emissaries, and writing letters that were themselves weapons.",
+    "context": "The Deccan of the 1600s was divided among the Sultanates of Bijapur and Ahmadnagar and, increasingly, the Mughal empire. A Maratha warlord could rise by seizing a fort, defending it with hill-men, and winning legitimacy through title and ceremony — the documented pattern of Shivaji's own rise."
+  },
+  {
+    "id": "soldier",
+    "role": "The Soldier",
+    "tagline": "A foot-soldier or horseman of the hill country — the maval.",
+    "icon": "soldier",
+    "knows": [
+      "The passes, streams and seasonal paths of the Sahyadri better than any map",
+      "Which forts are poorly provisioned and which commanders are alert",
+      "That a column on a narrow ghaut can be broken by boulders and fire",
+      "That pay sometimes comes in coin, sometimes in promises, sometimes in grain"
+    ],
+    "sees": "The damp breath of the hill country in the monsoon, watch-fires on distant crests, and the glint of armour moving through a defile below.",
+    "concerns": [
+      "Your family's fields while you are absent",
+      "Whether the commander you follow will hold his word",
+      "Holding a fortress against a siege with dwindling grain and powder",
+      "Returning home alive when the campaign ends"
+    ],
+    "risks": ["Death in a night assault", "Capture after a lost fort", "Disease in a rainy camp"],
+    "resources": ["Knowledge of the terrain", "Endurance in the ghats", "Comrades from the same valleys"],
+    "experience": "You moved by night, ate by campfire, and measured loyalty by whether your commanders shared your dangers — the raiding warfare of the ghats demanded speed, secrecy and trust.",
+    "context": "The mavals of Maharashtra were the valley communities that supplied Shivaji's first soldiers. Their intimate knowledge of the hill terrain was the foundation of the light, fast warfare through which forts and valleys were taken between the 1640s and 1670s."
+  },
+  {
+    "id": "farmer",
+    "role": "The Farmer",
+    "tagline": "A cultivator of the Deccan plateau or the Konkan strip.",
+    "icon": "farmer",
+    "knows": [
+      "Which lands stay moist in a dry year and which fail",
+      "The rhythm of the rains, the tank, the well and the bullock",
+      "That revenue demands can come from more than one master in the same year",
+      "That a hill war above you can empty your market and raise your prices"
+    ],
+    "sees": "Your own fields, the grazing commons, and the fort crowning the hill where soldiers move — forces that decide, from a distance, what you may plant.",
+    "concerns": [
+      "The monsoon and the harvest — whether the family will eat",
+      "Which lord's officers will collect this season, and at what rate",
+      "Losing bullocks, grain or sons to a passing army",
+      "Peace — the only truly profitable crop"
+    ],
+    "risks": ["Crop failure", "Forced requisition of grain and cattle", "Being caught between armies near a frontier"],
+    "resources": ["Land", "Plough cattle", "The web of kin and village"],
+    "experience": "Your year moved to the weight of two clocks — the monsoon and the revenue collector. Both were uncertain when rulers above you fought for hill and field.",
+    "context": "The Deccan countryside in the 1600s was taxed by whichever power held it — sultanate, Mughal province, or the emerging Swarajya. Shivaji's movement promised fairer, more regular revenue (chauth and sardeshmukhi came later); how far the countryside was actually better off is a debated question among historians."
+  },
+  {
+    "id": "merchant",
+    "role": "The Merchant",
+    "tagline": "A trader moving goods between the Deccan plateau, the Konkan ports and the sea.",
+    "icon": "merchant",
+    "knows": [
+      "Which roads are safe this season and which carry watch-soldiers",
+      "The prices of grain, cloth, cotton and salt at the port towns",
+      "That every fort that changes hands changes the tolls you pay",
+      "That news — and rumour — is the most profitable cargo you carry"
+    ],
+    "sees": "Caravans, warehouses and harbour-masters — and the fort gates where a new authority's men survey your goods for tax.",
+    "concerns": [
+      "The safety of bullion, goods and promises on the road",
+      "Tolls, taxes and confiscation at fortified checkpoints",
+      "Keeping the sea-ports of the Konkan open to your trade",
+      "Whose coin and whose protection you can rely on next season"
+    ],
+    "risks": ["Banditry on the passes", "Requisition of stock by a garrison", "A port closed by war"],
+    "resources": ["Kinship networks across the routes", "Credit and warehouses", "Relations with factors and officials"],
+    "experience": "Trade followed both the monsoon winds and the political weather. A change of lordship at one fort could re-route an entire season's caravan.",
+    "context": "The Konkan ports and the Deccan's overland routes connected Maharashtra to the wider Indian Ocean and to the Surat trade. Shivaji's campaigns touched merchants directly — most dramatically at Surat in 1664 — and the growth of Swarajya brought new tolls and protections that traders had to learn. (Details of trade remain the subject of record-based historical study.)"
+  },
+  {
+    "id": "artisan",
+    "role": "The Artisan",
+    "tagline": "A builder, smith, weaver or craftsman whose craft served the new forts and courts.",
+    "icon": "artisan",
+    "knows": [
+      "How stone, lime, timber and iron are quarried, hauled and joined",
+      "That building a fortress wall is a discipline of seasons, not days",
+      "That a ruler who is building needs your craft far more than one who is only taxing",
+      "The patterns, wood and weaving traditions your people have held for generations"
+    ],
+    "sees": "Work in wet weather, scaffolding against cliff faces, and the smoke of lime-kilns where a new citadel is rising.",
+    "concerns": [
+      "Being paid in copper or promises rather than grain or coin",
+      "Bringing the craft through war years when patrons are few",
+      "The safety of tools, stock and apprentices",
+      "Whether the works you build will outlast the rulers who order them"
+    ],
+    "risks": ["Forced labour on a fort", "Theft or burning of workshops", "Patronage vanishing with a change of power"],
+    "resources": ["Skill and inherited technique", "Tools and materials", "A reputation that rulers seek"],
+    "experience": "When a new power rose in the hills, it needed walls, armour, roads and places of worship — and artisans were suddenly as valuable as soldiers.",
+    "context": "The fortifications, gates and structures credited to Shivaji's reign (at Rajgad, Pratapgad, Panhala and Raigad among others) imply substantial artisan and construction effort — skilled and unskilled labour drawn from surrounding areas. The specific identities and wages of these workers are not individually documented, so this reconstruction stays at the level of documented conditions."
+  },
+  {
+    "id": "commoner",
+    "role": "The Commoner",
+    "tagline": "An ordinary person — a householder of the towns and villages touched by the rise of Swarajya.",
+    "icon": "commoner",
+    "knows": [
+      "The daily business of water, food, firewood, markets and neighbours",
+      "Which travelers bring dependable news and which only noise",
+      "That wars are fought above your head but lived at your threshold",
+      "The festivals, rites and crafts that carry a community through hard years"
+    ],
+    "sees": "Streets that empty when soldiers are sighted, markets that shut at a rumour, and processions that return when peace holds.",
+    "concerns": [
+      "Keeping the household fed and safe",
+      "Who holds power now — and what they will demand of the town or the village",
+      "Sons, brothers and husbands called toward distant campaigns",
+      "Harvest, water and the arrival of the rains"
+    ],
+    "risks": ["Being caught in a sack or an assault", "Confiscation of grain and animals", "Displacement when a fort falls"],
+    "resources": ["Family and neighbours", "The crafts and skills of the household", "Faith and local ritual"],
+    "experience": "Most people never carried a sword. They heard the news late, fed the passing armies, hid what they could, and rebuilt when the dust settled.",
+    "context": "The great majority of people in the 17th-century Deccan were neither rulers nor soldiers. Their lives are the least individually documented — we know the conditions of village and town life, war's demands on grain and labour, and the spread of the movement's reputation, but not the names or specific experiences of most ordinary people. This perspective is therefore the most cautiously reconstructed."
+  }
+]

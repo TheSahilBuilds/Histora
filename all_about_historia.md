@@ -1,0 +1,380 @@
+# All About Histora — Complete Project Reference
+
+> **Project:** Histora — **An Interactive Historical Atlas**
+> **Scope:** Interactive historical atlases. Prototype region: **Maharashtra — 17th century** (Chhatrapati Shivaji Maharaj); the Phase A **India 1857** period remains fully live.
+> **Root directory:** `C:\Users\sahil\Desktop\Histora`
+> **Last verified build:** `npm run build` + `eslint` clean; every phase-B route smoke-tested over HTTP (200 OK + content markers; 404 fallback for unknown story ids).
+
+---
+
+## 1. What Histora Is
+
+Histora re-centres history on the people who lived it, organized as an **atlas** — Region → Era → Period (Subject) → Place → Story → Perspective → Evidence — instead of "Event → Date → Famous Person".
+
+### Core principles (enforced throughout the UI and data)
+1. **Documented fact** vs **interpretation** vs **fictional reconstruction** are always distinguished and visibly labelled (`FICTIONAL RECONSTRUCTION` stamps).
+2. Every historical claim leads to a **source** (a record in `data/sources.json`).
+3. All scenario/perspective characters are **fictional reconstructions based on documented historical conditions** — never claims about real individuals; labelled as such on `/live`, `/perspectives`, story pages and scenarios.
+4. Unverifiable details are **marked as placeholders**, never presented as verified.
+5. One event affected different people in different ways — multiple perspectives are shown on the same events.
+6. Content is curated and local (JSON); **no database and no API-key dependency**.
+
+---
+
+## 2. Tech Stack & Dependencies
+
+| Layer | Choice |
+|---|---|
+| Framework | **Next.js 16.3.5** (App Router, Turbopack, React Server Components) |
+| React | **19.2.8** |
+| Language | TypeScript |
+| Styling | **Tailwind CSS v4** via `@tailwindcss/postcss`; theming with `@theme` in `app/globals.css` |
+| Animation | `motion` — imported from `"motion/react"` |
+| Map | `leaflet` 1.9.4 + `react-leaflet` v5 (client-only, `ssr:false`) |
+| State | `zustand` v5 with `persist` middleware (localStorage key `histora-journey`) |
+| Icons | `lucide-react` |
+| Fonts | `next/font/google`: **Cormorant Garamond** + **Inter** |
+
+### npm scripts
+- `dev` → `next dev` · `build` → `next build` · `start` → `next start` · `lint` → `eslint`
+
+Note: after adding/renaming routes, run `npx next typegen` to regenerate `PageProps<"">` unions in `.next/types/routes.d.ts` (needed by `tsc`).
+
+---
+
+## 3. Getting Started
+
+```bash
+npm install
+npm run dev          # http://localhost:3000
+npm run build && npm run start   # production
+npm run lint         # eslint (0 errors expected)
+npx tsc --noEmit     # typecheck
+```
+
+---
+
+## 4. Project Structure (Phase B)
+
+```
+Histora/
+├─ app/
+│  ├─ layout.tsx              # Root layout: fonts, metadata, Navigation, Footer, .paper-noise body
+│  ├─ globals.css             # Tailwind v4 @theme + all custom CSS (see §19)
+│  ├─ page.tsx                # HOME — Hero + FeatureCards + SameEventSection + "Start exploring" + JourneyPanel + flow band
+│  ├─ loading.tsx             # Root stream shell ("The archive is loading...")
+│  ├─ not-found.tsx           # 404 folio page
+│  ├─ error.tsx               # Error boundary ("Reading room fault")
+│  ├─ explore/page.tsx        # ATLAS EXPLORER — Region → Era → Subject → Stories (AtlasExplorer)
+│  ├─ story/[id]/page.tsx     # STORY folio — force-dynamic; ?perspective=<pov> deep link; POV panel + mini-map; prev/next
+│  ├─ live/page.tsx           # LIVE THROUGH HISTORY — ?role=<povId>; role cards → scenario moments
+│  ├─ period/[id]/page.tsx    # Legacy period dashboard (Phase A) — generateStaticParams
+│  ├─ timeline/page.tsx       # Grouped timeline (?event=<id> deep link)
+│  ├─ map/page.tsx            # Unified map (?loc=<id>, ?event=<id> deep links)
+│  ├─ perspectives/page.tsx   # Six perspectives from perspectives.json
+│  ├─ scenario/[id]/page.tsx  # Live Through History engine (generateStaticParams)
+│  ├─ sources/page.tsx        # Sources (?source=<id> & ?event=<id>)
+│  └─ guide/page.tsx          # Historical Guide
+├─ components/
+│  ├─ layout/                 # Navigation (client), Footer (server)
+│  ├─ ui/                     # ArchiveButton, ArchiveHeader, Chip/Tag, HistoricalCard, Modal, Ornament, SectionTitle
+│  ├─ home/                   # Hero, FeatureCards, SameEventSection, JourneyPanel (Phase B copy — atlas framing)
+│  ├─ explore/AtlasExplorer.tsx   # 3-step wizard: Region → Scope (State) → Era → Period → Stories (client, lock icons)
+│  ├─ story/                  # StoryPovPanel (client), EvidenceStamp (server)
+│  ├─ timeline/Timeline.tsx   # Grouped TimelineGroup/TimelineItem model
+│  ├─ map/                    # MapLoader (client, ssr:false), HistoricalMap (unified MapMarker model)
+│  ├─ perspectives/PerspectiveCard.tsx   # PovRole-driven
+│  ├─ live/LiveHub.tsx        # Role grid + moment list (client)
+│  ├─ scenario/               # ScenarioEngine, DecisionCard
+│  ├─ guide/HistoricalGuide.tsx
+│  └─ sources/                # SourceCard, SourcesGrid, DocumentViewer
+├─ lib/                       # types.ts, data.ts, store.ts, guide-engine.ts, utils.ts
+├─ data/                      # regions, states, eras, periods, stories, events, people, locations(16), scenarios(15), sources(18), perspectives, guide (see §18)
+└─ config                     # next.config.ts, tsconfig.json, postcss.config.mjs, AGENTS.md, all_about_historia.md
+```
+
+---
+
+## 5. Routes, Pages & Deep Links (Phase B)
+
+| Route | Type | Static/Dynamic | Purpose | Deep links |
+|---|---|---|---|---|
+| `/` | Server | ○ Static | Landing (atlas framing) | — |
+| `/explore` | Server+client | ○ Static | Atlas explorer wizard (Region→Era→Subject→Stories) | — |
+| `/story/<id>` | Server+client | ƒ Dynamic (`force-dynamic`) | Story folio: facts, people, sources, POV experience, mini-map, prev/next | `?perspective=<povId>` |
+| `/live` | Server+client | ƒ Dynamic | Six identity roles → scenario moments | `?role=<povId>` |
+| `/period/india-1857` | Server | ● SSG | Phase A period dashboard (kept) | — |
+| `/timeline` | Server+client | ƒ Dynamic | Two groups: Maharashtra stories + India 1857 events | `?event=<id>` |
+| `/map` | Server+client | ƒ Dynamic | Unified markers (locations + stories) | `?loc=<id>`, `?event=<id>` |
+| `/perspectives` | Server | ○ Static | Six perspective cards | — |
+| `/scenario/<id>` | Server+client | ● SSG | Branching live engine (15 ids) | — |
+| `/sources` | Server+client | ƒ Dynamic | Source cards + viewer | `?source=<id>`, `?event=<id>` |
+| `/guide` | Server+client | ○ Static | Keyword guide chat | — |
+| `/_not-found` | — | ○ | 404 folio | — |
+
+Notes:
+- Routes reading `searchParams` are dynamic and `await` them via `PageProps<"route">`. `/story/[id]` reads searchParams too, so it is `force-dynamic` (a statically-prerendered page that reads `searchParams` throws `DYNAMIC_SERVER_USAGE` in production).
+- Under the root `loading.tsx` stream, a thrown `notFound()` renders the 404 folio correctly in the body but the HTTP status stays 200 (Next 16 Turbopack streaming shell). Known limitation, content verified.
+
+---
+
+## 6. Layout & Shell
+
+### app/layout.tsx
+- Metadata title: **"Histora — An Interactive Historical Atlas"**; description mentions Maharashtra + Swarajya + 1857.
+- Fonts: Cormorant Garamond 400–700 (`--font-cormorant`), Inter (`--font-inter`); body `paper-noise`.
+
+### Navigation.tsx (client)
+- `NAV_LINKS` order: **Home, Explore, Map, Timeline, Perspectives, Sources, Guide**. Active state = `pathname === "/"` for Home, `startsWith` otherwise.
+- CTA "Live Through History" → **`/live`** (desktop + mobile drawer).
+
+### Footer.tsx (server)
+- Copy: "An interactive historical atlas. Begin with Maharashtra and the rise of Swarajya in the seventeenth century — then step into India 1857..."
+- Explore column: Explore the Atlas / Historical Map / Timeline / Perspectives. Learn column: Live Through History (**`/live`**) / Historical Guide / Sources & Evidence.
+- Verified-source count badge updates automatically.
+
+---
+
+## 7. Home Page Breakdown
+
+### Hero (client)
+- "**An interactive historical atlas**" / "**History, as it was lived.**" — parchment-deep full-viewport, hand-drawn MapArt relabeled (Sahyadri / Shivneri / Swarajya).
+- CTAs: **Explore History → /explore**, **Live Through History → /live**; strip PEOPLE · PLACES · EVENTS · PERSPECTIVES · EVIDENCE.
+
+### FeatureCards (server)
+- kicker "A different way in", title "History is more than dates."
+- **Regions** (Compass → `/explore`), **Places** (Map → `/map`), **Moments** (Clock3 → `/timeline`); folio corner tags.
+
+### SameEventSection (server)
+- Dark band "**Same Moment. Different Experiences.**" — plaque on Maharashtra / Seventeenth Century; six role rows → `/live?role=<id>` (incl. The Commoner).
+
+### JourneyPanel (client)
+- Counts against the active period: `getStories("maharashtra-17th-century")` + `getPerspectives().length`.
+- Stats: Moments explored · Perspectives (x/6) · Atlas % · Scenarios completed. Links: Continue the timeline → `/timeline`, Live through history → `/live`.
+
+### app/page.tsx
+- "Start exploring" block uses `getPeriod("maharashtra-17th-century")` with buttons **Explore the atlas → /explore** + **View the timeline → /timeline**.
+- Closing dark band "A document you can step inside." shows the flow chain: **Region → Era → Subject → Place → Perspective → Evidence**.
+
+---
+
+## 8. Timeline Feature (grouped)
+
+### app/timeline/page.tsx (server)
+- Builds two groups: **The Rise of Swarajya** (12 Maharashtra stories from `getStories(periodId)`) and **India Uprisings, 1857** (12 events). `?event=` selects the group (story id → Maharashtra group) and initial item.
+
+### components/timeline/Timeline.tsx (client)
+- Props `{ groups: TimelineGroup[]; initialGroupId?; initialItemId? }`.
+- `TimelineGroup = { id; label; sublabel; items: TimelineItem[] }`; `TimelineItem = { id; kind: "story"|"event"; ... }`.
+- Story groups render **Link cards** ("Open the story" → `/story/<id>`, calls `markEventExplored` onClick); event groups keep the parchment **folio modal** (unchanged Phase A behavior).
+- On mount `setTimelineRead(true)`.
+
+---
+
+## 9. Map Feature (unified markers)
+
+### Markers model (lib/types.ts)
+```ts
+interface MapMarker {
+  id: string; title: string; sub: string; description: string;
+  lat: number; lng: number; icon: "city" | "fort" | "town";
+  locationId?: string; relatedStoryIds?: string[];       // → clickable story links in popup
+  eventLinks?: { href: string; label: string }[];        // from relatedEventIds (1857)
+  people?: string[]; feeds?: string[]; perspectives?: PovId[];
+}
+```
+
+### components/map/HistoricalMap.tsx (client)
+- Renders an array of `MapMarker`. `MARKER_COLORS` per icon; `initialMarkerId` → flyTo + open popup.
+- Popup: title, sub, description, **Stories here** (links), **Event links**, **People / Perspectives**, footer links.
+- Key panel only when `compact=false`; compass overlay; sepia `.historical-map-panel` filter stays.
+- `getStoryMarkers()` / `getLocationMarkers()` in `lib/data.ts` build the unified array (stories get `perspectives: s.povs`; locations get `eventLinks` + `people`).
+
+### components/map/MapLoader.tsx (client)
+- Props `{ markers; initialMarkerId?; center?; zoom?; compact? }` — hosts the `ssr:false` dynamic import; compact mode powers the story-page mini-map (single marker, zoom ~10).
+
+### app/map/page.tsx (server)
+- `markers = [...getLocationMarkers(), ...getStoryMarkers()]`; `?loc=` and `?event=` handled; focused-record panel.
+
+---
+
+## 10. Story Route (new) + POV Experience
+
+### app/story/[id]/page.tsx (server, `force-dynamic`)
+- `await props.params` + `await props.searchParams`; `getStory(id)` else `notFound()`.
+- Header band (breadcrumb → /explore / region / century; period chip + category tag; title; shortDescription; date/place/district/experienced-by; `EvidenceStamp tone="paper"`).
+- Body: drop-cap description, "Why it mattered", people cards, related stories, **Sources & evidence** (verified vs placeholder chips).
+- Sticky aside: `StoryPovPanel` + compact mini-map (`?event` link back → `/map?event=<id>`).
+- `prev/next` navigation band (dark) walking the period story sequence.
+- `?perspective=<povId>` selects the panel's starting perspective (server-resolved, no `useSearchParams` → no Suspense needed).
+
+### components/story/StoryPovPanel.tsx (client)
+- Props `{ storyId; storyTitle; povIds: PovRole[]; selectedPov?; liveHref? }`.
+- "You are on the threshold" + **YOU ARE / You know / You fear / You will see** blocks per perspective; `FICTIONAL RECONSTRUCTION` stamp; "Live this moment" → `/scenario/<id>` when a scenario exists for story+pov.
+- Pov-switch chips; on mount/switch `markPerspectiveExplored` + `markEventExplored` (via `useEffect` + `setTimeout`, matching ScenarioEngine's lint-passing pattern).
+
+### components/story/EvidenceStamp.tsx (server)
+- Props `{ evidence; tone?: "natural"|"paper" }` — bordered stamp ("What the evidence supports") with bronze heritage tone.
+
+---
+
+## 11. Live Through History (new) + Perspectives
+
+### app/live/page.tsx (server, dynamic)
+- `await props.searchParams.role`; roles from `getPerspectives()` with `momentCount` (scenarios for that pov).
+- ArchiveHeader "Live Through History — Step into a life"; renders `LiveHub`.
+
+### components/live/LiveHub.tsx (client)
+- Six role cards (icons incl. `commoner`→House); active when `?role=` matches; until a role is chosen a "Choose a moment" prompt shows.
+- Moment list derived from `getScenariosByPerspective()` + story lookups (date, location, title) → "Live this moment" → `/scenario/<id>` and "Read the story behind" → `/story/<id>`.
+
+### app/perspectives/page.tsx + PerspectiveCard.tsx (updated)
+- Title "**Six ways of reading the same events**"; cards from `perspectives.json` (fields: pov id, role, tagline, context, `concerns[]`); `commoner`→House; "Fictive reconstruction" chip; CTA → **`/live?role=<id>`**.
+
+---
+
+## 12. Scenario Engine (Phase A, extended)
+
+### app/scenario/[id]/page.tsx
+- `generateStaticParams()` now returns **all 15** scenario ids from `getScenarios()` (11 Maharashtra + 4 Phase A 1857 scenarios incl. farmer/soldier).
+
+### lib/store.ts / Engine fixes
+- `PlaythroughRecord` gained `perspectiveId`; `completeScenario` pushes `record.perspectiveId` into `exploredPerspectives` (replaces the old `scenarioId.replace(/-1857$/,"")` hack, which broke Maharashtra ids).
+- `ScenarioEngine` passes `perspectiveId: scenario.perspectiveId`; `JourneyPanel` reads it.
+
+---
+
+## 13. lib/types.ts — Type System (Phase B additions)
+
+```ts
+// 1857 types unchanged: Period, Event, Person, Location, Scenario…, Source, GuideQA
+
+type PovRole = "ruler" | "soldier" | "farmer" | "merchant" | "artisan" | "commoner";
+interface Perspective { id: PovRole; icon: PovRole; role: string; tagline: string; context: string; concerns: string[]; scene: string }
+interface Region    { id; code; name; summary; locked?: boolean }
+interface State     { id; code; name; summary }
+interface Era       { id; name; range; summary; locked?: boolean }
+interface StoryPerson { id; name; role; note }
+interface Story {
+  id; periodId; regionId; stateId; category;
+  title; date; displayDate; century; period; state; region; district; location;
+  latitude; longitude; shortDescription; description; significance;
+  people: StoryPerson[]; relatedStories: string[]; locationIds: string[];
+  sourceIds: string[]; povs: PovRole[];
+  evidence: string; icon?: string;
+}
+interface TimelineGroup { id; label; sublabel; items: TimelineItem[] }
+interface TimelineItem  { id; kind: "story" | "event"; hint?: string }
+interface MapMarker     { /* §9 */ }
+interface PlaythroughRecord { scenarioId; title; perspectiveId; decisions: string[]; completedAt: string }
+```
+
+---
+
+## 14. lib/data.ts — Accessors (Phase B)
+
+- Raw exports: `regions, states, eras, periods, stories, events, people, locations, scenarios, sources, guideQA, perspectives`.
+- Getters: `getRegions/getRegion, getStates/getState, getEras/getEra, getPeriods`,
+  `getStories(periodId=PERIOD_ID)/getStory/getStoriesForLocation`,
+  `getPerspectives/getPerspective/getScenarioForStoryAndPerspective/getScenarios/getScenariosByPerspective`,
+  `getSourcesForStory/getStoryPeople/getPeriodByRegionAndEra`,
+  `getStoryMarkers/getLocationMarkers/getTimelineItems`,
+  `getEvents/getEvent/getPeople/getPerson/getLocations/getLocation/getScenario/getSource/…` (Phase A kept).
+- `STORY_CATEGORY_ICON`: birth/rise/fort/coronation/recovery → "fort"; battle/siege → "battle"; escape → "pass"; campaign → "city".
+- `PERIOD_ID = "india-1857"` is **still the default of `getStories()`** — always pass the Maharashtra id explicitly (JourneyPanel does).
+- Re-exports all types.
+
+---
+
+## 15. lib/store.ts — Journey State
+
+- Same persisted store (`histora-journey`). `completeScenario` now uses `record.perspectiveId` (see §12).
+
+---
+
+## 16. lib/guide-engine.ts
+
+- `answer` fallback text now suggests Swarajya/Shivaji/forts/Raigad + 1857.
+- `guideSourceHint` supports a direct id map for the 6 Maharashtra guide entries (`maharashtra-shivaji`→`sg-sabhasad`, `maharashtra-17th`→`sg-sabhasad`, `maharashtra-swarajya`→`sg-sarkar`, `maharashtra-pratapgad`→`sg-afzalkhan`, `maharashtra-coronation`→`sg-coronation`, `maharashtra-sources`→`sg-sarkar`) plus the original 1857 title/author hints.
+
+---
+
+## 17. lib/utils.ts — unchanged (`cn, clamp, formatDate, scrollToId, timeAgo`).
+
+---
+
+## 18. Content Layer (data/*.json)
+
+- `regions.json` (9) — `maharashtra` (open), new modules locked.
+- `states.json` (4) — `maharashtra` (open), others locked.
+- `eras.json` (5) — `early-modern` open for Maharashtra; `ancient/medieval/colonial/modern` locked.
+- `periods.json` (2) — `india-1857` (Phase A) + **`maharashtra-17th-century`** ("RISE OF SWARAJYA — 1645–1680", region `maharashtra`, state `malarashtra`, era `early-modern`, locations `pratapgad,panhala,torna,rajgad,raigad`; overview of the Swarajya rise).
+- `locations.json` (16) — 5 Phase A (Meerut/Delhi/Kanpur/Lucknow/Jhansi) + 11 Phase B (Shivneri, Pune, Torna, Rajgad, Sinhagad, Pratapgad, Panhala, Vishalgad, Surat, Agra, Raigad) with real lat/lng, icons (`fort`/`city`/`town`).
+- `stories.json` (12) — the Swarajya narrative:
+  `birth-shivneri-1630, first-forts-rise-of-swarajya, torna-beginning-expansion, rajgad-building-new-power, capture-consolidation-of-forts, pratapgad-1659, panhala-siege-escape, pavankhind, surat-campaign-1664, agra-episode-1666, return-expansion-recovery-of-forts, coronation-raigad-1674`. Each: full folio fields ± people, related stories, locationIds, sourceIds, `povs[]`, `evidence` note.
+- `perspectives.json` (6) — `ruler, soldier, farmer, merchant, artisan, commoner` (Phase A had 5 people; new `commoner`; also used by `/live`).
+- `sources.json` (18) — Phase A nine + **Phase B nine**: `sg-sarkar, sg-sabhasad, sg-pagdi, sg-sardesai, sg-afzalkhan, sg-agra-escape, sg-coronation, sg-surat` + `shivaji-placeholder` (annexed with verif. notes / placeholder flags). The JSON was missing a closing `]` in Phase A and was fixed.
+- `scenarios.json` (15) — Phase A 6 + **Phase B 8**: `ruler-coronation-raigad-1674, soldier-pratapgad-1659, soldier-panhala-1660, farmer-torna-1646, merchant-surat-1664, artisan-rajgad-1650, commoner-shivneri-1630, commoner-coronation-1674` (meter labels themed to the Deccan; all carry `perspectiveId` + `FICTIONAL RECONSTRUCTION` disclaimer).
+- `guide.json` (21) — 6 new Q&As (Shivaji, 17th-century Deccan, Swarajya, Pratapgad, Raigad coronation, sources/method) prepended to Phase A's 15.
+
+---
+
+## 19. Design System
+
+- Theme tokens: **unchanged** — parchment/paper/ink trio, bronze accent, Cormorant + Inter (`--color-*`, `--font-*`, `--shadow-paper*`, animations `fade-in/fade-up/ink-progress`).
+- **New CSS:** `.stamp` (inline-flex bordered uppercase badge), `.stamp-rotate` (−2°), `.stamp-bronze/paper/faint` color variants — used by EvidenceStamp/StoryPovPanel (`FICTIONAL RECONSTRUCTION`).
+- Everything else (`.paper-noise`, `.parchment*`, `.btn-archive`/`.btn-outline`, `.drop-cap`, Leaflet overrides, scrollbar, reduced-motion) unchanged.
+
+---
+
+## 20. Reusable Components Reference (Phase B changes only)
+
+| Component | Kind | Props (new) | Notes |
+|---|---|---|---|
+| `AtlasExplorer` | client | `regions eras periods stories` | 3-step region→scope→era wizard; period panel; story grid with EvidenceStamp; Lock icons for closed modules |
+| `StoryPovPanel` | client | `storyId storyTitle povIds selectedPov? liveHref?` | perspective blocks + stamp + live CTA |
+| `EvidenceStamp` | server | `evidence tone?` | evidence stamp |
+| `MapLoader` | client | `markers initialMarkerId? center? zoom? compact?` | replaced `locations/initialLocId` |
+| `HistoricalMap` | client | `markers initialMarkerId? center? zoom? compact?` | unified markers (stories, eventLinks, people, perspectives) |
+| `Timeline` | client | `groups initialGroupId? initialItemId?` | replaces `events/initialEventId` |
+| `PerspectiveCard` | server | `pov index?` | istead of `person` |
+| `LiveHub` | client | `roles moments initialRole?` | role grid + moments |
+| `JourneyPanel` | client | `compact?` | active-period counts |
+
+---
+
+## 21. Content / Accuracy Rules (unchanged, enforced)
+
+1. Scenarios always display the `FICTIONAL RECONSTRUCTION` disclaimer.
+2. Unverified/placeholder sources show explicit notices; `demoDocument` is labelled "Demonstration".
+3. Story/event facts each link a `sourceId`; the Guide tags answers by evidence class.
+4. The map is a teaching instrument, not period cartography (footer note).
+5. Meters are gameplay, never historical scoring (stated in scenario intros).
+6. Story `description`, `significance`, `evidence` avoid fabricating precise facts; uncertain dates are stated as traditional/approximate.
+
+---
+
+## 22. Accessibility & Performance Notes (unchanged)
+
+- Modal/folio accessibility; focus-visible outlines; reduced-motion kill-switch; `whileInView` reveals.
+- SSR-level: all new pages pre-rendered (static/SSG) except URL-driven ones; map + guide client-only.
+
+---
+
+## 23. Verified Status (QA log — Phase B)
+
+- `npm run build` → green (Turbopack; 15 route entries; `/story/[id]` and `/live` dynamic; 12 story ids available on demand; 15 scenario ids SSG'd; `/period/india-1857` still SSG'd).
+- `npx tsc --noEmit` → 0 errors. `npx eslint .` → 0 errors (1 harmless pre-existing `import/no-anonymous-default-export` warning in `postcss.config.mjs`).
+- HTTP smoke (production server): `/`, `/explore`, `/live`, `/live?role=commoner`, `/map`, `/map?loc=torna`, `/map?event=pratapgad-1659`, `/timeline`, `/timeline?event=…`, `/perspectives`, `/sources`, `/sources?event=…`, `/guide`, 4 story pages + `?perspective=` variants, 6 scenarios (Phase B + Phase A), `/period/india-1857` — all 200 with SSR content markers.
+- Known limitation (Next 16 Turbopack): a story page's `notFound()` streams the 404 folio as content but the HTTP status remains 200 because the root `loading.tsx` shell commits headers first. Browser behavior verified correct; `curl` status is 200.
+- Client-side interactivity (map popups, LiveHub selection, POV marks, modals) verified at SSR level only, not driven in a real browser.
+
+---
+
+## 24. Extension Paths
+
+- **Add a new subject/period:** add `regions/states/eras/periods/stories/…` JSON + accessors; the atlas UI is data-driven — unlock new `region`/`era`/`state` locks in the JSON.
+- **More story routes:** `/story/[id]` requires no code changes for new ids (dynamic, `getStory` + notFound).
+- **Connect a real AI to the Guide:** swap `askGuide`'s body for an async call returning the same `GuideResponse`.
+- **Replace placeholders:** `shivaji-placeholder` and other unverified source records await verified archival references.
+- **Footnote docs:** update this file after UI/data changes; re-run `npx next typegen` after adding routes.
