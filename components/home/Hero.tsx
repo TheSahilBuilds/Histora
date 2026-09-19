@@ -1,81 +1,28 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Compass, Sparkles } from "lucide-react";
-import Hero3D from "@/components/3d/Hero3D";
-
-function MapArt() {
-  return (
-    <svg
-      viewBox="0 0 800 500"
-      className="pointer-events-none absolute inset-0 h-full w-full text-bronze"
-      aria-hidden="true"
-      preserveAspectRatio="xMidYMid slice"
-    >
-      <g opacity="0.16">
-        <path
-          d="M40 420 q120 -40 180 20 q70 60 140 -10 q60 -60 100 10 q50 80 130 10 q60 -50 70 50"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-          strokeDasharray="2 6"
-        />
-        <path
-          d="M60 80 q160 30 220 -10 q70 -50 140 0 q80 60 180 -20 q60 -50 90 0"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-          strokeDasharray="2 6"
-        />
-        <circle cx="540" cy="200" r="150" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="540" cy="200" r="108" fill="none" stroke="currentColor" strokeWidth="0.6" />
-        <circle cx="540" cy="200" r="66" fill="none" stroke="currentColor" strokeWidth="0.6" />
-        <path
-          d="M540 200 m-12 0 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0"
-          fill="currentColor"
-        />
-        <path
-          d="M540 120 L548 196 L624 200 L548 204 L540 280 L532 204 L456 200 L532 196 Z"
-          fill="currentColor"
-        />
-        <path
-          d="M120 150 l-34 10 22 28 -28 -8 -8 19 0 -25 z"
-          fill="currentColor"
-          opacity="0.8"
-        />
-        <path
-          d="M680 90 q40 20 20 60"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-        />
-        <circle cx="700" cy="130" r="3" fill="currentColor" />
-        <circle cx="680" cy="90" r="3" fill="currentColor" />
-        <text x="700" y="120" fontSize="10" fill="currentColor" fontStyle="italic">
-          the sahyadri
-        </text>
-        <text x="150" y="160" fontSize="9" fill="currentColor" fontStyle="italic">
-          shivneri
-        </text>
-        <text x="470" y="405" fontSize="10" fill="currentColor" fontStyle="italic">
-          swarajya
-        </text>
-      </g>
-    </svg>
-  );
-}
 
 export default function Hero() {
   return (
-    <section className="parchment-deep relative flex min-h-[88vh] items-center overflow-hidden">
-      <MapArt />
-      <Hero3D />
+    <section className="relative flex min-h-[88vh] items-center overflow-hidden">
+      <Image
+        src="/images/history.jpg"
+        alt=""
+        aria-hidden="true"
+        fill
+        priority
+        sizes="100vw"
+        className="pointer-events-none object-cover object-[50%_35%] md:object-[50%_42%] lg:object-center"
+      />
       <div
         className="pointer-events-none absolute inset-0"
+        aria-hidden="true"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 50% 20%, rgba(154,107,63,0.18), transparent 55%), radial-gradient(circle at 80% 80%, rgba(232,220,196,0.08), transparent 45%)",
+            "radial-gradient(circle at 20% 30%, rgba(20,14,9,0.82) 0%, rgba(20,14,9,0.5) 38%, rgba(20,14,9,0.24) 66%, rgba(20,14,9,0.08) 100%), linear-gradient(180deg, rgba(20,14,9,0.3) 0%, rgba(20,14,9,0.06) 40%, rgba(20,14,9,0.4) 100%)",
         }}
       />
       <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:px-6">
