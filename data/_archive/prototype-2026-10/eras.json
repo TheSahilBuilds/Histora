@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ancient",
+    "label": "ANCIENT",
+    "title": "Ancient Maharashtra",
+    "description": "From the Satavahanas to the Chalukyas — earliest cities, cave temples and trade routes.",
+    "subjectPeriodId": null
+  },
+  {
+    "id": "medieval",
+    "label": "MEDIEVAL",
+    "title": "Medieval Maharashtra",
+    "description": "The Yadava kingdom of Devagiri and the Deccan sultanates that followed.",
+    "subjectPeriodId": null
+  },
+  {
+    "id": "early-modern",
+    "label": "EARLY MODERN",
+    "title": "Early Modern Maharashtra",
+    "description": "The rise of Swarajya — Chhatrapati Shivaji Maharaj and the Maratha state.",
+    "subjectPeriodId": "maharashtra-17th-century"
+  },
+  {
+    "id": "colonial",
+    "label": "COLONIAL",
+    "title": "Colonial Maharashtra",
+    "description": "The Marathas after Shivaji, the Peshwas, and the coming of Company rule.",
+    "subjectPeriodId": null
+  },
+  {
+    "id": "modern",
+    "label": "MODERN",
+    "title": "Modern Maharashtra",
+    "description": "The social reforms, national movement and the making of the modern state.",
+    "subjectPeriodId": null
+  }
+]

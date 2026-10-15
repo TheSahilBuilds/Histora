@@ -16,8 +16,10 @@ export default function GuidePage() {
       <section className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
         <HistoricalGuide starters={starters} />
         <p className="mt-5 text-center text-xs leading-relaxed text-ink-muted">
-          The Guide is a simulation built on a fixed set of verified answers. When a question has
-          no confident match it says so, and suggests where to look instead.
+          The Guide answers strictly from this archive&rsquo;s records and lists the sources it
+          relies on. When a question has no support in the archive it says so, and suggests where
+          to look instead. If no model key is configured it answers from the archive&rsquo;s local
+          engine.
         </p>
       </section>
     </>

@@ -27,10 +27,10 @@ export default function PerspectivesPage() {
             How these lives work
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-muted">
-            Each perspective opens into &ldquo;Live Through History&rdquo; — moments across the
-            story of Swarajya where you step into that life and make decisions. The decisions are
-            fictional, but every situation — a fort seized, a siege endured, a port raided, a
-            coronation witnessed — is drawn from documented conditions, and each is checked
+            Each perspective is a lens on the same history: read it in the stories, follow it
+            through the explorer, and in the interactive scenarios step into a documented
+            situation — a fort seized, a siege endured, a port raided, a coronation witnessed —
+            from that life. Every situation is drawn from documented conditions and checked
             against sources and real outcomes. The persona is a tool for empathy and evidence,
             never a claim about a real individual.
           </p>

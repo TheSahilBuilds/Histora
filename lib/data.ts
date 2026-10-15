@@ -158,7 +158,7 @@ export function getEra(id?: string): Era | undefined {
   return eras.find((e) => e.id === id);
 }
 
-export function getStories(periodId: string = PERIOD_ID): Story[] {
+export function getStories(periodId: string): Story[] {
   return stories.filter((s) => s.periodId === periodId);
 }
 
@@ -265,7 +265,7 @@ export function getTimelineItems(): TimelineItem[] {
     location: e.location,
     description: e.description,
     category: e.category,
-    href: `/explore?event=${e.id}`,
+    href: `/sources?event=${e.id}`,
     kind: "event",
   }));
   return [...storyItems, ...eventItems];

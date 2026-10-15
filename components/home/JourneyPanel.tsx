@@ -55,9 +55,6 @@ export default function JourneyPanel({ compact = false }: { compact?: boolean })
         <Link href="/timeline" className="historical-link text-[0.66rem] uppercase tracking-[0.2em] text-bronze hover:text-ink-soft">
           Continue the timeline
         </Link>
-        <Link href="/live" className="historical-link text-[0.66rem] uppercase tracking-[0.2em] text-bronze hover:text-ink-soft">
-          Live through history
-        </Link>
       </div>
     </div>
   );

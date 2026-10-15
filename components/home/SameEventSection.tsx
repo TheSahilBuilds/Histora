@@ -39,7 +39,7 @@ export default function SameEventSection() {
               {PERSPECTIVES.map((p) => (
                 <li key={p.pov}>
                   <Link
-                    href={`/live?role=${p.pov}`}
+                    href="/perspectives"
                     className="group relative flex items-center gap-4 border-b border-paper/10 py-3.5 pl-0 transition-colors sm:pl-16"
                   >
                     <span className="absolute -left-4 hidden h-2 w-2 rotate-45 border border-bronze bg-paper sm:block" />
@@ -47,7 +47,7 @@ export default function SameEventSection() {
                       {p.role}
                     </span>
                     <span className="ml-auto text-[0.6rem] uppercase tracking-[0.2em] text-paper/40 opacity-0 transition-opacity group-hover:opacity-100">
-                      Enter →
+                      View →
                     </span>
                   </Link>
                 </li>
@@ -55,7 +55,7 @@ export default function SameEventSection() {
             </ul>
             <div className="mt-8 flex items-center gap-3 text-[0.66rem] uppercase tracking-[0.22em] text-paper/45">
               <ArrowDown className="h-4 w-4 text-bronze" strokeWidth={1.5} />
-              Live each of these lives
+              Meet these lives in the perspectives archive
             </div>
           </div>
         </div>

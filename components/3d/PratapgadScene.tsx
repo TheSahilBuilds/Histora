@@ -107,50 +107,62 @@ function CameraRig({
 }
 
 function Terrain({ quality }: { quality: "full" | "reduced" }) {
-  const segs = quality === "full" ? 104 : 72;
-  const half = 66;
+  const rings = quality === "full" ? 92 : 64;
+  const segs = quality === "full" ? 128 : 88;
+  const radius = 78;
+  const skirtSteps = 3;
+  const skirtY = -44;
 
   const geometry = useMemo(() => {
-    const size = segs + 1;
+    const totalRings = rings + skirtSteps;
+    const size = (totalRings + 1) * (segs + 1);
     const geo = new THREE.BufferGeometry();
-    const positions = new Float32Array(size * size * 3);
-    const uvs = new Float32Array(size * size * 2);
-    const colors = new Float32Array(size * size * 3);
-    const indices = new Uint32Array(segs * segs * 6);
+    const positions = new Float32Array(size * 3);
+    const uvs = new Float32Array(size * 2);
+    const colors = new Float32Array(size * 3);
+    const indices = new Uint32Array(totalRings * segs * 6);
     const rng = mulberry32(0x74657272);
 
-    const soil = new THREE.Color(PALETTE.soil);
+    const earth = new THREE.Color(PALETTE.earth);
     const grass = new THREE.Color(PALETTE.grass);
     const rock = new THREE.Color(PALETTE.stoneDark);
     const scratch = new THREE.Color();
 
-    for (let gy = 0; gy < size; gy += 1) {
-      for (let gx = 0; gx < size; gx += 1) {
-        const i = gy * size + gx;
-        const x = -half + ((2 * half) / segs) * gx;
-        const z = -half + ((2 * half) / segs) * gy;
-        const h = siteTerrainHeight(x, z);
-        positions[i * 3] = x;
-        positions[i * 3 + 1] = h;
-        positions[i * 3 + 2] = z;
-        uvs[i * 2] = gx / segs;
-        uvs[i * 2 + 1] = gy / segs;
+    for (let ri = 0; ri <= totalRings; ri += 1) {
+      const inSkirt = ri > rings;
+      const rr = inSkirt ? radius : (ri / rings) * radius;
+      for (let si = 0; si <= segs; si += 1) {
+        const ang = (si / segs) * Math.PI * 2;
+        const x = Math.cos(ang) * rr;
+        const z = Math.sin(ang) * rr;
+        const i = ri * (segs + 1) + si;
 
-        const slope = siteTerrainSlope(x, z);
-        const veg = THREE.MathUtils.smoothstep(
-          1.35 - slope * 1.9 - Math.max(0, h - 2.2) * 0.45,
-          0.35,
-          0.8
-        );
-        const rocky = THREE.MathUtils.smoothstep(
-          slope - 0.5 + Math.max(0, 1.6 - h) * 0.2,
-          0.4,
-          0.75
-        );
-        const cliff = THREE.MathUtils.smoothstep(slope, 0.95, 1.45);
-        scratch.copy(soil).lerp(grass, veg * 0.8).lerp(rock, rocky).lerp(rock, cliff * 0.6);
-        const j = rng();
-        scratch.multiplyScalar(0.9 + j * 0.2);
+        if (inSkirt) {
+          const rimH = siteTerrainHeight(x, z);
+          const t = (ri - rings) / skirtSteps;
+          positions[i * 3 + 1] = rimH + (skirtY - rimH) * t;
+        } else {
+          positions[i * 3 + 1] = siteTerrainHeight(x, z);
+        }
+        positions[i * 3] = x;
+        positions[i * 3 + 2] = z;
+        uvs[i * 2] = (x + radius) / (2 * radius);
+        uvs[i * 2 + 1] = (z + radius) / (2 * radius);
+
+        if (inSkirt) {
+          scratch.copy(rock).multiplyScalar(0.72 + rng() * 0.1);
+        } else {
+          const h = positions[i * 3 + 1];
+          const slope = siteTerrainSlope(x, z);
+          const veg = THREE.MathUtils.smoothstep(
+            1.25 - slope * 1.7 - Math.max(0, h - 2.6) * 0.5,
+            0.3,
+            0.85
+          );
+          const rocky = THREE.MathUtils.smoothstep(slope - 0.45, 0.35, 0.8);
+          scratch.copy(earth).lerp(grass, veg * 0.7).lerp(rock, rocky * 0.85);
+          scratch.multiplyScalar(0.94 + rng() * 0.12);
+        }
         colors[i * 3] = scratch.r;
         colors[i * 3 + 1] = scratch.g;
         colors[i * 3 + 2] = scratch.b;
@@ -158,18 +170,18 @@ function Terrain({ quality }: { quality: "full" | "reduced" }) {
     }
 
     let k = 0;
-    for (let gy = 0; gy < segs; gy += 1) {
-      for (let gx = 0; gx < segs; gx += 1) {
-        const a = gy * size + gx;
+    for (let ri = 0; ri < totalRings; ri += 1) {
+      for (let si = 0; si < segs; si += 1) {
+        const a = ri * (segs + 1) + si;
         const b = a + 1;
-        const c = a + size;
+        const c = (ri + 1) * (segs + 1) + si;
         const d = c + 1;
         indices[k++] = a;
-        indices[k++] = c;
-        indices[k++] = b;
         indices[k++] = b;
         indices[k++] = c;
+        indices[k++] = b;
         indices[k++] = d;
+        indices[k++] = c;
       }
     }
 
@@ -179,14 +191,14 @@ function Terrain({ quality }: { quality: "full" | "reduced" }) {
     geo.setIndex(new THREE.BufferAttribute(indices, 1));
     geo.computeVertexNormals();
     return geo;
-  }, [segs, half]);
+  }, [rings, segs, radius, skirtSteps, skirtY]);
 
   const map = sceneTextures.terrainColor();
-  map.repeat.set(34, 34);
+  map.repeat.set(18, 18);
   const bump = sceneTextures.terrainHeight();
-  bump.repeat.set(34, 34);
+  bump.repeat.set(18, 18);
   const rough = sceneTextures.roughness();
-  rough.repeat.set(34, 34);
+  rough.repeat.set(18, 18);
 
   return (
     <mesh geometry={geometry} receiveShadow>
@@ -194,10 +206,11 @@ function Terrain({ quality }: { quality: "full" | "reduced" }) {
         vertexColors
         map={map}
         bumpMap={bump}
-        bumpScale={0.02}
-        roughness={1}
+        bumpScale={0.05}
+        roughness={0.98}
         roughnessMap={rough}
         metalness={0}
+        side={THREE.DoubleSide}
       />
     </mesh>
   );
@@ -208,42 +221,61 @@ interface ScatterEntry {
   scale: [number, number, number];
   rot: [number, number, number];
   tint: string;
-  away: number;
 }
 
-function scatter(count: number, seed: number, { minR, maxR }: { minR: number; maxR: number }): ScatterEntry[] {
+function scatter(
+  count: number,
+  seed: number,
+  kind: "rock" | "scrub",
+  { minR, maxR }: { minR: number; maxR: number }
+): ScatterEntry[] {
   const rng = mulberry32(seed);
   const list: ScatterEntry[] = [];
   let guard = 0;
-  while (list.length < count && guard < count * 16) {
+  while (list.length < count && guard < count * 20) {
     guard += 1;
     const a = rng() * Math.PI * 2;
     const r = minR + rng() * (maxR - minR);
     const x = Math.cos(a) * r;
     const z = Math.sin(a) * r;
     const y = siteTerrainHeight(x, z);
-    const inFort = Math.abs(x) < 16 && Math.abs(z) < 38;
-    const onApproach = Math.abs(z) > 24 && Math.abs(z) < 44 && Math.abs(x) < 24;
+    const inFort = Math.abs(x) < 17 && Math.abs(z) < 40;
+    const onApproach = Math.abs(z) > 24 && Math.abs(z) < 46 && Math.abs(x) < 26;
     if (inFort || onApproach) continue;
     const slope = siteTerrainSlope(x, z);
-    if (y < 0.35 || y > 2.9 || slope > 0.8) continue;
-    const away = Math.min(1, Math.max(0, r - 20) / 24);
-    const sway = (0.7 + rng() * 0.9) * (0.55 + away * 0.65);
-    list.push({
-      pos: [x, y, z],
-      scale: [sway, sway * (0.65 + rng() * 0.9), sway],
-      rot: [rng() * 0.5, rng() * Math.PI * 2, rng() * 0.5],
-      tint: rng() < 0.45 ? "#6e5a3f" : "#7c6a4a",
-      away,
-    });
+    if (y < 0.2 || y > 3.2 || slope > 0.7) continue;
+    const away = Math.min(1, Math.max(0, r - 24) / 30);
+    if (kind === "rock") {
+      const s = (0.3 + rng() * 0.4) * (1 + away * 0.5);
+      list.push({
+        pos: [x, y - s * 0.35, z],
+        scale: [s, s * (0.6 + rng() * 0.5), s],
+        rot: [rng() * Math.PI, rng() * Math.PI * 2, rng() * Math.PI],
+        tint: rng() < 0.5 ? "#7a6849" : "#6b5940",
+      });
+    } else {
+      const s = (0.4 + rng() * 0.5) * (1 + away * 0.4);
+      list.push({
+        pos: [x, y - 0.05, z],
+        scale: [s, s * (0.5 + rng() * 0.4), s],
+        rot: [0, rng() * Math.PI * 2, 0],
+        tint: rng() < 0.5 ? "#6f7d4f" : "#5f6b45",
+      });
+    }
   }
   return list;
 }
 
 function Scatter({ quality, shadowsOn }: { quality: "full" | "reduced"; shadowsOn: boolean }) {
   const fold = quality === "full" ? 1 : 0.5;
-  const rocks = useMemo(() => scatter(Math.round(48 * fold), 0x726f636b, { minR: 10, maxR: 42 }), [fold]);
-  const scrub = useMemo(() => scatter(Math.round(74 * fold), 0x73637275, { minR: 13, maxR: 45 }), [fold]);
+  const rocks = useMemo(
+    () => scatter(Math.round(26 * fold), 0x726f636b, "rock", { minR: 18, maxR: 58 }),
+    [fold]
+  );
+  const scrub = useMemo(
+    () => scatter(Math.round(42 * fold), 0x73637275, "scrub", { minR: 20, maxR: 60 }),
+    [fold]
+  );
 
   return (
     <>
@@ -251,14 +283,14 @@ function Scatter({ quality, shadowsOn }: { quality: "full" | "reduced"; shadowsO
         <dodecahedronGeometry args={[1, 0]} />
         <meshStandardMaterial color="#7a6849" roughness={0.98} flatShading metalness={0} />
         {rocks.map((e, i) => (
-          <Instance key={i} position={e.pos} rotation={e.rot} scale={e.scale} />
+          <Instance key={i} position={e.pos} rotation={e.rot} scale={e.scale} color={e.tint} />
         ))}
       </Instances>
       <Instances limit={scrub.length} range={scrub.length} castShadow={shadowsOn}>
         <sphereGeometry args={[1, 6, 5]} />
         <meshStandardMaterial color="#6f7d4f" roughness={1} flatShading metalness={0} />
         {scrub.map((e, i) => (
-          <Instance key={i} position={e.pos} rotation={e.rot} scale={e.scale} />
+          <Instance key={i} position={e.pos} rotation={e.rot} scale={e.scale} color={e.tint} />
         ))}
       </Instances>
     </>
@@ -335,16 +367,16 @@ export default function PratapgadScene(props: PratapgadSceneProps) {
 
   return (
     <Canvas
-      shadows="soft"
+      shadows
       dpr={props.quality === "full" ? [1, 1.75] : [1, 1.25]}
-      camera={{ position: [24, 19, 36], fov: 42, near: 0.1, far: 700 }}
+      camera={{ position: [25, 15, 33], fov: 40, near: 0.1, far: 700 }}
       gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
       frameloop={continuous ? "always" : "demand"}
       onCreated={({ gl }) => {
         gl.setClearColor("#e9dfc6");
       }}
     >
-      <fog attach="fog" args={["#e7dcc2", 70, 250]} />
+      <fog attach="fog" args={["#e7dcc2", 72, 260]} />
       <SceneEnvironment shadowsOn={shadowsOn} />
 
       <DriftRig driftRef={driftRef} enabled={props.driftEnabled}>
@@ -378,9 +410,10 @@ export default function PratapgadScene(props: PratapgadSceneProps) {
         target={[0, BASE_Y + 0.8, 0]}
         enableDamping
         dampingFactor={0.08}
-        minDistance={13}
-        maxDistance={64}
-        minPolarAngle={0.5}
+        enablePan={false}
+        minDistance={16}
+        maxDistance={56}
+        minPolarAngle={0.6}
         maxPolarAngle={1.2}
         onStart={() => {
           driftRef.current = true;

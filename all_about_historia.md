@@ -5,6 +5,8 @@
 > **Root directory:** `C:\Users\sahil\Desktop\Histora`
 > **Last verified build:** `npm run build` + `eslint` clean; every phase-B route smoke-tested over HTTP (200 OK + content markers; 404 fallback for unknown story ids).
 
+> **Documentation drift notice (2026-10-11, Phase 2 reconciliation):** this reference predates the Phase 1 data/code fixes and some statements are now stale. Verified drift: §4/§20 list `components/explore/AtlasExplorer.tsx`, which does not exist (the file is `components/explore/ExploreFilters.tsx`); §14 states `PERIOD_ID = "india-1857"` is still the default of `getStories()` — it is not (`getStories(periodId)` now requires the id); §8/§14 describe timeline event links as `/explore?event=…` — they are now `/sources?event=…`; §11 quotes the `/live` subtitle "Six lives, twelve moments" — it is now generated from `perspectives.length` / scenario count; §23 cites 26 routes — the current build emits 27 (adds `/period/maharashtra-17th-century`). Values below remain directionally correct; treat these specifics as superseded. See `PHASE0_AUDIT.md` §16.
+
 ---
 
 ## 1. What Histora Is

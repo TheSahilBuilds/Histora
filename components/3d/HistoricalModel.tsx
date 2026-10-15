@@ -73,11 +73,22 @@ function ModelView({
 
   useLayoutEffect(() => {
     applyModelTransform(gltf.scene, transform);
+    const weather = (material: THREE.Material) => {
+      const std = material as THREE.MeshStandardMaterial;
+      if (std.isMeshStandardMaterial || (std as { isMeshPhysicalMaterial?: boolean }).isMeshPhysicalMaterial) {
+        std.metalness = Math.min(std.metalness ?? 1, 0.05);
+        std.roughness = THREE.MathUtils.clamp(std.roughness ?? 1, 0.82, 1);
+        std.needsUpdate = true;
+      }
+    };
     gltf.scene.traverse((node) => {
       const mesh = node as THREE.Mesh;
       if (mesh.isMesh) {
         mesh.castShadow = true;
         mesh.receiveShadow = true;
+        const mat = mesh.material as THREE.Material | THREE.Material[] | undefined;
+        if (Array.isArray(mat)) mat.forEach(weather);
+        else if (mat) weather(mat);
       }
     });
   }, [gltf, transform]);

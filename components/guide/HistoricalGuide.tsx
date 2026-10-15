@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
-import { askGuide, guideSourceHint, type GuideResponse } from "@/lib/guide-engine";
-import { getSource } from "@/lib/data";
+import type { GuideAnswer, GuideCitation } from "@/lib/guide-engine";
 import type { GuideQA } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Send, Sparkles, Landmark, Quote, CornerDownRight } from "lucide-react";
@@ -17,9 +16,8 @@ interface Message {
   text: string;
   tags?: GuideQA["tags"];
   followUps?: string[];
-  sourceId?: string;
+  citations?: GuideCitation[];
   confidence?: number;
-  matchedQuestion?: string;
 }
 
 function TagPills({ tags }: { tags: GuideQA["tags"] }) {
@@ -102,20 +100,37 @@ export default function HistoricalGuide({ starters }: HistoricalGuideProps) {
 
     await new Promise((r) => setTimeout(r, 650));
 
-    const response: GuideResponse = await Promise.resolve(askGuide(trimmed));
-    const sourceId = guideSourceHint(response.matchedId);
+    let answer: GuideAnswer;
+    try {
+      const res = await fetch("/api/guide", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: trimmed }),
+      });
+      if (!res.ok) throw new Error(`guide api ${res.status}`);
+      answer = (await res.json()) as GuideAnswer;
+    } catch {
+      answer = {
+        answer: "The archive could not be consulted just now. Please try again in a moment.",
+        tags: ["Interpretation"],
+        followUps: [],
+        citations: [],
+        confidence: 0,
+        matchedId: "no-match",
+        mode: "offline",
+      };
+    }
 
     setMessages((m) => [
       ...m,
       {
         id: `g-${idRef.current++}`,
         role: "guide",
-        text: response.answer,
-        tags: response.tags,
-        followUps: response.followUps.slice(0, 3),
-        sourceId,
-        confidence: response.confidence,
-        matchedQuestion: response.matchedQuestion,
+        text: answer.answer,
+        tags: answer.tags,
+        followUps: answer.followUps.slice(0, 3),
+        citations: answer.citations,
+        confidence: answer.confidence,
       },
     ]);
     setThinking(false);
@@ -131,8 +146,8 @@ export default function HistoricalGuide({ starters }: HistoricalGuideProps) {
               The Historical Guide
             </h2>
             <p className="mt-1 text-xs leading-relaxed text-paper/70">
-              A simulated research companion that answers from this archive&rsquo;s curated
-              dataset and flags how certain each answer is.
+              A research companion that answers from this archive&rsquo;s curated dataset,
+              cites the sources it used, and flags how certain each answer is.
             </p>
           </div>
           <span className="hidden shrink-0 text-[0.58rem] uppercase tracking-[0.2em] text-paper/50 sm:block">
@@ -157,11 +172,6 @@ export default function HistoricalGuide({ starters }: HistoricalGuideProps) {
                     <Landmark className="h-3.5 w-3.5" strokeWidth={1.5} />
                   </span>
                   <div className="border-l-2 border-bronze/50 bg-paper/60 px-4 py-3">
-                    {msg.matchedQuestion && msg.matchedQuestion !== "No entry in the archive" ? (
-                      <p className="mb-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-ink-muted">
-                        {msg.matchedQuestion}
-                      </p>
-                    ) : null}
                     <p className="text-sm leading-relaxed text-ink-soft">{msg.text}</p>
 
                     {msg.tags && msg.tags.length ? <TagPills tags={msg.tags} /> : null}
@@ -172,8 +182,25 @@ export default function HistoricalGuide({ starters }: HistoricalGuideProps) {
                       </div>
                     ) : null}
 
-                    {msg.sourceId ? (
-                      <Supplement sourceId={msg.sourceId} />
+                    {msg.citations && msg.citations.length ? (
+                      <div className="mt-3 border-t border-ink-soft/15 pt-2.5">
+                        <p className="flex items-center gap-1.5 text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                          <Quote className="h-3.5 w-3.5 text-bronze" strokeWidth={1.5} />
+                          Sources consulted
+                        </p>
+                        <ul className="mt-1.5 space-y-1.5">
+                          {msg.citations.map((c) => (
+                            <li key={c.id}>
+                              <Link
+                                href={c.href}
+                                className="historical-link text-[0.72rem] leading-relaxed text-bronze hover:text-ink-soft"
+                              >
+                                {c.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ) : null}
 
                     {msg.followUps && msg.followUps.length ? (
@@ -254,7 +281,8 @@ export default function HistoricalGuide({ starters }: HistoricalGuideProps) {
           </button>
         </form>
         <p className="mt-2.5 text-[0.64rem] italic leading-relaxed text-ink-muted">
-          The Guide answers from this archive&rsquo;s curated dataset.
+          The Guide answers from this archive&rsquo;s curated dataset and lists the records it
+          consulted.
           <AnimatePresence>
             <DisclaimerToggle />
           </AnimatePresence>
@@ -264,31 +292,11 @@ export default function HistoricalGuide({ starters }: HistoricalGuideProps) {
   );
 }
 
-function Supplement({ sourceId }: { sourceId: string }) {
-  const source = getSource(sourceId);
-  if (!source) return null;
-  return (
-    <div className="mt-3 flex items-center gap-2 border-t border-ink-soft/15 pt-2.5">
-      <Quote className="h-3.5 w-3.5 shrink-0 text-bronze" strokeWidth={1.5} />
-      <p className="text-[0.7rem] leading-relaxed text-ink-muted">
-        Related source:{" "}
-        <Link
-          href={`/sources?source=${source.id}`}
-          className="historical-link text-bronze hover:text-ink-soft"
-        >
-          {source.title}
-        </Link>{" "}
-        — {source.author} ({source.year})
-      </p>
-    </div>
-  );
-}
-
 function DisclaimerToggle() {
   return (
     <span className="block">
-      For a production version, this simulated engine can be replaced by a verified AI
-      assistant whose answers point to the same sources.
+      All answers stay inside the archive&rsquo;s records — if they do not establish an answer,
+      the Guide says so instead of guessing.
     </span>
   );
 }

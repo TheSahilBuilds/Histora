@@ -103,7 +103,7 @@ export default function PerspectiveCard({ pov, index = 0 }: { pov: PovRole; inde
       <div className={cn("mt-auto px-7 pb-7 pt-6")}>
         <OrnamentLine className="!mb-4" />
         <Link
-          href={`/live?role=${pov.id}`}
+          href={`/explore?role=${pov.id}`}
           className={cn(
             "inline-flex w-full items-center justify-center gap-2 border px-5 py-3 text-[0.66rem] font-semibold uppercase tracking-[0.22em] transition-colors",
             dark
@@ -111,7 +111,7 @@ export default function PerspectiveCard({ pov, index = 0 }: { pov: PovRole; inde
               : "border-ink text-ink hover:bg-ink hover:text-paper"
           )}
         >
-          Enter this perspective
+          Explore from this perspective
           <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
         </Link>
       </div>

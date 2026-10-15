@@ -7,7 +7,6 @@ import {
   getPerspective,
   getLocation,
   getSourcesForStory,
-  getScenarioForStoryAndPerspective,
 } from "@/lib/data";
 import StoryPovPanel from "@/components/story/StoryPovPanel";
 import EvidenceStamp from "@/components/story/EvidenceStamp";
@@ -40,7 +39,6 @@ export default async function StoryPage(props: PageProps<"/story/[id]">) {
     .find((l): l is NonNullable<typeof l> => Boolean(l));
 
   const sources = getSourcesForStory(story.id);
-  const liveHref = pov ? getScenarioForStoryAndPerspective(story.id, pov.id)?.id : undefined;
 
   const site = getSiteForStory(story.id);
 
@@ -265,7 +263,6 @@ export default async function StoryPage(props: PageProps<"/story/[id]">) {
               storyTitle={story.title}
               povIds={story.povs}
               selectedPov={pov}
-              liveHref={liveHref ? `/scenario/${liveHref}` : undefined}
             />
 
             {primaryLocation ? (

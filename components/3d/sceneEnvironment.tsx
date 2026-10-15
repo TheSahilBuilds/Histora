@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import * as THREE from "three";
 import { mulberry32 } from "./sceneUtils";
 import { sceneTextures } from "./sceneTextures";
@@ -21,71 +22,93 @@ function SkyDome() {
 function SceneLights({ shadowsOn }: { shadowsOn: boolean }) {
   return (
     <>
-      <hemisphereLight args={["#e8dcc4", "#5c4630", 0.6]} />
+      <hemisphereLight args={["#f0e6d0", "#6b563d", 0.85]} />
+      <ambientLight intensity={0.18} color="#e8dcc4" />
       <directionalLight
-        position={[18, 26, 12]}
-        color="#ffd9a0"
-        intensity={shadowsOn ? 1.8 : 1.35}
+        position={[20, 26, 14]}
+        color="#ffe4bd"
+        intensity={shadowsOn ? 1.15 : 0.95}
         castShadow={shadowsOn}
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
         shadow-camera-near={1}
-        shadow-camera-far={80}
-        shadow-camera-left={-36}
-        shadow-camera-right={36}
-        shadow-camera-top={36}
-        shadow-camera-bottom={-36}
-        shadow-bias={-0.0004}
-        shadow-normalBias={0.02}
+        shadow-camera-far={110}
+        shadow-camera-left={-40}
+        shadow-camera-right={40}
+        shadow-camera-top={40}
+        shadow-camera-bottom={-40}
+        shadow-bias={-0.0006}
+        shadow-normalBias={0.035}
+        shadow-radius={4}
       />
-      <directionalLight position={[-16, 8, -20]} color="#d9cdb2" intensity={0.35} />
+      <directionalLight position={[-18, 10, -22]} color="#d9cdb2" intensity={0.28} />
     </>
   );
 }
 
-interface Peak {
-  r: number;
-  angle: number;
-  height: number;
-  width: number;
+interface RidgeLayer {
+  radius: number;
+  base: number;
+  amplitude: number;
+  segments: number;
+  seed: number;
+  color: string;
 }
 
-const PEAK_RINGS: Peak[][] = [
-  { r: 128, count: 16, h: [16, 30], w: [9, 16] },
-  { r: 160, count: 14, h: [20, 36], w: [11, 19] },
-  { r: 195, count: 12, h: [24, 40], w: [13, 22] },
-].map(({ r, count, h, w }) => {
-  const rng = mulberry32(r);
-  return Array.from({ length: count }, (_, i) => ({
-    r: r + (rng() - 0.5) * 14,
-    angle: (i / count) * Math.PI * 2 + rng() * 0.4,
-    height: h[0] + rng() * (h[1] - h[0]),
-    width: w[0] + rng() * (w[1] - w[0]),
-  }));
-});
+/**
+ * Layered Sahyadri ridgelines used as atmospheric background depth. Each layer
+ * is a closed, jagged silhouette ring (no pyramids, no flat-shaded cones) that
+ * fades into the sepia haze via fog, so the fort stays the focal point.
+ */
+const RIDGE_LAYERS: RidgeLayer[] = [
+  { radius: 150, base: 1, amplitude: 22, segments: 96, seed: 0x72696467, color: "#6f5d42" },
+  { radius: 205, base: -3, amplitude: 30, segments: 84, seed: 0x72696467 + 7, color: "#83704f" },
+  { radius: 258, base: -7, amplitude: 38, segments: 72, seed: 0x72696467 + 13, color: "#9a8768" },
+];
+
+function ridgeGeometry({ radius, base, amplitude, segments, seed }: RidgeLayer): THREE.BufferGeometry {
+  const rng = mulberry32(seed);
+  const positions: number[] = [];
+  const indices: number[] = [];
+  const bottom = base - 70;
+
+  for (let i = 0; i <= segments; i += 1) {
+    const a = (i / segments) * Math.PI * 2;
+    const x = Math.cos(a) * radius;
+    const z = Math.sin(a) * radius;
+    const ridge =
+      Math.sin(a * 3 + seed) * 0.5 +
+      Math.sin(a * 7 + seed * 1.7) * 0.3 +
+      Math.sin(a * 13 + seed * 0.3) * 0.2;
+    const top = base + amplitude * (0.5 + 0.5 * (ridge * 0.5 + 0.5)) + rng() * 2;
+    positions.push(x, top, z, x, bottom, z);
+  }
+  for (let i = 0; i < segments; i += 1) {
+    const t0 = i * 2;
+    const b0 = i * 2 + 1;
+    const t1 = (i + 1) * 2;
+    const b1 = (i + 1) * 2 + 1;
+    indices.push(t0, b0, t1, b0, b1, t1);
+  }
+
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  geo.setIndex(indices);
+  geo.computeVertexNormals();
+  return geo;
+}
 
 function DistantGhats() {
+  const layers = useMemo(() => RIDGE_LAYERS.map(ridgeGeometry), []);
   return (
     <group>
-      {PEAK_RINGS.flat().map((peak: Peak, i: number) => (
-        <mesh
-          key={i}
-          position={[
-            Math.cos(peak.angle) * peak.r,
-            -4 + peak.height / 2,
-            Math.sin(peak.angle) * peak.r,
-          ]}
-          scale={[peak.width, peak.height, peak.width]}
-          frustumCulled={false}
-        >
-          <coneGeometry args={[1, 1, 7, 1]} />
+      {RIDGE_LAYERS.map((layer, i) => (
+        <mesh key={layer.radius} geometry={layers[i]} frustumCulled={false}>
           <meshStandardMaterial
-            color={i % 3 === 0 ? "#6e5a3f" : i % 3 === 1 ? "#7a6849" : "#635133"}
+            color={layer.color}
             roughness={1}
-            flatShading
-            transparent
-            opacity={0.95}
-            depthWrite={false}
+            metalness={0}
+            side={THREE.DoubleSide}
           />
         </mesh>
       ))}

@@ -1,0 +1,91 @@
+[
+  {
+    "id": "india-1857",
+    "title": "INDIA — 1857",
+    "shortTitle": "India 1857",
+    "year": "1857",
+    "era": "Nineteenth Century",
+    "subtitle": "The Indian Rebellion of 1857",
+    "tagline": "Experience history through the people who lived it.",
+    "description": "Explore the events and social conditions surrounding one of the major upheavals in nineteenth-century India.",
+    "overview": {
+      "importantEvents": [
+        "The introduction of the new Enfield rifle sparked fears of greased cartridges that offended religious practice — a documented grievance among sepoys of the Bengal Army.",
+        "Mangal Pandey, a sepoy of the 34th Bengal Native Infantry, attacked his officers at Barrackpore on 29 March 1857 and was executed days later.",
+        "On 10 May 1857, sepoys of the Meerut cantonment rose, released imprisoned comrades, and marched overnight to Delhi — the point at which scattered tension became a regional upheaval.",
+        "At Delhi, sepoys turned to the ageing Mughal emperor Bahadur Shah Zafar, who was proclaimed leader from the Red Fort in mid-May 1857.",
+        "Uprisings and sieges followed across the Gangetic plain — at Lucknow, Kanpur and Jhansi — before the British re-captured these centres during late 1857 and early 1858.",
+        "On 1 November 1858, Queen Victoria's Proclamation transferred rule from the East India Company to the British Crown."
+      ],
+      "majorRegions": [
+        "The North-Western Provinces (today's western Gangetic plain and around Delhi)",
+        "Awadh (Oudh), annexed by the East India Company in 1856",
+        "The Doab and the towns along the Ganga-Yamuna corridor",
+        "Bundelkhand and central India around Jhansi"
+      ],
+      "socialGroups": [
+        "Sepoys of the Bengal Army — the backbone of the Company's fighting force",
+        "Peasant cultivators across the Gangetic countryside",
+        "Artisans and weavers in towns hit hard by changing trade",
+        "Merchants and traders whose routes ran through the disrupted region",
+        "Zamindars, taluqdars and local authorities caught between orders and uprisings",
+        "The last Mughal court at Delhi and princely rulers across India"
+      ],
+      "context": [
+        "The East India Company controlled vast territory. Its Bengal Army's Indian soldiers outnumbered its British soldiers many times over.",
+        "Hard-fought revenue collection, annexation of states, and changes to land rights created deep rural grievances long before any cartridge.",
+        "Scientific, ritual, and religious sensitivities — real and rumoured — turned army reform into a source of mistrust.",
+        "News travelled unevenly. People far from the fighting knew only rumours, which shaped what they did as much as facts did.",
+        "Most people in the region did not fight battles. They lived through the upheaval — planting, hiding, trading, fleeing and rebuilding."
+      ]
+    }
+  },
+  {
+    "id": "maharashtra-17th-century",
+    "title": "MAHARASHTRA — 17TH CENTURY",
+    "shortTitle": "Maharashtra 17th Century",
+    "year": "17th century",
+    "era": "Early Modern",
+    "subtitle": "Chhatrapati Shivaji Maharaj",
+    "regionId": "maharashtra",
+    "stateId": "maharashtra",
+    "eraId": "early-modern",
+    "century": "17th century",
+    "mode": "state",
+    "subjectName": "Chhatrapati Shivaji Maharaj",
+    "subjectDescription": "Explore the rise of Swarajya through events, places and the people who experienced them.",
+    "tagline": "A homeland, built fort by fort.",
+    "description": "The seventeenth century saw the rise of Swarajya in the Maratha country of the Western Ghats and the Deccan: a new power, born from hill forts and valley loyalties, that challenged the Sultanates of Bijapur and Ahmadnagar and then the Mughal empire itself.",
+    "overview": {
+      "importantEvents": [
+        "Shivaji was born at Shivneri Fort, by tradition in February 1630, to Jijabai and Shahaji Bhonsle.",
+        "Through the 1640s he gathered the mavals — the martial hill people of the valleys around Pune — and began taking the forts of the ghats, beginning with Torna (c. 1646).",
+        "Rajgad became the capital stronghold from about 1648–49, the workshop of the growing state.",
+        "On 10 November 1659, at Pratapgad, Bijapur's general Afzal Khan was killed in a meeting with Shivaji and his army routed.",
+        "After the siege of Panhala and the escape at Ghod Khind (1660), and a risky journey to the Mughal court at Agra and escape (1666), Swarajya resumed expansion along the Konkan coast and into the south.",
+        "On 6 June 1674, Shivaji was crowned Chhatrapati at Raigad — the public assertion of a sovereign Maratha state."
+      ],
+      "majorRegions": [
+        "The hill forts of the Sahyadri — Shivneri, Torna, Rajgad, Sinhagad, Pratapgad, Panhala",
+        "The Deccan plateau around Pune and Satara",
+        "The Konkan coast and its ports",
+        "Surat on the Gujarat coast, the great Mughal port (raided in 1664)",
+        "The imperial city of Agra (episode of 1666)"
+      ],
+      "socialGroups": [
+        "The mavals — the hill communities who supplied the first soldiers",
+        "Maratha service nobles and captains holding forts across the country",
+        "Cultivators of the Deccan and Konkan who paid revenue to whoever held the land",
+        "Artisans building and supplying the new fortresses",
+        "Merchants of the Konkan and Surat caught between competing powers",
+        "The Sultanates of Bijapur and Ahmadnagar and the Mughal empire — the rival powers of the Deccan"
+      ],
+      "context": [
+        "The Deccan of the 1600s was divided among the Sultanates and, increasingly, the Mughal empire; Maratha warlords held estates under them.",
+        "Fortresses in the ghat country were the decisive instruments: they commanded passes, valleys, revenue and loyalty.",
+        "Swarajya — self-rule — was both a political demand and a way of organising a homeland, built around forts, oaths and local loyalties.",
+        "The movement learned to balance war and diplomacy, patience and audacity, especially between treaty with the Mughals and renewed resistance."
+      ]
+    }
+  }
+]

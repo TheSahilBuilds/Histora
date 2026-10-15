@@ -10,7 +10,11 @@
     "description": "A historian's reconstruction of the Delhi rising through Indian and British sources — the letters, trials and personal records of the city's last Mughal court and its people.",
     "context": "Dalrymple used the Mutiny Papers held in the National Archives of India — the thousands of documents preserved by the British after the siege — to recover Delhi's Indian voices, previously under-used in the literature.",
     "relatedEventIds": ["delhi-falls", "zafar-proclaimed", "delhi-recaptured"],
-    "verified": true
+    "verified": true,
+    "url": "https://archive.org/details/the-last-mughal",
+    "sourceType": "internet-archive",
+    "retrievedAt": "2026-10-08",
+    "confidence": "high"
   },
   {
     "id": "azamgarh",
@@ -22,7 +26,8 @@
     "description": "A proclamation issued at Azamgarh during the rising, calling on Hindus and Muslims to stand together against the East India Company, and addressing landlords, peasants and soldiers.",
     "context": "The proclamation is a canonical example of how rebel leaders tried to build unity across religious lines in 1857. It survives because the Company preserved the rebel documents it captured.",
     "relatedEventIds": ["zafar-proclaimed", "delhi-falls"],
-    "verified": true
+    "verified": true,
+    "confidence": "medium"
   },
   {
     "id": "queens-proclamation",
@@ -34,7 +39,12 @@
     "description": "The proclamation announcing the transfer of the Government of India from the East India Company to the British Crown, promising religious toleration and equal admission to state service.",
     "context": "Read aloud across India and translated into local languages, the Proclamation ended the Company's rule and set the terms of the new Crown Raj. Historians parse both its promises and its silences.",
     "relatedEventIds": ["queens-proclamation"],
-    "verified": true
+    "verified": true,
+    "url": "https://en.wikisource.org/wiki/Proclamation_by_the_Queen_in_Council,_to_the_princes,_chiefs,_and_people_of_India",
+    "sourceType": "wikisource",
+    "retrievedAt": "2026-10-08",
+    "license": "Public domain",
+    "confidence": "high"
   },
   {
     "id": "ball-history",
@@ -46,8 +56,13 @@
     "category": "Contemporaneous history",
     "description": "One of the earliest full accounts of the 1857 rising, compiled within months of the events and drawing on official reports, newspaper dispatches and correspondence available at the time.",
     "context": "Ball wrote as a British author during the events themselves. Useful today as a compendium of how the war looked to its British participants and readers — with all the biases of a wartime source.",
-    "relatedEventIds": ["meerut-uprising", "kanpur", "lucknow-recaptured"],
-    "verified": true
+    "relatedEventIds": ["mangal-pandey", "meerut-uprising", "kanpur", "lucknow-recaptured"],
+    "verified": true,
+    "url": "https://archive.org/details/dli.pahar.0500",
+    "sourceType": "internet-archive",
+    "retrievedAt": "2026-10-08",
+    "license": "Public domain (1858 print)",
+    "confidence": "high"
   },
   {
     "id": "marx-tribune",
@@ -58,9 +73,14 @@
     "type": "Primary source",
     "category": "Contemporary journalism",
     "description": "A series of articles written for an American newspaper analysing the rebellion as it unfolded, using the dispatches that reached New York.",
-    "context": "Marx's essays are a fascinating contemporary source: metropolitan, analytic and critical of the Company's rule, while offering interpretations that historians both use and contest.",
+    "context": "Marx's essays are a fascinating contemporary source: metropolitan, analytic and critical of the Company's rule, while offering interpretations that historians both use and contest. The linked text is the essay \"The Revolt in India\" of 4 August 1857.",
     "relatedEventIds": ["meerut-uprising", "delhi-recaptured"],
-    "verified": true
+    "verified": true,
+    "url": "https://www.marxists.org/archive/marx/works/1857/07/17.htm",
+    "sourceType": "web",
+    "retrievedAt": "2026-10-08",
+    "license": "Public domain",
+    "confidence": "high"
   },
   {
     "id": "mutiny-margins",
@@ -73,7 +93,12 @@
     "description": "A multi-volume academic series charting the lesser-known stories of 1857 — the lives of ordinary soldiers, peasants, artisans and rebels reconstructed from the archives.",
     "context": "This is the 'history from below' of 1857 scholarship: it centres subaltern and regional perspectives and re-examines the evidence through a critical lens.",
     "relatedEventIds": ["enfield-cartridges", "uprisings-spread"],
-    "verified": true
+    "verified": true,
+    "url": "https://us.sagepub.com/en-us/nam/node/60444",
+    "sourceType": "publisher",
+    "externalId": "ISBN 9788132109709 (vol. 1)",
+    "retrievedAt": "2026-10-08",
+    "confidence": "high"
   },
   {
     "id": "meerut-court",
@@ -87,20 +112,27 @@
     "context": "This event is well documented and retold in the secondary literature; the precise shelf reference of the original record should be confirmed against the National Archives of India's finding aids.",
     "relatedEventIds": ["meerut-refusal", "meerut-uprising"],
     "verified": true,
-    "placeholder": "Source placeholder — replace with the verified archival shelf reference."
+    "placeholder": "Source placeholder — replace with the verified archival shelf reference.",
+    "confidence": "medium"
   },
   {
-    "id": "rani-placeholder",
-    "title": "Documents relating to Rani Lakshmibai of Jhansi",
-    "author": "Collected British and Maratha records (various repositories)",
-    "year": "1857–1858",
-    "type": "Archive",
-    "category": "Primary documents (mixed)",
-    "description": "Letters, reports and accounts concerning the Rani's political position in 1857 and the defence of Jhansi — testimony of how an individual ruler was caught and then led within the war.",
-    "context": "The Rani's life is documented across British military reports and Indian traditions of memory. This prototype bundles several such records; exact shelf references should be verified before citation.",
+    "id": "lakshmibai-gazette",
+    "title": "London Gazette despatch on the storming of Jhansi (Rose's despatch)",
+    "author": "Major-General Rose's despatch, published by authority",
+    "institution": "The London Gazette",
+    "year": "1858",
+    "type": "Primary source",
+    "category": "State gazette / military despatch",
+    "description": "The official military despatch reporting the storming of Jhansi on 3 April 1858 — the contemporaneous British account of the assault in which the Rani escaped from the fort.",
+    "context": "Published in the official gazette weeks after the event, the despatch is the military record of the assault as the command reported it home. It is a partisan but contemporaneous account, to be read alongside Indian traditions of the defence.",
     "relatedEventIds": ["jhansi-rani"],
-    "verified": false,
-    "placeholder": "Source placeholder — replace with specific verified records from the National Archives of India or published letter collections."
+    "verified": true,
+    "url": "https://www.thegazette.co.uk/London/issue/22163/page/3360",
+    "sourceType": "gazette",
+    "externalId": "Issue 22163, page 3360 (17 July 1858)",
+    "retrievedAt": "2026-10-08",
+    "license": "Open Government Licence v3.0",
+    "confidence": "high"
   },
   {
     "id": "demo-print",
@@ -113,7 +145,8 @@
     "context": "This document exists so visitors can see how the source viewer works without a real scan. It is explicitly labelled as a demonstration and must never be mistaken for an authentic document.",
     "relatedEventIds": [],
     "verified": false,
-    "demoDocument": true
+    "demoDocument": true,
+    "confidence": "low"
   },
   {
     "id": "sg-sarkar",
@@ -126,22 +159,32 @@
     "description": "The classic English-language biography of Shivaji, reconstructing his reign from Persian, Marathi and European sources. Modern scholars rely on it while revising several of its judgments.",
     "context": "Sarkar's work remains a key reference for the chronology and diplomacy of Shivaji's career, though its treatment of certain episodes (notably the Afzal Khan meeting) is debated.",
     "relatedEventIds": [],
-    "relatedStoryIds": ["birth-shivneri-1630", "first-forts-rise-of-swarajya", "torna-beginning-expansion", "capture-consolidation-of-forts", "pratapgad-1659", "panhala-siege-escape", "pavankhind", "surat-campaign-1664", "agra-episode-1666", "return-expansion-recovery-of-forts", "coronation-raigad-1674"],
-    "verified": true
+    "relatedStoryIds": ["birth-shivneri-1630", "first-forts-rise-of-swarajya", "torna-beginning-expansion", "capture-consolidation-of-forts", "pratapgad-1659", "panhala-siege-escape", "pavankhind", "surat-campaign-1664", "agra-episode-1666", "return-expansion-recovery-of-forts", "coronation-raigad-1674", "rajgad-building-new-power"],
+    "verified": true,
+    "url": "https://en.wikisource.org/wiki/Shivaji_and_His_Times",
+    "sourceType": "wikisource",
+    "retrievedAt": "2026-10-08",
+    "license": "Public domain (1919 text)",
+    "confidence": "high"
   },
   {
     "id": "sg-sabhasad",
     "title": "Sabhasad's Bakhar (Shivaji's chronicle — Sabhasad charitra)",
     "author": "Krishnaji Anant Sabhasad",
-    "institution": "Marathi chronicle, written c. 1694–97",
+    "institution": "Marathi chronicle, written c. 1694–97; English translation by S. N. Sen (1920)",
     "year": "c. 1694–97",
     "type": "Primary source",
     "category": "Marathi chronicle (bakhar)",
     "description": "A Marathi chronicle of Shivaji's reign written within a generation of his death by a figure close to the court. It is a foundational narrative source for the rise of Swarajya, though its reliability on contested episodes is debated.",
-    "context": "Bakhars are narrative chronicles with their own literary conventions; they preserve tradition and memory alongside record. Historians use Sabhasad alongside Persian and European documents, cross-checking where the sources diverge.",
+    "context": "Bakhars are narrative chronicles with their own literary conventions; they preserve tradition and memory alongside record. Historians use Sabhasad alongside Persian and European documents, cross-checking where the sources diverge. The linked scan is S. N. Sen's 1920 English translation.",
     "relatedEventIds": [],
     "relatedStoryIds": ["birth-shivneri-1630", "first-forts-rise-of-swarajya", "torna-beginning-expansion", "capture-consolidation-of-forts", "pratapgad-1659", "panhala-siege-escape", "pavankhind", "agra-episode-1666"],
-    "verified": true
+    "verified": true,
+    "url": "https://archive.org/details/sivachhatrapatib00sensuoft",
+    "sourceType": "internet-archive",
+    "retrievedAt": "2026-10-08",
+    "license": "Public domain (1920 translation)",
+    "confidence": "high"
   },
   {
     "id": "sg-pagdi",
@@ -155,7 +198,8 @@
     "context": "Pagdi writes within the mainstream of post-Sarkar scholarship, incorporating later archival work on the Maratha period.",
     "relatedEventIds": [],
     "relatedStoryIds": ["birth-shivneri-1630", "pratapgad-1659"],
-    "verified": true
+    "verified": true,
+    "confidence": "medium"
   },
   {
     "id": "sg-sardesai",
@@ -169,7 +213,11 @@
     "context": "Sardesai's synthesis draws on the extensive Marathi historical sources and remains a standard narrative of the Maratha state's foundation.",
     "relatedEventIds": [],
     "relatedStoryIds": ["rajgad-building-new-power", "surat-campaign-1664", "agra-episode-1666", "return-expansion-recovery-of-forts", "coronation-raigad-1674"],
-    "verified": true
+    "verified": true,
+    "url": "https://archive.org/details/new-history-of-marathas-1-g.-s.-sardesai_202309",
+    "sourceType": "internet-archive",
+    "retrievedAt": "2026-10-08",
+    "confidence": "high"
   },
   {
     "id": "sg-afzalkhan",
@@ -180,11 +228,15 @@
     "type": "Archive",
     "category": "Primary documents (mixed)",
     "description": "Persian chronicles and English factory letters that record the death of Afzal Khan at Pratapgad on 10 November 1659 and the ensuing battle. Accounts differ on the details of the meeting.",
-    "context": "The meeting's circumstances are reconstructed from hostile and friendly testimony alike. Exact shelf references for each surviving letter should be verified before citation; the event itself is firmly attested.",
+    "context": "The meeting's circumstances are reconstructed from hostile and friendly testimony alike. Exact references for each surviving account should be verified before citation; the event itself is firmly attested.",
     "relatedEventIds": [],
     "relatedStoryIds": ["pratapgad-1659"],
     "verified": false,
-    "placeholder": "Source placeholder — verify the shelf references of the Surat factory letters and the relevant Persian chronicle chapters before citation."
+    "placeholder": "Source placeholder — start from 'The English Factories in India', vol. 10 (1655–1660), and verify the shelf references of the factory letters and the relevant Persian chronicle chapters before citation.",
+    "url": "https://archive.org/details/englishfactories10fost",
+    "sourceType": "internet-archive",
+    "retrievedAt": "2026-10-08",
+    "confidence": "low"
   },
   {
     "id": "sg-agra-escape",
@@ -199,7 +251,8 @@
     "relatedEventIds": [],
     "relatedStoryIds": ["agra-episode-1666"],
     "verified": false,
-    "placeholder": "Source placeholder — replace with verified references to the published English factory records and the relevant European letter collections."
+    "placeholder": "Source placeholder — start from 'The English Factories in India', vol. 12 (1665–1667), and replace with verified references to the published factory records and the relevant European letter collections.",
+    "confidence": "low"
   },
   {
     "id": "sg-coronation",
@@ -214,7 +267,8 @@
     "relatedEventIds": [],
     "relatedStoryIds": ["coronation-raigad-1674"],
     "verified": false,
-    "placeholder": "Source placeholder — verify the specific factory letters (e.g., Feb 1674 dispatches) and the relevant chronicle passages before citation."
+    "placeholder": "Source placeholder — verify the specific factory letters (e.g., Feb 1674 dispatches) and the relevant chronicle passages before citation.",
+    "confidence": "low"
   },
   {
     "id": "sg-surat",
@@ -229,6 +283,10 @@
     "relatedEventIds": [],
     "relatedStoryIds": ["surat-campaign-1664"],
     "verified": false,
-    "placeholder": "Source placeholder — verify the exact page references in 'The English Factories in India' for the January 1664 letters."
+    "placeholder": "Source placeholder — verify the exact page references in 'The English Factories in India', vol. 11 (1661–1664), for the January 1664 letters.",
+    "url": "https://archive.org/details/englishfactories11fost",
+    "sourceType": "internet-archive",
+    "retrievedAt": "2026-10-08",
+    "confidence": "low"
   }
 ]

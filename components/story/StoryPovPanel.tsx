@@ -9,16 +9,13 @@ import {
   Scale,
   Hammer,
   House,
-  ArrowRight,
   Eye,
   ShieldAlert,
   ScrollText,
   Compass,
-  BookOpen,
 } from "lucide-react";
 import type { PovId, PovRole } from "@/lib/types";
 import { useJourney } from "@/lib/store";
-import { OrnamentLine } from "@/components/ui/Ornament";
 import { cn } from "@/lib/utils";
 
 const ICON_MAP: Record<string, typeof Wheat> = {
@@ -35,7 +32,6 @@ interface StoryPovPanelProps {
   storyTitle: string;
   povIds: PovId[];
   selectedPov?: PovRole;
-  liveHref?: string;
 }
 
 export default function StoryPovPanel({
@@ -43,7 +39,6 @@ export default function StoryPovPanel({
   storyTitle,
   povIds,
   selectedPov,
-  liveHref,
 }: StoryPovPanelProps) {
   const markEventExplored = useJourney((s) => s.markEventExplored);
   const markPerspectiveExplored = useJourney((s) => s.markPerspectiveExplored);
@@ -164,20 +159,6 @@ export default function StoryPovPanel({
               <p className="mt-1.5">{selectedPov.context}</p>
             </div>
           </div>
-
-          {liveHref ? (
-            <div className="mt-6">
-              <OrnamentLine className="!mb-4" />
-              <Link
-                href={liveHref}
-                className="inline-flex w-full items-center justify-center gap-2 border border-ink bg-ink px-5 py-3 text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-paper transition-colors hover:bg-ink-soft"
-              >
-                <BookOpen className="h-4 w-4" strokeWidth={1.5} />
-                Live this moment
-                <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-              </Link>
-            </div>
-          ) : null}
 
           <div className="mt-4 flex flex-wrap gap-2">
             {povIds.map((p) => (

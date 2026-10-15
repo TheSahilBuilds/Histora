@@ -89,7 +89,7 @@
     "description": "Torna, a major hill fort of the Bijapur-controlled Deccan, was taken by Shivaji in or around 1646, according to the standard accounts. The fort was approached not by costly assault but through persuasion and surprise — its garrison won over or overwhelmed with the support of the surrounding hill country. A considerable treasure found within, recorded in the chronicles, was used to strengthen the foundations of the expanding movement, and the fort's name was renewed as Prachandgad — 'the mighty fort'. It became a keystone holding in the chain of strongholds that guarded the new territory.",
     "significance": "Torna is usually taken as the first decisive step of Shivaji's independent military expansion. It demonstrated a formula he would repeat: take the high ground quietly, secure the local population's loyalty, convert captured resources into further fortification — and let each summit command the valleys below.",
     "people": [
-      { "id": "shivaji", "name": "Shivaji", "role": "Leader of the taking of Torna", "note": "Approximately eighteen when Torna was taken." },
+      { "id": "shivaji", "name": "Shivaji", "role": "Leader of the taking of Torna", "note": "About sixteen when Torna was taken (born 1630)." },
       { "id": "yesaji-kank", "name": "Yesaji Kank", "role": "Companion in the enterprise", "note": "Among the maval companions present in the early captures." }
     ],
     "relatedStories": ["first-forts-rise-of-swarajya", "rajgad-building-new-power"],
@@ -192,7 +192,7 @@
     ],
     "relatedStories": ["capture-consolidation-of-forts", "panhala-siege-escape"],
     "locationIds": ["pratapgad"],
-    "sourceIds": ["sg-sarkar", "sg-sabhasad", "sg-afzalkhan"],
+    "sourceIds": ["sg-sarkar", "sg-sabhasad", "sg-pagdi", "sg-afzalkhan"],
     "evidence": "documented-fact",
     "povs": ["soldier", "commoner", "ruler"]
   },
@@ -205,7 +205,7 @@
     "category": "siege",
     "title": "The Siege of Panhala and the Escape",
     "date": "1660",
-    "displayDate": "March – July 1660",
+    "displayDate": "1660",
     "century": "17th century",
     "era": "17th-century",
     "period": "Early modern — Chhatrapati Shivaji Maharaj",
@@ -216,10 +216,10 @@
     "latitude": 16.81,
     "longitude": 74.114,
     "shortDescription": "Besieged inside a fortress by a Bijapur army, the leader of Swarajya escapes through the rain and the ghats in one of the great flight-and-pursuit dramas of the age.",
-    "description": "After Pratapgad, the war did not stop. In 1660 Bijapur mounted a fresh expedition. Siddi Jauhar's army closed in on Panhala, a commanding fort on the Kolhapur plateau where Shivaji had taken position, and blockaded it through the monsoon months. Food ran low and the siege pressed hard. In the darkness of a July night, in torrential rain, Shivaji slipped out of the fort with a small party on a route known to the hill people, bound for Vishalgad. The escape — with a Bijapur column in pursuit and a wide valley to cross before safety — culminated in the skirmish at Ghod Khind, remembered as Pavankhind.",
+    "description": "After Pratapgad, the war did not stop. In 1660 Bijapur mounted a fresh expedition. Siddi Jauhar's army closed in on Panhala, a commanding fort on the Kolhapur plateau where Shivaji had taken position, and blockaded it through the monsoon months. Food ran low and the siege pressed hard. Under cover of a night in 1660 — traditionally dated 13 July, though later accounts place the escape in late August — Shivaji slipped out of the fort in torrential rain with a small party on a route known to the hill people, bound for Vishalgad. The escape — with a Bijapur column in pursuit and a wide valley to cross before safety — culminated in the skirmish at Ghod Khind, remembered as Pavankhind.",
     "significance": "The Panhala episode shows both the desperation and the discipline of the movement at its lowest hour: a ruler willing to gamble his life on a night march, and captains willing to die holding the pass behind him. Its outcome — the party's survival and the fort of Vishalgad's eventual relief — kept the Swarajya alive through the most dangerous months of its early years.",
     "people": [
-      { "id": "shivaji", "name": "Shivaji", "role": "The besieged leader", "note": "Escaped Panhala by night on 13 July 1660 (traditional date)." },
+      { "id": "shivaji", "name": "Shivaji", "role": "The besieged leader", "note": "Escaped Panhala by night in 1660; 13 July is the traditional date, with later accounts giving late August." },
       { "id": "siddi-jauhar", "name": "Siddi Jauhar", "role": "Bijapur commander of the siege", "note": "Led the expedition that blockaded Panhala." },
       { "id": "baji-prabhu", "name": "Baji Prabhu Deshpande", "role": "Rearguard commander", "note": "Fell at Ghod Khind holding the pass behind the escaping party." }
     ],
@@ -237,8 +237,8 @@
     "scope": "state",
     "category": "battle",
     "title": "The Battle of Pavankhind",
-    "date": "July 1660",
-    "displayDate": "13 July 1660 (traditional date)",
+    "date": "1660",
+    "displayDate": "1660 (traditional: 13 July)",
     "century": "17th century",
     "era": "17th-century",
     "period": "Early modern — Chhatrapati Shivaji Maharaj",
@@ -249,7 +249,7 @@
     "latitude": 16.9667,
     "longitude": 74.0667,
     "shortDescription": "A handful of men hold a narrow defile against a pursuing army so that the rest can reach safety — a stand that passed into the affection and memory of the Marathas.",
-    "description": "The pursuit of Shivaji's night escape from Panhala came to a head in the defile of Ghod Khind, a narrowing of the mountain route toward Vishalgad. There, according to the chronicles, the rearguard under Baji Prabhu Deshpande and his brother Fulaji turned and held the pass against the pursuing Bijapur force for hours — enough time for the escaped party to reach the fortress of Vishalgad and safety. Baji Prabhu himself fell in the pass, and the day became one of the most fiercely remembered in the movement's early history. The name Pavankhind — 'the defile of the wind' — is how the fight is traditionally remembered. (The exact numbers, timing and details rest on the chronicles; modern historians accept the general outline with care.)",
+    "description": "The pursuit of Shivaji's night escape from Panhala came to a head in the defile of Ghod Khind, a narrowing of the mountain route toward Vishalgad. There, according to the chronicles, the rearguard under Baji Prabhu Deshpande and his brother Fulaji turned and held the pass against the pursuing Bijapur force for hours — enough time for the escaped party to reach the fortress of Vishalgad and safety. Baji Prabhu himself fell in the pass, and the day became one of the most fiercely remembered in the movement's early history. The name Pavankhind — 'the defile of the wind' — is how the fight is traditionally remembered. (Accounts date the escape and this stand variously — 13 July by tradition, late August in later reckonings — and the exact numbers and details rest on the chronicles; modern historians accept the general outline with care.)",
     "significance": "The rearguard's stand at Ghod Khind secured the survival of the movement's leader and the continuity of Swarajya at a moment of extreme peril. In Maratha tradition the episode became a founding story of loyalty and sacrifice — the model of the devoted commander dying for his sworn lord and the cause.",
     "people": [
       { "id": "baji-prabhu", "name": "Baji Prabhu Deshpande", "role": "Rearguard commander (died 1660)", "note": "Held the pass at Ghod Khind and was killed." },
@@ -303,7 +303,7 @@
     "category": "escape",
     "title": "The Agra Episode and the Escape, 1666",
     "date": "1666",
-    "displayDate": "May – August 1666",
+    "displayDate": "May – September 1666",
     "century": "17th century",
     "era": "17th-century",
     "period": "Early modern — Chhatrapati Shivaji Maharaj",
@@ -314,16 +314,16 @@
     "latitude": 27.1767,
     "longitude": 78.0081,
     "shortDescription": "Invited to the Mughal court, the Deccan's leader is made a pawn of imperial ceremony — and escapes from the capital of his would-be captors.",
-    "description": "After years of intermittent warfare, the Mughal governorship, in the person of Mirza Raja Jai Singh, forced Shivaji toward a negotiated submission. In the peace that followed (the 1665 treaty of Purandar), Shivaji agreed to attend the court of the Mughal emperor Aurangzeb at Agra. His reception in May 1666 proved insulting and menacing: given a place far below his expectations, and placed under guarded residence while his fate was debated. The chronicles recount a dramatic flight — an escape in disguise from the imperial capital — followed by a journey across India and a safe return to the Konkan by months' end. (European factory records and the chronicles agree on the broad shape — a period of detention and a famous escape — while the details differ between accounts.)",
+    "description": "After years of intermittent warfare, the Mughal governorship, in the person of Mirza Raja Jai Singh, forced Shivaji toward a negotiated submission. In the peace that followed (the 1665 treaty of Purandar), Shivaji agreed to attend the court of the Mughal emperor Aurangzeb at Agra. His reception at the court audience of 12 May 1666 proved insulting and menacing: given a place far below his expectations, and placed under guarded residence while his fate was debated. The chronicles recount a dramatic flight — an escape in disguise from the imperial capital on 17 August 1666, with contemporary records placing it on the 18th or 19th — followed by a journey across India and a safe return to the Konkan in mid-September 1666 (a later account gives December). The popular tradition of escape hidden in a basket has no contemporary evidence behind it. (European factory records and the chronicles agree on the broad shape — a period of detention and a famous escape — while the details differ between accounts.)",
     "significance": "The Agra episode is a hinge of Shivaji's career. It marked the limits of his conventional diplomacy against the Mughal empire, and the escape restored the movement at the very moment imperial coercion was about to close around it. The audacity of the escape became part of his legend and gave Swarajya a second wind — within years he was again taking forts and receiving momentum, having slipped the strongest empire in the subcontinent like water through a fist.",
     "people": [
-      { "id": "shivaji", "name": "Shivaji", "role": "The detainee who escaped", "note": "Detained at Agra from May 1666 and escaped before the year's end." },
+      { "id": "shivaji", "name": "Shivaji", "role": "The detainee who escaped", "note": "Detained at Agra from May 1666; escaped 17 August 1666 (records differ: 17–19 August)." },
       { "id": "aurangzeb", "name": "Aurangzeb", "role": "Mughal emperor", "note": "Reigning at Agra; his treatment of Shivaji's reception shaped the crisis." },
       { "id": "jai-singh", "name": "Mirza Raja Jai Singh", "role": "Mughal commander and negotiator", "note": "Architect of the 1665 Treaty of Purandar and of the invitation to court." }
     ],
     "relatedStories": ["surat-campaign-1664", "return-expansion-recovery-of-forts"],
     "locationIds": ["agra"],
-    "sourceIds": ["sg-agra-escape", "sg-sarkar", "sg-sardesai"],
+    "sourceIds": ["sg-agra-escape", "sg-sarkar", "sg-sabhasad", "sg-sardesai"],
     "evidence": "documented-fact",
     "povs": ["ruler", "soldier", "commoner"]
   },
@@ -347,7 +347,7 @@
     "latitude": 18.237,
     "longitude": 73.186,
     "shortDescription": "Returned from Agra, the movement resumes its advance — recovering forts, opening the Konkan, and pushing into the southern Deccan — toward the threshold of kingship.",
-    "description": "The years after the Agra escape saw Swarajya expand on every front. Forts ceded or lost under the pressure of the mid-1660s were recovered, new strongholds were raised (including the construction and fortification of Raigad as a lasting capital), and the movement reached the sea and into the southern Maratha country. Korwon (Kolhapur's) Konkan ports and inland towns passed under Swarajya administration or tribute. Campaigns pressed toward the Karnataka borders with the co-operation of Shivaji's half-brother Ekoji's Karnataka holdings and against imperial outposts. By the early 1670s the territories under his rule or protection formed a continuous state from the hill country to the coast, rich in ports, passes and fortresses.",
+    "description": "The years after the Agra escape saw Swarajya expand on every front. Forts ceded or lost under the pressure of the mid-1660s were recovered, new strongholds were raised (including the construction and fortification of Raigad as a lasting capital), and the movement reached the sea and into the southern Maratha country. The Konkan ports and inland towns of the Kolhapur country passed under Swarajya administration or tribute. Campaigns pressed toward the Karnataka borders and against imperial outposts. By the early 1670s the territories under his rule or protection formed a continuous state from the hill country to the coast, rich in ports, passes and fortresses.",
     "significance": "This second expansion transformed a hill-refuge into a maritime state and set the stage for the coronation of 1674. It also made clear that imperial submission at Purandar and Agra had been tactical, not final: Swarajya's central proposition — legitimate, enduring self-rule in the Maratha country — was being consolidated before the entire region.",
     "people": [
       { "id": "shivaji", "name": "Shivaji", "role": "Leader of the second expansion", "note": "Directed recovery and coastal expansion after 1666." },

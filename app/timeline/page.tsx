@@ -27,7 +27,7 @@ export default async function TimelinePage(props: PageProps<"/timeline">) {
     location: e.location,
     description: e.description,
     category: e.category,
-    href: `/explore?event=${e.id}`,
+    href: `/sources?event=${e.id}`,
     kind: "event" as const,
   }));
 

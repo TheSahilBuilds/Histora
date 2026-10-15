@@ -124,27 +124,29 @@ function gauss(x: number, z: number, cx: number, cz: number, sx: number, sz: num
 }
 
 /**
- * Continuous fortress-mountain surface for the Pratapgad scene.
+ * Continuous Sahyadri ridge surface for the Pratapgad scene.
  *
  * Designed against the real GLB geometry (rotated +180°, centered, ~14-unit
- * target height): a single crown that rises to just below the wall footings
- * (~3.8), a raised rim under the fort's defensive terrace so the raw slab
- * underside is buried everywhere, then smooth shoulders falling to the valley.
- * THE INNER PAYOFF: no floating slabs, no exposed cuts, no disconnected plates —
- * everything is one connected mountain.
+ * target height): a broad crown beneath the fort (kept at the same height as
+ * the previous field so the model and hotspot anchors stay registered), flanked
+ * by an elongated east ridge and a lower west spur — the long, weathered
+ * ridgelines typical of the Deccan — with a soft shoulder where the old sharp
+ * rim used to be. The outer rim sinks gently below the valley so the ridge
+ * falls away into haze instead of ending on a flat, exposed plate.
  */
 export function siteTerrainHeight(x: number, z: number): number {
-  const re = Math.sqrt(Math.pow(x / 16, 2) + Math.pow(z / 37, 2));
-  const rim = 1.85 * Math.exp(-Math.pow((re - 1.12) / 0.17, 2));
-  const interior = 2.45 * gauss(x, z, 0, -1, 22, 30);
-  const front = 0.7 * gauss(x, z, 0, 36, 26, 18);
-  const rear = 0.7 * gauss(x, z, 2, -34, 26, 30);
-  const east = 0.35 * gauss(x, z, 16, 4, 14, 24);
-  const west = 0.3 * gauss(x, z, -16, 2, 14, 24);
-  const valley = 0.22 * Math.max(0, 1 - Math.min(1, Math.hypot(x, z) / 60));
-  let h = rim + interior + front + rear + east + west + valley;
-  h += fbm(x * 0.13 + 3.1, z * 0.13) * 0.14;
-  h += noise2(x * 0.6, z * 0.6) * 0.05;
+  const r = Math.hypot(x, z);
+  const crown = 2.45 * gauss(x, z, 0, -1, 22, 30);
+  const eastRidge = 1.3 * gauss(x, z, 20, -2, 13, 30);
+  const westRidge = 0.8 * gauss(x, z, -22, 6, 15, 26);
+  const re = Math.sqrt(Math.pow(x / 20, 2) + Math.pow(z / 40, 2));
+  const shoulder = 1.1 * Math.exp(-Math.pow((re - 1.25) / 0.6, 2));
+  const valley = 0.45 * Math.max(0, 1 - Math.min(1, r / 62));
+  let h = crown + eastRidge + westRidge + shoulder + valley;
+  h += fbm(x * 0.12 + 3.1, z * 0.12) * 0.5 - 0.25;
+  h += noise2(x * 0.45, z * 0.45) * 0.14;
+  const edgeT = Math.min(1, Math.max(0, (r / 78 - 0.48) / (1.02 - 0.48)));
+  h -= edgeT * edgeT * (3 - 2 * edgeT) * 16;
   return h;
 }
 

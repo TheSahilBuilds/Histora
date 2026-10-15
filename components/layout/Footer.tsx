@@ -16,7 +16,6 @@ const COLUMNS = [
   {
     heading: "Learn",
     links: [
-      { label: "Live Through History", href: "/live" },
       { label: "Historical Guide", href: "/guide" },
       { label: "Sources & Evidence", href: "/sources" },
     ],

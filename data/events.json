@@ -10,7 +10,7 @@
     "category": "tension",
     "description": "The Pattern 1853 Enfield rifle was a more powerful weapon than older muskets. Its paper cartridges were greased before loading, and the soldier had to bite the cartridge open. Among sepoys of the Bengal Army — where many soldiers were high-caste Hindus or Muslims — reports that the grease contained cow and pig fat caused deep alarm, because using such cartridges would violate both Hindu and Muslim religious practice.",
     "significance": "Whether or not the grease actually contained animal fat, the cartridge became a shared symbol of mistrust. It united diverse grievances — over pay, promotion, overseas service and annexation — into a single religious offence.",
-    "sourceId": "last-mughal"
+    "sourceId": "mutiny-margins"
   },
   {
     "id": "mangal-pandey",
@@ -87,7 +87,7 @@
     "category": "uprising",
     "description": "From mid-May, garrisons across the North-Western Provinces and Awadh joined the uprising. In cities like Lucknow, the deposed taluqdars and sepoys of Awadh rose against the Company that had annexed their state in 1856. At Jhansi, the Rani came to lead resistance as the local garrison rebelled.",
     "significance": "Within weeks the rebellion had extended across the Gangetic heartland — far beyond the initial flashpoints. But it remained uneven: many regions and rulers stayed loyal to the Company.",
-    "sourceId": "last-mughal"
+    "sourceId": "mutiny-margins"
   },
   {
     "id": "kanpur",
@@ -105,7 +105,7 @@
   {
     "id": "delhi-recaptured",
     "periodId": "india-1857",
-    "date": "20–21 September 1857",
+    "date": "September 1857",
     "displayDate": "September 1857",
     "title": "Delhi Recaptured",
     "location": "Delhi",
@@ -131,15 +131,15 @@
   {
     "id": "jhansi-rani",
     "periodId": "india-1857",
-    "date": "1858",
-    "displayDate": "April 1858",
+    "date": "3 April 1858",
+    "displayDate": "3 April 1858",
     "title": "Jhansi and Lakshmibai",
     "location": "Jhansi",
     "locationId": "jhansi",
     "category": "response",
-    "description": "The Rani of Jhansi, Lakshmibai, had lost her state to the Company's doctrine of lapse in 1854 and had petitioned in vain for its restoration. When the garrison at Jhansi rebelled, she became the leader of its defence. British forces stormed Jhansi in April 1858; the Rani escaped and joined the resistance in Central India, dying in battle near Gwalior in June 1858.",
+    "description": "The Rani of Jhansi, Lakshmibai, had lost her state to the Company's doctrine of lapse in 1854 and had petitioned in vain for its restoration. When the garrison at Jhansi rebelled, she became the leader of its defence. British forces stormed the fort at daybreak on 3 April 1858; the Rani escaped that night and joined the resistance in Central India, dying in battle near Gwalior on 18 June 1858.",
     "significance": "Lakshmibai's story — read through both British and Indian sources — became one of the most remembered episodes of 1857. It reminds us that individuals with very different positions all found themselves caught in the war.",
-    "sourceId": "rani-placeholder"
+    "sourceId": "lakshmibai-gazette"
   },
   {
     "id": "queens-proclamation",

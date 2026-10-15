@@ -82,16 +82,16 @@ function terrainColorMap(): THREE.CanvasTexture {
   ctx.fillStyle = "#9c8a66";
   ctx.fillRect(0, 0, 256, 256);
   const rng = mulberry32(0x9911dd);
-  for (let i = 0; i < 640; i += 1) {
+  for (let i = 0; i < 420; i += 1) {
     const t = rng();
     ctx.fillStyle =
-      t < 0.42 ? "rgba(110,90,63,0.5)" : t < 0.8 ? "rgba(176,162,132,0.45)" : "rgba(47,60,38,0.4)";
+      t < 0.42 ? "rgba(110,90,63,0.34)" : t < 0.8 ? "rgba(176,162,132,0.3)" : "rgba(47,60,38,0.26)";
     const x = rng() * 256;
     const y = rng() * 256;
     ctx.fillRect(x, y, 3 + rng() * 9, 2 + rng() * 5);
   }
-  for (let i = 0; i < 70; i += 1) {
-    ctx.fillStyle = "rgba(83,70,47,0.55)";
+  for (let i = 0; i < 44; i += 1) {
+    ctx.fillStyle = "rgba(83,70,47,0.32)";
     ctx.beginPath();
     ctx.arc(rng() * 256, rng() * 256, 2 + rng() * 4, 0, Math.PI * 2);
     ctx.fill();
@@ -104,9 +104,9 @@ function terrainHeightMap(): THREE.CanvasTexture {
   ctx.fillStyle = "#858585";
   ctx.fillRect(0, 0, 256, 256);
   const rng = mulberry32(0xabcde);
-  for (let i = 0; i < 900; i += 1) {
-    const v = 70 + rng() * 90;
-    ctx.fillStyle = `rgba(${Math.round(v)},${Math.round(v)},${Math.round(v)},0.5)`;
+  for (let i = 0; i < 520; i += 1) {
+    const v = 78 + rng() * 74;
+    ctx.fillStyle = `rgba(${Math.round(v)},${Math.round(v)},${Math.round(v)},0.35)`;
     ctx.fillRect(rng() * 256, rng() * 256, 2 + rng() * 5, 2 + rng() * 5);
   }
   return canvasTexture(ctx.canvas, { repeat: true });
@@ -117,8 +117,8 @@ function roughnessMap(): THREE.CanvasTexture {
   ctx.fillStyle = "#b8b8b8";
   ctx.fillRect(0, 0, 256, 256);
   const rng = mulberry32(0x51515);
-  for (let i = 0; i < 520; i += 1) {
-    const v = 120 + rng() * 80;
+  for (let i = 0; i < 360; i += 1) {
+    const v = 140 + rng() * 60;
     ctx.fillStyle = `rgb(${Math.round(v)},${Math.round(v)},${Math.round(v)})`;
     ctx.fillRect(rng() * 256, rng() * 256, 4 + rng() * 14, 2 + rng() * 3);
   }

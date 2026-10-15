@@ -250,13 +250,32 @@ export interface Scenario {
   }[];
 }
 
+export type SourceKind =
+  | "Primary source"
+  | "Secondary source"
+  | "Archive"
+  | "Book"
+  | "Museum"
+  | "Academic source";
+
+export type SourceChannel =
+  | "wikidata"
+  | "wikipedia"
+  | "wikisource"
+  | "commons"
+  | "internet-archive"
+  | "gazette"
+  | "publisher"
+  | "web"
+  | "repository";
+
 export interface Source {
   id: string;
   title: string;
   author: string;
   institution?: string;
   year: string;
-  type: "Primary source" | "Secondary source" | "Archive" | "Book" | "Museum" | "Academic source";
+  type: SourceKind;
   category: string;
   description: string;
   context: string;
@@ -264,7 +283,13 @@ export interface Source {
   relatedStoryIds?: string[];
   verified: boolean;
   placeholder?: string;
-  demoDocument?: string;
+  demoDocument?: boolean;
+  url?: string;
+  sourceType?: SourceChannel;
+  externalId?: string;
+  retrievedAt?: string;
+  license?: string;
+  confidence?: "high" | "medium" | "low";
 }
 
 export interface GuideQA {

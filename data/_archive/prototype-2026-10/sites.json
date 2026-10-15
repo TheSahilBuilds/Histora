@@ -1,0 +1,45 @@
+[
+  {
+    "id": "pratapgad",
+    "storyId": "pratapgad-1659",
+    "model": "/models/historical/pratapgad/pratapgad.glb",
+    "title": "Pratapgad",
+    "location": "Maharashtra",
+    "century": "17th century",
+    "date": "10 November 1659",
+    "ariaLabel": "Three-dimensional view of the Pratapgad hill fort",
+    "transform": {
+      "excludePrefixes": ["G-Google Earth Terrain", "G-Google Earth Snapshot"],
+      "targetHeight": 14,
+      "rotationY": 180,
+      "restOnTerrain": true,
+      "embed": 3.55
+    },
+    "hotspots": [
+      {
+        "id": "main-gate",
+        "title": "Main Gate",
+        "description": "The fortified entrance to the hill-top stronghold.",
+        "position": [7.6, 6.1, 30.0]
+      },
+      {
+        "id": "fortification",
+        "title": "Fortification",
+        "description": "Irregular stone walls that trace the contours of the summit.",
+        "position": [14.2, 8.9, 19.0]
+      },
+      {
+        "id": "summit",
+        "title": "Summit",
+        "description": "The commanding height of the fort above the surrounding ghats.",
+        "position": [0.3, 13.8, 7.3]
+      },
+      {
+        "id": "ridge",
+        "title": "Ridge",
+        "description": "The spur of the Sahyadri ridge on which Pratapgad stands.",
+        "position": [15.0, 3.9, -8.0]
+      }
+    ]
+  }
+]

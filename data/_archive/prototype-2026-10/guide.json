@@ -1,0 +1,170 @@
+[
+  {
+    "id": "maharashtra-shivaji",
+    "question": "Who was Shivaji Maharaj?",
+    "keywords": ["shivaji", "shivaji maharaj", "chhatrapati", "maharaj", "swarajya", "founder"],
+    "answer": "Shivaji (by tradition born at Shivneri Fort in February 1630) was the founder of the Maratha state, later crowned Chhatrapati at Raigad on 6 June 1674. Through the 1640s–1670s he built a kingdom of forts, valleys and coasts in the Maratha country of the Western Ghats and the Deccan — a project his supporters called Swarajya (self-rule) — challenging the Sultanates of Bijapur and Ahmadnagar and, eventually, the Mughal empire. The 1630 birth date is traditional; the general chronology of his life is documented across Marathi, Persian and European sources.",
+    "tags": ["Documented fact"],
+    "followUp": ["What was Swarajya?", "What happened at Pratapgad?", "When was Shivaji crowned?"]
+  },
+  {
+    "id": "maharashtra-17th",
+    "question": "What happened in Maharashtra in the 17th century?",
+    "keywords": ["maharashtra", "17th century", "seventeenth", "seventeen", "deccan", "maratha"],
+    "answer": "The seventeenth century saw the rise of the Maratha power in the Deccan. From the 1640s, Shivaji — drawing on the hill communities (mavals) and the fortresses of the ghats — built a state in the Maratha country that broke from the Deccan Sultanates and then resisted the Mughal empire. Key moments include the early fort captures (Torna c. 1646), the capital at Rajgad, the victory over Bijapur's Afzal Khan at Pratapgad (1659), the siege and escape from Panhala (1660), the Surat campaign (1664), the Agra episode and escape (1666), and the coronation at Raigad in 1674.",
+    "tags": ["Documented fact"],
+    "followUp": ["Who was Shivaji Maharaj?", "What happened at Pratapgad?"]
+  },
+  {
+    "id": "maharashtra-swarajya",
+    "question": "What was Swarajya?",
+    "keywords": ["swarajya", "self rule", "self-rule", "homeland", "kingdom", "vision"],
+    "answer": "Swarajya means literally 'self-rule' — rule over one's own land. In Shivaji's project it meant building a Maratha-controlled polity in the home country (desh) of the Western Ghats and the Deccan, governed by its own rulers rather than the sultanates or the empire. It was both a political demand and an organising programme, built through forts, oaths, revenue and ceremony — crowned, symbolically, by the coronation of 1674. Historians debate how far the ideal was original and how far it drew on existing ideas of rightful kingship.",
+    "tags": ["Documented fact", "Interpretation"],
+    "followUp": ["Who was Shivaji Maharaj?", "When was Shivaji crowned?"]
+  },
+  {
+    "id": "maharashtra-pratapgad",
+    "question": "What happened at Pratapgad?",
+    "keywords": ["pratapgad", "afzal khan", "afzal", "1659", "battle"],
+    "answer": "On 10 November 1659, at the fort of Pratapgad in the Satara hills, the confrontation between Shivaji and Afzal Khan — the general sent by the Bijapur Sultanate to crush the new power — ended with Afzal Khan dead and his army routed from the fort and the passes. The precise circumstances of the meeting are among the most contested episodes of the period: the Marathi chronicles describe Afzal Khan attempting treachery that turned against him, while Persian and European accounts differ in detail. What is firmly attested is the outcome: a decisive victory that transformed the standing of Swarajya.",
+    "tags": ["Documented fact", "Interpretation"],
+    "followUp": ["Who was Shivaji Maharaj?", "What was Swarajya?"]
+  },
+  {
+    "id": "maharashtra-coronation",
+    "question": "When was Shivaji crowned?",
+    "keywords": ["coronation", "raigad", "crowned", "crown", "1674", "chhatrapati"],
+    "answer": "Shivaji was crowned Chhatrapati at his capital of Raigad on 6 June 1674. The ceremony — with its golden umbrellas, titles, seals and the proclamation of a new era — publicly declared the Maratha country an independent state under its own sovereign, rather than a client of the sultanates or the Mughal empire. The fact of the coronation is attested from several independent directions; details of the rites vary between the chronicles and the European factory accounts.",
+    "tags": ["Documented fact"],
+    "followUp": ["Who was Shivaji Maharaj?", "What happened at Pratapgad?"]
+  },
+  {
+    "id": "maharashtra-sources",
+    "question": "Where can I read about Shivaji?",
+    "keywords": ["shivaji", "sources", "books", "read", "sarkar", "sabhasad", "history"],
+    "answer": "The standard English biography is Jadunath Sarkar's 'Shivaji and His Times' (1919). A concise modern account is Setumadhavrao Pagdi's 'Shivaji', and the classic regional synthesis is G.S. Sardesai's 'New History of the Marathas'. The key primary narrative is Sabhasad's chronicle (Sabhasad's Bakhar, c. 1694–97), which should be read alongside the Persian chronicles and the European factory records — several of which this archive lists under Sources &amp; Evidence.",
+    "tags": ["Documented fact"],
+    "followUp": ["Who was Shivaji Maharaj?", "What happened in Maharashtra in the 17th century?"]
+  },
+  {
+    "id": "what-happened",
+    "question": "What happened in 1857?",
+    "keywords": ["what happened", "1857", "rebellion", "mutiny", "uprising", "what is"],
+    "answer": "In 1857, a large-scale rising known as the Indian Rebellion of 1857 (called the 'Sepoy Mutiny' in older British writing) shook the East India Company's rule in northern India. It began as a mutiny of sepoys over the greased Enfield cartridge and anger at army discipline, spread through garrisons of the Bengal Army, and grew — particularly in Delhi, the Gangetic plain and Awadh — into a wider uprising involving peasants, landlords and former rulers. The Company, reinforced by loyal regiments and British troops, suppressed the rising across 1857–58. In November 1858 the Crown took over the government of India.",
+    "tags": ["Documented fact"],
+    "followUp": ["Why was Delhi important?", "What changed after 1857?", "Who were the major groups involved?"]
+  },
+  {
+    "id": "delhi-importance",
+    "question": "Why was Delhi important?",
+    "keywords": ["delhi", "red fort", "zafar", "capital"],
+    "answer": "By 1857 Delhi was the shadow of a great capital: the seat of the last Mughal emperor, Bahadur Shah Zafar, whose real authority had shrunk to the Red Fort. When the Meerut sepoys arrived on 11 May 1857 and the city's regiments joined them, Delhi became the political and symbolic centre of the rising — a place where soldiers, nobles and printers could rally 'in the emperor's name.' Holding Delhi mattered enormously to both sides: rebel legitimacy required it, and the Company's retaking of the city in September 1857 broke the rebellion's symbolic heart.",
+    "tags": ["Documented fact", "Interpretation"],
+    "followUp": ["Who was Bahadur Shah Zafar?", "What happened at Delhi after it fell?", "What were the proclamations?"]
+  },
+  {
+    "id": "farmers-life",
+    "question": "What was life like for farmers?",
+    "keywords": ["farmer", "farmers", "peasant", "peasants", "village", "rural", "peasant life"],
+    "answer": "Most people in the region were cultivators, and their lives were governed by the monsoon, the land revenue, debts to moneylenders, and the authority of zamindars and officials. When armies marched in 1857, villages were caught between sides: they were requisitioned for grain, cattle and labour, their fields and harvests became strategic, and families often hid stores or moved between kin. Farmers rarely 'chose sides' in the clean sense of a war — they tried to keep the household and the harvest intact while the roads filled with soldiers.",
+    "tags": ["Documented fact", "Interpretation"],
+    "followUp": ["What did villages do when armies came?", "What is 'history from below'?", "Was every village affected?"]
+  },
+  {
+    "id": "groups-involved",
+    "question": "Who were the major groups involved?",
+    "keywords": ["groups", "who", "people", "soldiers", "sepoys", "involved", "participants"],
+    "answer": "The rising involved many groups at once: sepoys of the Bengal Army (the soldiers whose mutiny began it); cultivators and landlords of the Gangetic plain who bore the war's demands; artisans and merchants whose trades the conflict disrupted; the last Mughal court and princely rulers across India — most of whom, notably, remained loyal to the Company; and the British and European residents, soldiers and officials who defended the Company's power. One event, many different experiences: that is the heart of 'history from below.'",
+    "tags": ["Documented fact"],
+    "followUp": ["Was it a national revolt?", "Who was the Rani of Jhansi?", "How do we know about ordinary people?"]
+  },
+  {
+    "id": "what-changed",
+    "question": "What changed after 1857?",
+    "keywords": ["changed", "after", "result", "consequence", "consequences", "effects", "aftermath"],
+    "answer": "The rebellion ended the East India Company's rule. By the Government of India Act 1858 and Queen Victoria's Proclamation of 1 November 1858, the British Crown took direct charge of India. The army was reorganised — European troops were increased and Indian recruitment patterns deliberately changed — and a policy of cautious conciliation toward princes and landlords was adopted. In Indian memory, 1857 became a defining story of resistance; in British India, its legacy shaped policing, administration and racial attitudes for a century.",
+    "tags": ["Documented fact", "Interpretation"],
+    "followUp": ["What was the Queen's Proclamation?", "Why is 1857 remembered differently?"]
+  },
+  {
+    "id": "national-revolt",
+    "question": "Was it a 'national revolt'?",
+    "keywords": ["national", "revolt", "first war", "independence", "patriotic", "nationalist"],
+    "answer": "Historians disagree. Nineteenth-century Indian nationalist writers called 1857 the 'First War of Independence'; many British writers long called it a 'mutiny' of soldiers. Most modern historians see it as somewhere between: a genuine and widespread rising against Company rule, with deep peasant and landlord grievances behind it, but uneven in geography, divided in aims, and not — by modern standards — a coordinated national movement. The word you choose is itself an interpretation, and it changed with the politics of each era.",
+    "tags": ["Interpretation"],
+    "followUp": ["What happened in 1857?", "What changed after 1857?"]
+  },
+  {
+    "id": "cartridges",
+    "question": "What were the Enfield cartridges about?",
+    "keywords": ["cartridge", "cartridges", "enfield", "grease", "rifle", "fat", "bite"],
+    "answer": "The new Enfield rifle of the 1850s used paper cartridges that the soldier bit open before loading. Sepoys of the Bengal Army — many of them high-caste Hindus or Muslims — came to believe the cartridges were greased with animal fat (beef for Hindus, pork for Muslims), which made using them an offence to faith. Whether the grease really was animal fat is debated; what mattered was the perception, which fused the cartridge with older grievances over pay, promotion, overseas service and annexation. The refusal to use the cartridge — at Barrackpore, Meerut and elsewhere — was the flashpoint of 1857.",
+    "tags": ["Documented fact", "Interpretation"],
+    "followUp": ["Who was Mangal Pandey?", "What happened in Meerut?"]
+  },
+  {
+    "id": "mangal-pandey",
+    "question": "Who was Mangal Pandey?",
+    "keywords": ["mangal", "pandey", "barrackpore", "sepoy"],
+    "answer": "Mangal Pandey was a sepoy of the 34th Bengal Native Infantry at Barrackpore, near Calcutta. On 29 March 1857 he attacked his officers on the parade ground. He was restrained by fellow sepoys, tried by court-martial, and executed on 8 April 1857. He became a symbol almost immediately — for contemporaries, a sign of the army's disorder; for later generations, a hero of resistance. In 1984 the Indian government issued a postal stamp in his honour.",
+    "tags": ["Documented fact"],
+    "followUp": ["What happened at Meerut?", "What was the cartridge issue?"]
+  },
+  {
+    "id": "rani-jhansi",
+    "question": "Who was the Rani of Jhansi?",
+    "keywords": ["rani", "jhansi", "lakshmibai", "laxmi", "bandit", "queen"],
+    "answer": "Lakshmibai, Rani of Jhansi, lost her state when the Company annexed Jhansi in 1854 under the doctrine of lapse (refusing to recognise her adopted son as heir). She petitioned in vain for its restoration. When Jhansi's garrison rebelled in 1857, she became the leader of the city's defence. British forces stormed Jhansi in April 1858; she escaped, joined the resistance in central India, and was killed in battle near Gwalior in June 1858. Her story is told very differently in British and Indian sources — hero to one, rebel to the other — which makes her a rich case for reading sources critically.",
+    "tags": ["Documented fact", "Interpretation"],
+    "followUp": ["What happened at Jhansi?", "How do we read sources differently?"]
+  },
+  {
+    "id": "ordinary-people",
+    "question": "How do we know about ordinary people in 1857?",
+    "keywords": ["how do we know", "ordinary", "evidence", "sources", "records", "documents", "archives"],
+    "answer": "Ordinary people left fewer traces than generals, but the traces exist. Scholars recover them from sepoy letters and petitions captured and translated by the Company; from proclamations and manuscripts written in Urdu and Persian; from court-martial testimony; from diaries, municipal records and revenue papers; and from oral traditions preserved in villages and families. Books like 'Mutiny at the Margins' and 'The Last Mughal' are built on exactly these records. The evidence is partial and filtered through the archives that preserved it — which is why historians work so carefully.",
+    "tags": ["Documented fact", "Interpretation"],
+    "followUp": ["What is 'history from below'?", "Are the scenarios real?"]
+  },
+  {
+    "id": "below-meaning",
+    "question": "What does 'History From Below' mean?",
+    "keywords": ["history from below", "from below", "meaning", "concept", "method"],
+    "answer": "'History from below' is an approach that studies the past from the standpoint of ordinary people rather than rulers, battles and treaties alone. Instead of 'Event → Date → Famous person', it asks 'Event → People → Place → Experience → Evidence'. The idea — associated with historians of labour, peasants and social life — is that ordinary experiences are part of history, not a footnote to it. This project applies that lens to the Indian Rebellion of 1857.",
+    "tags": ["Interpretation"],
+    "followUp": ["How do we know about ordinary people in 1857?", "Why does 1857 still matter?"]
+  },
+  {
+    "id": "zafar",
+    "question": "Who was Bahadur Shah Zafar?",
+    "keywords": ["bahadur", "shah", "zafar", "emperor", "mughal"],
+    "answer": "Bahadur Shah Zafar was the last Mughal emperor, ruler in name of Delhi's Red Fort by 1857. Elderly and committed to poetry and piety rather than war, he was compelled to lend his name to the rising when the sepoys entered Delhi in May 1857 — proclamations were issued in his name appealing to Hindus and Muslims alike. After Delhi was retaken, he was tried, exiled to Rangoon, and died there in 1862. He is remembered for the rising, and for his own wistful poetry about exile.",
+    "tags": ["Documented fact"],
+    "followUp": ["Why was Delhi important?", "What changed after 1857?"]
+  },
+  {
+    "id": "kanpur-lucknow",
+    "question": "What happened at Kanpur and Lucknow?",
+    "keywords": ["kanpur", "cawnpore", "lucknow", "residency", "siege", "bibighar", "satichaura"],
+    "answer": "At Kanpur (Cawnpore), a small British garrison was besieged in June 1857 by forces under Nana Sahib, surrendered on a promise of safe passage, and was cut down at the river landing at Satichaura Ghat; the later killing of prisoners at the Bibighar made Kanpur infamous in Europe. At Lucknow, capital of the annexed state of Awadh, the Residency was besieged from late June 1857; relief columns fought through in September and November, and the city fell to a full assault in March 1858 after the longest siege of the war. Both episodes hardened the conflict into cruelty on all sides.",
+    "tags": ["Documented fact"],
+    "followUp": ["What changed after 1857?", "How do we read contested sources?"]
+  },
+  {
+    "id": "scenarios-real",
+    "question": "Is the farmer in 'Live Through History' a real person?",
+    "keywords": ["farmer", "real", "character", "fiction", "scenario", "reconstruction", "true story"],
+    "answer": "No — and the project is careful to say so. The farmer, soldier, artisan, merchant, student and ruler in the scenarios are fictional characters (reconstructions) whose situations are based on documented historical conditions: requisitioning, revenue, sieges, family strategies, the choices real people faced. The fine details of their individual lives are invented. Each scenario carries a 'FICTIONAL RECONSTRUCTION' banner and connects to real sources and events. That separation — documented fact, grounded interpretation, and clearly-labelled fiction — is the whole point.",
+    "tags": ["Documented fact", "Interpretation", "Fictional reconstruction"],
+    "followUp": ["What is 'history from below'?", "Where can I read the real sources?"]
+  },
+  {
+    "id": "why-matters",
+    "question": "Why does 1857 still matter today?",
+    "keywords": ["why does", "matter", "today", "now", "relevant", "remembered", "memory"],
+    "answer": "1857 matters both as history and as memory. Historically, it reshaped British India — ending Company rule, reorganising the army, and changing policy toward princes and people. In memory, it became India's first great story of resistance — celebrated, debated and re-narrated by every generation since. The way we argue about 1857 — mutiny vs. rebellion vs. war of independence — is itself part of its meaning. And its central lesson, that one event affects different people in very different ways, is at the heart of this project.",
+    "tags": ["Interpretation"],
+    "followUp": ["What changed after 1857?", "Was it a national revolt?"]
+  }
+]

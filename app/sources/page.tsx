@@ -42,7 +42,7 @@ export default async function SourcesPage(props: PageProps<"/sources">) {
             fact</strong> (claims anchored in cited evidence), <strong className="text-ink-soft">interpretation</strong>{" "}
             (how historians read that evidence, which can differ), and{" "}
             <strong className="text-ink-soft">fictional reconstruction</strong> (the lives in
-            &ldquo;Live Through History,&rdquo; invented persons placed inside documented
+            the interactive scenarios, invented persons placed inside documented
             conditions). This prototype carries a few records marked as placeholders so nothing is
             ever presented as verified before it truly is.
           </p>

@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import { getPeriod, getEvents, getPeople, getLocations } from "@/lib/data";
+import { getPeriod, getPeriods, getEvents, getPeople, getLocations } from "@/lib/data";
 import ArchiveHeader from "@/components/ui/ArchiveHeader";
 import HistoricalCard from "@/components/ui/HistoricalCard";
 import ArchiveButton from "@/components/ui/ArchiveButton";
 import JourneyPanel from "@/components/home/JourneyPanel";
-import { Clock3, Map as MapIcon, Users2, Compass, Landmark, Film, Globe2, ScrollText } from "lucide-react";
+import { Clock3, Map as MapIcon, Users2, Compass, Landmark, Globe2, ScrollText } from "lucide-react";
 
 export default async function PeriodPage(props: PageProps<"/period/[id]">) {
   const { id } = await props.params;
@@ -38,11 +38,11 @@ export default async function PeriodPage(props: PageProps<"/period/[id]">) {
       href: "/perspectives",
     },
     {
-      icon: Film,
-      title: "Live Through History",
-      blurb: "Interactive scenarios in which you make the decisions of a fictional person of the time.",
-      cta: "Begin a scenario",
-      href: "/perspectives",
+      icon: Compass,
+      title: "Explore the Archive",
+      blurb: "Browse the records of this period — stories, places, people and evidence together.",
+      cta: "Open the explorer",
+      href: "/explore",
     },
   ];
 
@@ -136,10 +136,6 @@ export default async function PeriodPage(props: PageProps<"/period/[id]">) {
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <ArchiveButton href="/perspectives">
-              <Compass className="h-4 w-4" strokeWidth={1.5} />
-              Live Through History
-            </ArchiveButton>
             <ArchiveButton href="/sources" variant="outline">
               Sources &amp; evidence
             </ArchiveButton>
@@ -155,5 +151,5 @@ export default async function PeriodPage(props: PageProps<"/period/[id]">) {
 }
 
 export async function generateStaticParams() {
-  return [{ id: "india-1857" }];
+  return getPeriods().map((p) => ({ id: p.id }));
 }

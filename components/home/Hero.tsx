@@ -80,11 +80,11 @@ export default function Hero() {
             <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
           </Link>
           <Link
-            href="/live"
+            href="/guide"
             className="btn-archive justify-center border-paper/40 bg-transparent text-paper hover:bg-paper/10 sm:text-[0.78rem]"
           >
             <Sparkles className="h-4 w-4" strokeWidth={1.5} />
-            Live Through History
+            Ask the Guide
           </Link>
         </motion.div>
 

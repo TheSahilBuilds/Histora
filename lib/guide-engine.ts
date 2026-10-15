@@ -10,6 +10,23 @@ export interface GuideResponse {
   confidence: number;
 }
 
+export interface GuideCitation {
+  id: string;
+  kind: string;
+  title: string;
+  href: string;
+}
+
+export interface GuideAnswer {
+  answer: string;
+  tags: GuideQA["tags"];
+  followUps: string[];
+  citations: GuideCitation[];
+  confidence: number;
+  matchedId: string;
+  mode: "llm" | "offline";
+}
+
 const QUIET_WORDS = new Set([
   "the", "a", "an", "of", "to", "in", "on", "for", "and", "or", "but",
   "was", "were", "is", "are", "did", "do", "what", "how", "why", "when",
@@ -107,16 +124,16 @@ export function guideSourceHint(matchedId: string): string | undefined {
   if (direct[matchedId]) return direct[matchedId];
 
   const sourceHints: Record<string, string> = {
-    "cartridges": "The Last Mughal",
-    "mangal-pandey": "The History of the Indian Mutiny (Ball)",
-    "delhi-importance": "The Last Mughal",
-    "farmers-life": "Mutiny at the Margins",
-    "what-changed": "Queen Victoria's Proclamation",
-    "groups-involved": "Mutiny at the Margins",
-    "rani-jhansi": "Work on Jhansi records (see Sources hub)",
+    "cartridges": "last-mughal",
+    "mangal-pandey": "ball-history",
+    "delhi-importance": "last-mughal",
+    "farmers-life": "mutiny-margins",
+    "what-changed": "queens-proclamation",
+    "groups-involved": "mutiny-margins",
+    "rani-jhansi": "lakshmibai-gazette",
   };
   const hint = sourceHints[matchedId];
   if (!hint) return undefined;
-  const source = getSources().find((s) => s.title.includes(hint) || s.author.includes(hint));
+  const source = getSources().find((s) => s.id === hint);
   return source?.id;
 }

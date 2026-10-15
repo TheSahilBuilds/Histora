@@ -1,0 +1,93 @@
+[
+  {
+    "id": "soldier",
+    "periodId": "india-1857",
+    "role": "The Soldier",
+    "tagline": "A sepoy of the East India Company's Bengal Army.",
+    "context": "Indian soldiers formed the great majority of the Company's armies in 1857 — the Bengal Army alone contained tens of thousands of Indian sepoys. These were professional soldiers with oaths, pay, honours and families, drawn heavily from the high-caste communities of the Gangetic plain. From late 1856, grievances over overseas service, promotion, and the greased Enfield cartridge eroded their trust in their officers.",
+    "concerns": [
+      "Religious and caste obligations — what the new cartridge meant for ritual purity",
+      "Pay, promotion and the changing terms of service",
+      "The oath of loyalty sworn to the Company versus trust eroding day by day",
+      "Family and village — what an uprising would cost those left behind"
+    ],
+    "scenarioId": "soldier-1857",
+    "icon": "soldier"
+  },
+  {
+    "id": "farmer",
+    "periodId": "india-1857",
+    "role": "The Farmer",
+    "tagline": "A cultivator in the villages of the Gangetic plain.",
+    "context": "Most people in the region under upheaval in 1857 were cultivators. Rural life in the Gangetic plain was shaped by the land revenue that the Company demanded, by debts to moneylenders, by the monsoon, and by the authority of zamindars and officials. When armies marched, it was the villages that paid — in grain, animals, labour and safety.",
+    "concerns": [
+      "The harvest and the monsoon — whether the family would eat",
+      "Land revenue — who would collect it, and what they would take",
+      "Which army's demands to obey when two sides both wanted supplies",
+      "Keeping family and home intact while the region slipped into conflict"
+    ],
+    "scenarioId": "farmer-1857",
+    "icon": "farmer",
+    "featured": true
+  },
+  {
+    "id": "artisan",
+    "periodId": "india-1857",
+    "role": "The Artisan",
+    "tagline": "A weaver, craftsman or workshop worker in a town of the Doab.",
+    "context": "Nineteenth-century changes in trade pressed hard on artisans. Indian textiles and crafts faced competition from factory goods and shifts in colonial markets, and entire trades that depended on courts and armies struggled. During the upheaval of 1857, workshops closed, patrons vanished, soldiers commandeered materials, and the lines between self-preservation and alliance blurred.",
+    "concerns": [
+      "The link between livelihoods, looms and books",
+      "Whether to keep working for whoever held the town",
+      "Protecting the tools and household of the trade",
+      "Trade and markets that had already been reshaped before 1857"
+    ],
+    "scenarioId": "artisan-1857",
+    "icon": "artisan"
+  },
+  {
+    "id": "merchant",
+    "periodId": "india-1857",
+    "role": "The Merchant",
+    "tagline": "A trader moving goods along roads that armies now contested.",
+    "context": "Merchant communities financed trade, kept the Company's economy moving, and passed news along the roads they travelled. In 1857, the same roads carried soldiers, and the same warehouses were requisitioned by whatever authority held the district. Merchants had to weigh cargo against risk, and client against cause.",
+    "concerns": [
+      "Security of goods, bullion and debt-notes",
+      "Which authority would honour contracts after the fighting",
+      "The interruption of supply routes and rising prices",
+      "Family capital — how much to risk on a road that armies controlled"
+    ],
+    "scenarioId": "merchant-1857",
+    "icon": "merchant"
+  },
+  {
+    "id": "student",
+    "periodId": "india-1857",
+    "role": "The Student",
+    "tagline": "A young learner in the world of books, schools and the city.",
+    "context": "Cities like Delhi were centres of learning — Persian, Urdu, Arabic and newly English schools, printers, and teachers. Young people studying in 1857 were inheriting both an older world of letters and a newer colonial education. In the upheaval, institutions scattered and libraries were touched by the war; learning was itself interrupted.",
+    "concerns": [
+      "Continuing study while war closed schools and scattered teachers",
+      "The new schools versus the older traditions of learning",
+      "Being asked to take sides in a conflict no book explained",
+      "What 'the youth' of a city were expected to be, and to become"
+    ],
+    "scenarioId": "student-1857",
+    "icon": "student"
+  },
+  {
+    "id": "ruler",
+    "periodId": "india-1857",
+    "role": "The Ruler",
+    "tagline": "A prince, noble or local authority inside a system of alliances.",
+    "context": "India in 1857 was a patchwork of Company territory and princely states of every size. The Company's annexations — under the doctrine of lapse at Jhansi and Satara, and the takeover of Awadh in 1856 — alarmed rulers across India. Yet most major princes stayed loyal to the Company when the rebellion broke; those dispossessed, and many lesser authorities, faced a far harder choice.",
+    "concerns": [
+      "Court, titles, income and the protection of a dynasty",
+      "Treaties with the Company versus appeals from the rebel proclamations",
+      "Which army to follow if two sides both asked for help",
+      "Subjects — landlords, peasants and soldiers — whose choices would outlive any court decree"
+    ],
+    "scenarioId": "ruler-1857",
+    "icon": "ruler"
+  }
+]

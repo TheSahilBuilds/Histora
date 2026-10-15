@@ -11,7 +11,7 @@ export default async function ScenarioPage(props: PageProps<"/scenario/[id]">) {
   return (
     <>
       <ArchiveHeader
-        kicker="Live Through History"
+        kicker="An interactive scenario"
         title={scenario.title}
         subtitle={scenario.tagline}
       />
